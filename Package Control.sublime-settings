@@ -1,0 +1,40 @@
+{
+	"installed_packages":
+	[
+		"BracketHighlighter",
+		"CoffeeScript",
+		"Compass",
+		"ConvertToUTF8",
+		"GitGutter",
+		"GitHub Flavored Markdown Preview",
+		"Hayaku - tools for writing CSS faster",
+		"HTML Boilerplate",
+		"HTML5",
+		"Inc-Dec-Value",
+		"InputSequence",
+		"Jade Snippets",
+		"JavaScript Console",
+		"JavaScript Patterns",
+		"jQuery",
+		"JSHint",
+		"LastModifiedIndicator",
+		"Local History",
+		"Markdown Extended",
+		"MTML Completions",
+		"Package Control",
+		"Pretty JSON",
+		"Sass",
+		"SASS Build",
+		"SASS Snippets",
+		"SCSS",
+		"SCSS Snippets",
+		"SFTP",
+		"Stylus",
+		"Theme - Flatland",
+		"Theme - itg.flat"
+	],
+	"repositories":
+	[
+		"https://github.com/kope88/InputSequence.git"
+	]
+}
