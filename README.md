@@ -3,9 +3,11 @@
 * OSX 10.9.3
 * MacBook Pro Retina 15 inch
 
-## How to
+## Step
 
 ### Brewfile
+
+* [Brewfile](https://github.com/sugarshin/initial-setting-mac/blob/master/Brewfile)
 
 ```
 xcode-select --install
@@ -15,10 +17,14 @@ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 cd
 
 brew bundle
+```
 
-ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+### Zsh
 
-subl /etc/shells
+* [.zshrc](https://github.com/sugarshin/initial-setting-mac/blob/master/.zshrc)
+
+```
+vi /etc/shells
 
 /bin/bash
 /bin/csh
@@ -31,13 +37,6 @@ subl /etc/shells
 
 chsh -s /usr/local/bin/zsh
 
-```
-
-### .zshrc
-
-* [.zshrc](https://github.com/sugarshin/initial-setting-mac/blob/master/.zshrc)
-
-```
 source ~/.zshrc
 ```
 
@@ -65,9 +64,18 @@ sass -v
 
 ### Sublime Text
 
+```
+ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
+
 * [Package Control.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Package Control.sublime-settings)
 * [Preferences.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Preferences.sublime-settings)
 
+### Atom
+
+```
+ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
+```
 
 ### Terminal color scheme
 
@@ -76,7 +84,7 @@ sass -v
 * [hukl-Smyck-Color-Scheme-fc16622.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/hukl-Smyck-Color-Scheme-fc16622.zip)
 
 
-### Font
+### Code font
 
 * [SourceCodePro_FontsOnly-1.013.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/SourceCodePro_FontsOnly-1.013.zip)
 
