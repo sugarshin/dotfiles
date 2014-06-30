@@ -170,9 +170,15 @@ esac
  
 # vim:set ft=zsh:
 
-#for zsh-completions
+# Homebrew
+export PATH=/usr/local/bin:$PATH
+
+# for zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 
-#nodebrew
+# nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# rbenv
+eval "$(rbenv init -)"
