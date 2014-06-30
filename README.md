@@ -99,51 +99,12 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
   ps = push
   pl = pull
 [core]
-  excludesfile = /Users/home-directory/.gitignore
+  excludesfile = /Users/home-directory/.gitignore_global
 
 ```
 
-* .gitignore
+* [.gitignore_global](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitignore_global)
 
-```
-### https://raw.github.com/github/gitignore/c70e357bfde8a842faca6574f1dfc6ad416dfc2a/Global/OSX.gitignore
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must end with two \r
-Icon
-
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-
-### https://raw.github.com/github/gitignore/c70e357bfde8a842faca6574f1dfc6ad416dfc2a/Global/SublimeText.gitignore
-
-# workspace files are user-specific
-*.sublime-workspace
-*.sublime-project
-
-# project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using SublimeText
-# *.sublime-project
-
-#sftp configuration file
-sftp-config.json
-```
 
 ### Code font
 
