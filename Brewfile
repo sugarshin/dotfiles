@@ -16,8 +16,6 @@ tap thoughtbot/homebrew-formulae || true
 install zsh || true
 install zsh-completions || true
 
-## Editor
-
 ## Git
 install git || true
 install hub || true
@@ -32,40 +30,27 @@ install libpng || true
 install markdown || true
 install jq || true
 install nodebrew || true
-# install autoconf  || true
-# install automake  || true
-# install rmtrash   || true
-# install coreutils || true
-# install rmtrash   || true
-# install wget      || true
-# install curl      || true
-# install proctools || true
-# install openssl   || true
-# install libyaml   || true
-# install readline  || true
-# install tmux      || true
-# install nkf       || true
-# install ag        || true
-# install reattach-to-user-namespace || true
+install autoconf || true
+install rmtrash || true
+install curl || true
+install openssl   || true
+install tmux || true
+install nkf || true
 
 ## Languages
 install rbenv || true
 install ruby-build || true
 # install go               || true
 # install python3          || true
-# install haskell-platform || true
 # install scala            || true
 
 ## DevOps
-# install docker      || true
-# install boot2docker || true
-# install packer      || true
+install docker || true
+install boot2docker || true
+install packer || true
 
 ## Heroku
 install heroku-toolbelt || true
-
-## Image
-# install imagemagick || true
 
 # Casks
 install brew-cask
