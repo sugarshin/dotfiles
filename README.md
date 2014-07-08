@@ -87,20 +87,20 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 * .gitconfig
 
 ```
-[user]
-  name = <name>
-  email = <email>
-[alias]
-  st = status
-  cm = commit
-  co = checkout
-  br = branch
-  ad = add
-  ps = push
-  pl = pull
-[core]
-  excludesfile = /Users/home-directory/.gitignore_global
+git config --global user.email "email"
+git config --global user.name "name"
 
+git config --global alias.st status
+git config --global alias.cm commit
+git config --global alias.sts stash
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ad add
+git config --global alias.ps push
+git config --global alias.pl pull
+
+git config --global core.excludesfile ~/.gitignore_global
+git config --global push.default simple
 ```
 
 * [.gitignore_global](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitignore_global)
