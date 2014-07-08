@@ -22,6 +22,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+### https://raw.github.com/github/gitignore/c70e357bfde8a842faca6574f1dfc6ad416dfc2a/Global/SublimeText.gitignore
+
 # workspace files are user-specific
 *.sublime-workspace
 *.sublime-project
@@ -30,5 +33,5 @@ Temporary Items
 # proportion of contributors will probably not be using SublimeText
 # *.sublime-project
 
-# sftp configuration file
+#sftp configuration file
 sftp-config.json
