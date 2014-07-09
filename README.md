@@ -127,7 +127,6 @@ git config --global push.default simple
 * WinArchiver Lite
 * ForkLift
 * CopyLess
-* Eggy
 
 ### Other
 
