@@ -49,7 +49,7 @@ nodebrew use <version>
 node -v
 ```
 
-### Ruby, Sass
+### Ruby
 
 ```
 rbenv install --list
@@ -57,9 +57,13 @@ rbenv install -v <version>
 rbenv global <version>
 rbenv rehash
 ruby -v
+```
 
+### RubyGems
+
+```
 gem install sass
-sass -v
+gem install tw
 ```
 
 ### Sublime Text
