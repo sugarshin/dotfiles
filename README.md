@@ -40,16 +40,16 @@ chsh -s /usr/local/bin/zsh
 source ~/.zshrc
 ```
 
-### node
+### Node.js
 
 ```
-nodebrew ls-remote  
+nodebrew ls-remote
 nodebrew install-binary <version>
 nodebrew use <version>
 node -v
 ```
 
-### ruby, sass
+### Ruby, Sass
 
 ```
 rbenv install --list
@@ -106,7 +106,7 @@ git config --global push.default simple
 * [.gitignore_global](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitignore_global)
 
 
-### Code font
+### Font
 
 * [SourceCodePro_FontsOnly-1.013.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/SourceCodePro_FontsOnly-1.013.zip)
 
