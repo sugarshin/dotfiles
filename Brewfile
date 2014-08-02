@@ -33,16 +33,13 @@ install nodebrew || true
 install autoconf || true
 install rmtrash || true
 install curl || true
-install openssl   || true
+install openssl || true
 install tmux || true
 install nkf || true
 
 ## Languages
 install rbenv || true
 install ruby-build || true
-# install go               || true
-# install python3          || true
-# install scala            || true
 
 ## DevOps
 install docker || true
@@ -69,7 +66,6 @@ cask install bettertouchtool || true
 cask install opera || true
 cask install skype || true
 cask install kobito || true
-cask install iterm2 || true
 
 # Remove outdated versions
 cleanup
