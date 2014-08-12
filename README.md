@@ -1,7 +1,7 @@
 # Initialize setting of Mac
 
 * OSX 10.9.3
-* MacBook Pro Retina 15 inch
+* MacBook Pro Retina
 
 ## Step
 
@@ -131,3 +131,15 @@ git config --global push.default simple
 ### Other
 
 * [QuickRes](http://www.quickresapp.com/)
+
+### Other Setting
+
+Show dotfile
+
+```shell
+defaults write com.apple.finder AppleShowAllFiles YES
+```
+
+Generating SSH Keys
+
+[https://help.github.com/articles/generating-ssh-keys](https://help.github.com/articles/generating-ssh-keys)
