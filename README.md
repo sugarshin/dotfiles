@@ -72,6 +72,10 @@ gem install tw
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
 
+Package Control
+
+[https://sublime.wbond.net/installation](https://sublime.wbond.net/installation)
+
 * [Package Control.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Package Control.sublime-settings)
 * [Preferences.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Preferences.sublime-settings)
 
@@ -88,11 +92,12 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 * [hukl-Smyck-Color-Scheme-fc16622.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/hukl-Smyck-Color-Scheme-fc16622.zip)
 
 ### Git
+
 * .gitconfig
 
 ```
-git config --global user.email "email"
 git config --global user.name "name"
+git config --global user.email "email"
 
 git config --global alias.st status
 git config --global alias.cm commit
@@ -116,6 +121,7 @@ git config --global push.default simple
 
 
 ### App Store
+
 * 1Password
 * Keynote
 * Numbers
@@ -128,7 +134,7 @@ git config --global push.default simple
 * ForkLift
 * CopyLess
 
-### Other
+### Other apps
 
 * [QuickRes](http://www.quickresapp.com/)
 
