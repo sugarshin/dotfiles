@@ -2,6 +2,7 @@
   "alwayshighlight_pattern": "[　０-９Ａ-Ｚａ-ｚ]",
   "color_scheme": "Packages/Theme - Flatland/Flatland Dark.tmTheme",
   "create_window_at_startup": false,
+  "default_encoding": "UTF-8",
   "drag_text": false,
   "draw_indent_guides": true,
   "draw_white_space": "all",
