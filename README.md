@@ -9,7 +9,7 @@
 
 * [Brewfile](https://github.com/sugarshin/initial-setting-mac/blob/master/Brewfile)
 
-```
+```shell
 xcode-select --install
 
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
@@ -19,11 +19,26 @@ cd
 brew bundle
 ```
 
+#### Firefox
+
+Delete `/Library/Caches/Homebrew/firefox-latest`
+
+```shell
+brew cask uninstall firefox
+
+brew cask edit firefox
+
+-  url 'https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US'
++  url 'https://download.mozilla.org/?product=firefox-latest&os=osx&lang=ja-JP-mac'
+
+brew cask install firefox
+```
+
 ### Zsh
 
 * [.zshrc](https://github.com/sugarshin/initial-setting-mac/blob/master/.zshrc)
 
-```
+```shell
 vi /etc/shells
 
 /bin/bash
@@ -42,7 +57,7 @@ source ~/.zshrc
 
 ### Node.js
 
-```
+```shell
 nodebrew ls-remote
 nodebrew install-binary <version>
 nodebrew use <version>
@@ -51,7 +66,7 @@ node -v
 
 ### Ruby
 
-```
+```shell
 rbenv install --list
 rbenv install -v <version>
 rbenv global <version>
@@ -61,14 +76,14 @@ ruby -v
 
 ### RubyGems
 
-```
+```shell
 gem install sass
 gem install tw
 ```
 
 ### Sublime Text
 
-```
+```shell
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
 
@@ -81,7 +96,7 @@ Package Control
 
 ### Atom
 
-```
+```shell
 ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 ```
 
@@ -95,7 +110,7 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 
 * .gitconfig
 
-```
+```shell
 git config --global user.name "name"
 git config --global user.email "email"
 
