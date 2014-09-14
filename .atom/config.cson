@@ -1,0 +1,20 @@
+'editor':
+  'fontSize': 15
+  'fontFamily': 'Source Code Pro'
+  'showIndentGuide': true
+  'showInvisibles': true
+  'softWrap': true
+  'softWrapAtPreferredLineLength': true
+  'invisibles': {}
+  'softWrapped': true
+'core':
+  'themes': [
+    'seti-ui'
+    'seti-syntax'
+  ]
+'exception-reporting':
+  'userId': '04010398-85b6-24f6-607e-8c0c7f73569f'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'd2f7361478e2b65328a634c494ccc80d304bffad'

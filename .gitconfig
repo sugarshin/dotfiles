@@ -1,0 +1,13 @@
+[include]
+		path = ~/.gitconfig.local
+[alias]
+	st = status
+	cm = commit
+	sts = stash
+	co = checkout
+	br = branch
+	ad = add
+	ps = push
+	pl = pull
+[push]
+	default = simple
