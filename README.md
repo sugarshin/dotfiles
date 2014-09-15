@@ -1,6 +1,8 @@
 # dotfiles
 
-## Init setup
+My dotfiles and setup OSX
+
+## Setup
 
 ### Brewfile
 
@@ -94,10 +96,12 @@ Package Control
 ### Atom
 
 ```shell
-ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
+apm stars --install
 ```
 
-### Terminal color scheme
+### Terminal
+
+Color scheme
 
 [SMYCK](http://color.smyck.org/)
 
@@ -105,7 +109,7 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 
 ### Git
 
-* .gitconfig
+* [.gitconfig](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitconfig)
 
 * Add `~/.gitconfig.local`
 
@@ -135,9 +139,9 @@ ln -s /Applications/Atom.app/Contents/MacOS/Atom /usr/local/bin/atom
 
 * [QuickRes](http://www.quickresapp.com/)
 
-### Other Setting
+### Other setting
 
-Show dotfile
+Show dotfiles
 
 ```shell
 defaults write com.apple.finder AppleShowAllFiles YES
