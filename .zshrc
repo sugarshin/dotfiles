@@ -207,3 +207,9 @@ function git_diff_archive()
   fi
   git archive --format=zip --prefix=root/ $h `eval $diff` -o archive.zip
 }
+
+# Grunt auto-completion
+eval "$(grunt --completion=zsh)"
+
+# Homebrew GitHub API TOKEN
+export HOMEBREW_GITHUB_API_TOKEN=
