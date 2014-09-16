@@ -80,6 +80,14 @@ gem install sass
 gem install tw
 ```
 
+### Atom
+
+* [.atom](https://github.com/sugarshin/initial-setting-mac/blob/master/.atom)
+
+```shell
+apm stars --install
+```
+
 ### Sublime Text
 
 ```shell
@@ -92,12 +100,6 @@ Package Control
 
 * [Package Control.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Package Control.sublime-settings)
 * [Preferences.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Preferences.sublime-settings)
-
-### Atom
-
-```shell
-apm stars --install
-```
 
 ### Terminal
 
