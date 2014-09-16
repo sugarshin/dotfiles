@@ -1,4 +1,23 @@
-### https://raw.github.com/github/gitignore/c70e357bfde8a842faca6574f1dfc6ad416dfc2a/Global/OSX.gitignore
+### https://raw.github.com/github/gitignore/4ddafa3728456f3e5b74c9a470e58b2adbdcc882/Global/SublimeText.gitignore
+
+# cache files for sublime text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# workspace files are user-specific
+*.sublime-workspace
+*.sublime-project
+
+# project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using SublimeText
+# *.sublime-project
+
+# sftp configuration file
+sftp-config.json
+
+
+### https://raw.github.com/github/gitignore/4ddafa3728456f3e5b74c9a470e58b2adbdcc882/Global/OSX.gitignore
 
 .DS_Store
 .AppleDouble
@@ -23,15 +42,3 @@ Temporary Items
 .apdisk
 
 
-### https://raw.github.com/github/gitignore/c70e357bfde8a842faca6574f1dfc6ad416dfc2a/Global/SublimeText.gitignore
-
-# workspace files are user-specific
-*.sublime-workspace
-*.sublime-project
-
-# project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using SublimeText
-# *.sublime-project
-
-#sftp configuration file
-sftp-config.json
