@@ -105,7 +105,7 @@ Color scheme
 
 [SMYCK](http://color.smyck.org/)
 
-* [hukl-Smyck-Color-Scheme-fc16622.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/hukl-Smyck-Color-Scheme-fc16622.zip)
+* [hukl-Smyck-Color-Scheme-fc16622.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/binary/hukl-Smyck-Color-Scheme-fc16622.zip)
 
 ### Git
 
@@ -118,7 +118,7 @@ Color scheme
 
 ### Font
 
-* [SourceCodePro_FontsOnly-1.013.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/SourceCodePro_FontsOnly-1.013.zip)
+* [SourceCodePro_FontsOnly-1.013.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/binary/SourceCodePro_FontsOnly-1.013.zip)
 
 
 ### App Store
