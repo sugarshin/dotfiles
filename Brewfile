@@ -36,6 +36,7 @@ install curl || true
 install openssl || true
 install tmux || true
 install nkf || true
+install unrar || true
 
 ## Languages
 install rbenv || true
