@@ -1,4 +1,4 @@
-### https://raw.github.com/github/gitignore/4ddafa3728456f3e5b74c9a470e58b2adbdcc882/Global/SublimeText.gitignore
+### https://raw.github.com/github/gitignore/298588469ac0cb08a00eebf7b00efb5ab726daca/Global/SublimeText.gitignore
 
 # cache files for sublime text
 *.tmlanguage.cache
@@ -6,6 +6,7 @@
 *.stTheme.cache
 
 # workspace files are user-specific
+# Add .sublime-project
 *.sublime-workspace
 *.sublime-project
 
@@ -17,7 +18,7 @@
 sftp-config.json
 
 
-### https://raw.github.com/github/gitignore/4ddafa3728456f3e5b74c9a470e58b2adbdcc882/Global/OSX.gitignore
+### https://raw.github.com/github/gitignore/298588469ac0cb08a00eebf7b00efb5ab726daca/Global/OSX.gitignore
 
 .DS_Store
 .AppleDouble
@@ -40,5 +41,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-
