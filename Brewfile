@@ -67,6 +67,7 @@ cask install bettertouchtool || true
 cask install opera || true
 cask install skype || true
 cask install kobito || true
+cask install vlc || true
 
 # Remove outdated versions
 cleanup
