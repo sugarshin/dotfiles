@@ -69,8 +69,12 @@ cask install skype || true
 cask install kobito || true
 cask install vlc || true
 cask install flux || true
+
 cask install qlmarkdown || true
 cask install quicklook-json || true
+cask install betterzipql || true
+cask install qlstephen || true
+cask install qlcolorcode || true
 
 # Remove outdated versions
 cleanup
