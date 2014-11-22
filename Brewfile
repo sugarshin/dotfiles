@@ -42,11 +42,6 @@ install unrar || true
 install rbenv || true
 install ruby-build || true
 
-## DevOps
-install docker || true
-install boot2docker || true
-install packer || true
-
 ## Heroku
 install heroku-toolbelt || true
 
