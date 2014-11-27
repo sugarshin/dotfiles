@@ -37,6 +37,7 @@ install openssl || true
 install tmux || true
 install nkf || true
 install unrar || true
+install unar || true
 
 ## Languages
 install rbenv || true
