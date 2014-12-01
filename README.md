@@ -132,7 +132,6 @@ Color scheme
 * Slicy
 * Simplenote
 * Page Layers
-* Caffeine
 * WinArchiver Lite
 * ForkLift
 * CopyLess

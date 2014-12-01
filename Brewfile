@@ -65,6 +65,7 @@ cask install skype || true
 cask install kobito || true
 cask install vlc || true
 cask install flux || true
+cask install caffeine || true
 
 cask install qlmarkdown || true
 cask install quicklook-json || true
