@@ -7,6 +7,8 @@ upgrade || true
 # Add Repository
 tap homebrew/homebrew-versions || true
 tap caskroom/homebrew-cask || true
+tap caskroom/homebrew-versions || true
+tap caskroom/homebrew-fonts || true
 tap homebrew/homebrew-binary || true
 tap thoughtbot/homebrew-formulae || true
 
@@ -52,7 +54,7 @@ cask install google-chrome || true
 cask install google-japanese-ime || true
 cask install google-drive || true
 cask install appcleaner || true
-cask install firefox || true
+cask install firefox-ja || true
 cask install dropbox || true
 cask install sublime-text || true
 cask install virtualbox || true
@@ -67,11 +69,15 @@ cask install vlc || true
 cask install flux || true
 cask install caffeine || true
 
+# Quicklook
 cask install qlmarkdown || true
 cask install quicklook-json || true
 cask install betterzipql || true
 cask install qlstephen || true
 cask install qlcolorcode || true
+
+# Font
+cask install font-source-code-pro || true
 
 # Remove outdated versions
 cleanup

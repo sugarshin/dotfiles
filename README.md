@@ -18,21 +18,6 @@ cd
 brew bundle
 ```
 
-#### Firefox
-
-Delete `/Library/Caches/Homebrew/firefox-latest`
-
-```shell
-brew cask uninstall firefox
-
-brew cask edit firefox
-
--  url 'https://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US'
-+  url 'https://download.mozilla.org/?product=firefox-latest&os=osx&lang=ja-JP-mac'
-
-brew cask install firefox
-```
-
 ### Zsh
 
 * [.zshrc](https://github.com/sugarshin/initial-setting-mac/blob/master/.zshrc)
@@ -116,12 +101,6 @@ Color scheme
 * Add `~/.gitconfig.local`
 
 * [.gitignore_global](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitignore_global)
-
-
-### Font
-
-* [SourceCodePro_FontsOnly-1.013.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/binary/SourceCodePro_FontsOnly-1.013.zip)
-
 
 ### App Store
 
