@@ -81,5 +81,8 @@ cask install qlcolorcode || true
 # Font
 cask install font-source-code-pro || true
 
+# Unnecessary source Delete
+cask cleanup
+
 # Remove outdated versions
 cleanup
