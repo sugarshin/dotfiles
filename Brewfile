@@ -68,6 +68,7 @@ cask install kobito || true
 cask install vlc || true
 cask install flux || true
 cask install caffeine || true
+cask install sophos-anti-virus-home-edition || true
 
 # Quicklook
 cask install qlmarkdown || true
