@@ -113,6 +113,7 @@ Color scheme
 * Page Layers
 * ForkLift
 * CopyLess
+* Noizio
 
 ### Other apps
 
