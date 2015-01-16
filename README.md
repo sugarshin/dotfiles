@@ -1,7 +1,5 @@
 # dotfiles
 
-My dotfiles and setup OSX
-
 ## Setup
 
 ### Brewfile
@@ -39,7 +37,7 @@ chsh -s /usr/local/bin/zsh
 source ~/.zshrc
 ```
 
-### Node.js
+### Node
 
 ```shell
 nodebrew ls-remote
@@ -58,16 +56,7 @@ rbenv rehash
 ruby -v
 ```
 
-### RubyGems
-
-```shell
-gem install sass
-gem install tw
-```
-
 ### Atom
-
-* [.atom](https://github.com/sugarshin/initial-setting-mac/blob/master/.atom)
 
 ```shell
 apm stars --install
