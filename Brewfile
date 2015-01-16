@@ -72,6 +72,7 @@ cask install flux || true
 cask install caffeine || true
 cask install sophos-anti-virus-home-edition || true
 cask install macwinzipper || true
+cask install clipmenu || true
 
 # Quicklook
 cask install qlmarkdown || true

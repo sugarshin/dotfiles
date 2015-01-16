@@ -112,8 +112,9 @@ Color scheme
 * Simplenote
 * Page Layers
 * ForkLift
-* CopyLess
-* Noizio
+
+// * Noizio
+// * CopyLess
 
 ### Other apps
 
