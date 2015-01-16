@@ -40,6 +40,8 @@ install tmux || true
 install nkf || true
 install unrar || true
 install unar || true
+install youtube-dl || true
+install ffmpeg || true
 
 ## Languages
 install rbenv || true
