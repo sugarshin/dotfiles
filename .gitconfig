@@ -9,5 +9,6 @@
 	ad = add
 	ps = push
 	pl = pull
+	pr = pull-request
 [push]
 	default = simple
