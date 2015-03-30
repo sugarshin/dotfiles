@@ -37,25 +37,6 @@ chsh -s /usr/local/bin/zsh
 source ~/.zshrc
 ```
 
-### Node
-
-```shell
-nodebrew ls-remote
-nodebrew install-binary <version>
-nodebrew use <version>
-node -v
-```
-
-### Ruby
-
-```shell
-rbenv install --list
-rbenv install -v <version>
-rbenv global <version>
-rbenv rehash
-ruby -v
-```
-
 ### Atom
 
 ```shell
@@ -75,14 +56,6 @@ Package Control
 * [Package Control.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Package Control.sublime-settings)
 * [Preferences.sublime-settings](https://github.com/sugarshin/initial-setting-mac/blob/master/Preferences.sublime-settings)
 
-### Terminal
-
-Color scheme
-
-[SMYCK](http://color.smyck.org/)
-
-* [hukl-Smyck-Color-Scheme-fc16622.zip](https://github.com/sugarshin/initial-setting-mac/blob/master/binary/hukl-Smyck-Color-Scheme-fc16622.zip)
-
 ### Git
 
 * [.gitconfig](https://github.com/sugarshin/initial-setting-mac/blob/master/.gitconfig)
@@ -101,8 +74,8 @@ Color scheme
 * Simplenote
 * Page Layers
 * ForkLift
+* Noizio
 
-// * Noizio
 // * CopyLess
 
 ### Other apps
