@@ -28,7 +28,6 @@ install gibo || true
 
 ## Utils
 install wget || true
-install phantomjs || true
 install tree || true
 install libpng || true
 install markdown || true
