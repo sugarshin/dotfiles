@@ -173,7 +173,7 @@ esac
 # Homebrew
 export PATH=/usr/local/bin:$PATH
 
-# for zsh-completions
+# zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit
@@ -183,8 +183,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # rbenv
 eval "$(rbenv init -)"
-
-
 
 # Gitで差分ファイル抽出関数
 # -> git_diff_archive 引数
@@ -208,9 +206,6 @@ function git_diff_archive()
   fi
   git archive --format=zip --prefix=root/ $h `eval $diff` -o archive.zip
 }
-
-# Grunt auto-completion
-eval "$(grunt --completion=zsh)"
 
 # Homebrew GitHub API TOKEN
 export HOMEBREW_GITHUB_API_TOKEN=
