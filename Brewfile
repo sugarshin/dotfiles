@@ -63,7 +63,6 @@ cask install sublime-text || true
 cask install virtualbox || true
 cask install vagrant || true
 cask install atom || true
-cask install hyperswitch || true
 cask install bettertouchtool || true
 cask install opera || true
 cask install skype || true
