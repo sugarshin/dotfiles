@@ -212,3 +212,6 @@ export HOMEBREW_GITHUB_API_TOKEN=
 
 # SVN Editor
 export SVN_EDITOR=vim
+
+# aws-cli completion
+source /usr/local/share/zsh/site-functions/_aws
