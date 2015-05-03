@@ -43,6 +43,7 @@ install unrar || true
 install unar || true
 install youtube-dl || true
 install ffmpeg || true
+install awscli || true
 
 ## Languages
 install rbenv || true
