@@ -84,6 +84,7 @@ cask install qlcolorcode || true
 
 # Font
 cask install font-source-code-pro || true
+cask install font-source-han-code-jp || true
 
 # Unnecessary source Delete
 cask cleanup
