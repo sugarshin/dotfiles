@@ -187,12 +187,12 @@ eval "$(rbenv init -)"
 # Gitで差分ファイル抽出関数
 # -> git_diff_archive 引数
 # qiita.com/kaminaly/items/28f9cb4e680deb700833
-function git_diff_archive()
+function git_diff_archive() 
 {
   local diff=""
   local h="HEAD"
   if [ $# -eq 1 ]; then
-    if expr "$1" : '[0-9]*' > /dev/null ; then
+    if expr "$1" : '[0-9]*$' > /dev/null ; then
       diff="HEAD HEAD~${1}"
     else
       diff="HEAD ${1}"
@@ -202,7 +202,7 @@ function git_diff_archive()
     h=$1
   fi
   if [ "$diff" != "" ]; then
-    diff="git diff --name-only ${diff}"
+    diff="git diff --diff-filter=D --name-only ${diff}"
   fi
   git archive --format=zip --prefix=root/ $h `eval $diff` -o archive.zip
 }
