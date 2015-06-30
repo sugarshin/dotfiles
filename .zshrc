@@ -187,7 +187,7 @@ eval "$(rbenv init -)"
 # Gitで差分ファイル抽出関数
 # -> git_diff_archive 引数
 # qiita.com/kaminaly/items/28f9cb4e680deb700833
-function git_diff_archive() 
+function git_diff_archive()
 {
   local diff=""
   local h="HEAD"
