@@ -44,6 +44,7 @@ install unar || true
 install youtube-dl || true
 install ffmpeg || true
 install awscli || true
+install the_silver_searcher || true
 
 ## Languages
 install rbenv || true
