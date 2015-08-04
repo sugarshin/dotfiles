@@ -84,7 +84,7 @@ setopt no_flow_control
 setopt interactive_comments
 
 # ディレクトリ名だけでcdする
-setopt auto_cd
+# setopt auto_cd
 
 # cd したら自動的にpushdする
 setopt auto_pushd
