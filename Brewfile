@@ -45,6 +45,7 @@ install youtube-dl || true
 install ffmpeg || true
 install awscli || true
 install the_silver_searcher || true
+install colordiff || true
 
 ## Languages
 install rbenv || true
@@ -74,7 +75,7 @@ cask install flux || true
 cask install caffeine || true
 cask install sophos-anti-virus-home-edition || true
 cask install macwinzipper || true
-cask install clipmenu || true
+cask install clipy || true
 
 # Quicklook
 cask install qlmarkdown || true
