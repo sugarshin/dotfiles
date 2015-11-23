@@ -1,5 +1,8 @@
+[core]
+	editor = vi
+	excludesfile = ~/.gitignore_global
 [include]
-		path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 [alias]
 	st = status
 	cm = commit

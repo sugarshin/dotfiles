@@ -1,0 +1,57 @@
+update
+upgrade --all
+
+tap homebrew/versions
+tap homebrew/binary
+tap thoughtbot/formulae
+
+install zsh
+install zsh-completions
+install git
+install hub
+install tig
+install gibo
+install wget
+install curl
+install tree
+install openssl
+install nodebrew
+install the_silver_searcher
+install unrar
+install unar
+install awscli
+install colordiff
+install rbenv
+install ruby-build
+install heroku-toolbelt
+
+install caskroom/cask/brew-cask
+tap caskroom/versions
+tap caskroom/fonts
+cask install google-chrome
+cask install google-japanese-ime
+cask install google-drive
+cask install appcleaner
+cask install firefox-ja
+cask install dropbox
+cask install virtualbox
+cask install vagrant
+cask install atom
+cask install bettertouchtool
+cask install opera
+cask install skype
+cask install kobito
+cask install vlc
+cask install flux
+cask install macwinzipper
+cask install clipy
+cask install qlmarkdown
+cask install quicklook-json
+cask install betterzipql
+cask install qlstephen
+cask install qlcolorcode
+cask install font-source-code-pro
+cask install font-source-han-code-jp
+
+cleanup
+cask cleanup

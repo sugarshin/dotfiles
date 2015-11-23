@@ -1,24 +1,4 @@
-### https://raw.github.com/github/gitignore/298588469ac0cb08a00eebf7b00efb5ab726daca/Global/SublimeText.gitignore
-
-# cache files for sublime text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-
-# workspace files are user-specific
-# Add .sublime-project
-*.sublime-workspace
-*.sublime-project
-
-# project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using SublimeText
-# *.sublime-project
-
-# sftp configuration file
-sftp-config.json
-
-
-### https://raw.github.com/github/gitignore/298588469ac0cb08a00eebf7b00efb5ab726daca/Global/OSX.gitignore
+### https://raw.github.com/github/gitignore/da00310ccba9de9a988cc973ef5238ad2c1460e9/Global/OSX.gitignore
 
 .DS_Store
 .AppleDouble
@@ -31,9 +11,13 @@ Icon
 # Thumbnails
 ._*
 
-# Files that might appear on external disk
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
 .AppleDB
