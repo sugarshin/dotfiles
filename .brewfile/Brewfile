@@ -24,6 +24,7 @@ install colordiff
 install rbenv
 install ruby-build
 install heroku-toolbelt
+install git-secrets
 
 install caskroom/cask/brew-cask
 tap caskroom/versions
