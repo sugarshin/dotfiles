@@ -1,58 +1,56 @@
-update
-upgrade --all
+tap 'homebrew/versions'
+tap 'homebrew/binary'
+tap 'thoughtbot/formulae'
 
-tap homebrew/versions
-tap homebrew/binary
-tap thoughtbot/formulae
+brew 'zsh'
+brew 'zsh-completions'
+brew 'git'
+brew 'hub'
+brew 'tig'
+brew 'gibo'
+brew 'wget'
+brew 'curl'
+brew 'tree'
+brew 'openssl'
+brew 'nodenv'
+brew 'the_silver_searcher'
+brew 'unrar'
+brew 'unar'
+brew 'awscli'
+brew 'colordiff'
+brew 'rbenv'
+brew 'ruby-build'
+brew 'heroku-toolbelt'
+brew 'git-secrets'
+brew 'direnv'
+brew 'imagemagick'
+brew 'jq'
+brew 'mysql'
+brew 'python'
+brew 'sbt'
+brew 'vim'
 
-install zsh
-install zsh-completions
-install git
-install hub
-install tig
-install gibo
-install wget
-install curl
-install tree
-install openssl
-install nodebrew
-install the_silver_searcher
-install unrar
-install unar
-install awscli
-install colordiff
-install rbenv
-install ruby-build
-install heroku-toolbelt
-install git-secrets
-
-install caskroom/cask/brew-cask
-tap caskroom/versions
-tap caskroom/fonts
-cask install google-chrome
-cask install google-japanese-ime
-cask install google-drive
-cask install appcleaner
-cask install firefox-ja
-cask install dropbox
-cask install virtualbox
-cask install vagrant
-cask install atom
-cask install bettertouchtool
-cask install opera
-cask install skype
-cask install kobito
-cask install vlc
-cask install flux
-cask install macwinzipper
-cask install clipy
-cask install qlmarkdown
-cask install quicklook-json
-cask install betterzipql
-cask install qlstephen
-cask install qlcolorcode
-cask install font-source-code-pro
-cask install font-source-han-code-jp
-
-cleanup
-cask cleanup
+tap 'caskroom/versions'
+tap 'caskroom/fonts'
+cask 'google-chrome'
+cask 'google-japanese-ime'
+cask 'appcleaner'
+cask 'firefox-ja'
+cask 'dropbox'
+cask 'virtualbox'
+cask 'vagrant'
+cask 'atom'
+cask 'bettertouchtool'
+cask 'opera'
+cask 'flux'
+cask 'clipy'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'betterzipql'
+cask 'qlstephen'
+cask 'qlcolorcode'
+cask 'font-source-code-pro'
+cask 'font-source-han-code-jp'
+cask 'java'
+cask 'sequel-pro'
+cask 'vlc'

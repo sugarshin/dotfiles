@@ -1,6 +1,6 @@
 [core]
-	editor = vi
-	excludesfile = ~/.gitignore_global
+	editor = vim
+	excludesfile = ~/.gitignore.global
 [include]
 	path = ~/.gitconfig.local
 [alias]
