@@ -55,3 +55,5 @@ cask 'java'
 cask 'sequel-pro'
 cask 'vlc'
 cask 'bestres'
+cask 'tomighty'
+
