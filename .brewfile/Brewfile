@@ -56,4 +56,5 @@ cask 'sequel-pro'
 cask 'vlc'
 cask 'bestres'
 cask 'tomighty'
+cask 'the-unarchiver'
 
