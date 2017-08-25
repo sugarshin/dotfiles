@@ -5,7 +5,7 @@
 
 ```sh
 xcode-select --install
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 cd
 brew bundle
 apm install --packages-file Atomfile
