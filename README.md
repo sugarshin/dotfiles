@@ -17,6 +17,7 @@ ln -s ~/dotfiles/.gitignore.global ~/.gitignore.global
 ln -s ~/dotfiles/.zpreztorc ~/.zpreztorc
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 git clone git@github.com:sugarshin/dotfiles.git --depth=1
 export HOMEBREW_BREWFILE=~/dotfiles/.brewfile/Brewfile
 brew file install
