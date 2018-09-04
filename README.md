@@ -15,4 +15,7 @@ export HOMEBREW_BREWFILE=~/Dropbox/Brewfile
 brew file install
 apm install --packages-file Atomfile
 touch ~/.gitconfig.local
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false # For VS Code Insider
+defaults delete -g ApplePressAndHoldEnabled
 ```
