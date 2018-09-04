@@ -13,7 +13,7 @@ brew "colordiff"
 brew "curl"
 brew "dep"
 brew "diff-pdf"
-brew "docker", link: false
+brew "docker"
 brew "gibo"
 brew "gifski"
 brew "git"
