@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Path to the bash it configuration
-export BASH_IT="/Users/sugarshin/.bash_it"
+export BASH_IT="/Users/${USER}/.bash_it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
@@ -55,8 +55,8 @@ export SCM_CHECK=true
 source "$BASH_IT"/bash_it.sh
 
 PATH=/usr/local/opt/python/libexec/bin:$PATH
-export ANYENV_ROOT="/Users/sugarshin/.anyenv"
-export PATH=$PATH:"/Users/sugarshin/.anyenv/bin"
+export ANYENV_ROOT="/Users/${USER}/.anyenv"
+export PATH=$PATH:"/Users/${USER}/.anyenv/bin"
 eval "$(anyenv init -)"
 export PATH="$(brew --prefix php@7.1)/bin:$PATH"
-
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
