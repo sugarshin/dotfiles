@@ -1,4 +1,7 @@
-set fenc=utf-8
+:syntax on
+set encoding=UTF-8
+set fileencoding=UTF-8
+set termencoding=UTF-8
 set nobackup
 set noswapfile
 set autoread
@@ -13,3 +16,5 @@ set showmatch
 set laststatus=2
 set hlsearch
 set title
+set ttyfast
+
