@@ -30,3 +30,39 @@ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 defaults delete -g ApplePressAndHoldEnabled
 defaults write com.apple.finder AppleShowAllFiles TRUE
 ```
+
+## Signing Git commits on GitHub using Keybase PGP Key
+
+```sh
+keybase -v
+keybase version 2.5.2-20180906142014+a801e75b82
+
+gpg --version
+gpg (GnuPG) 2.2.10
+libgcrypt 1.8.3
+
+keybase pgp export | gpg --import
+keybase pgp export --secret | gpg --allow-secret-key --import
+```
+
+if you have an error, try to bellow:
+
+```
+export GPG_TTY=$(tty)
+```
+
+Set .gitconfig
+
+```
+gpg --list-secret-keys
+
+sec   rsa4096 2016-09-20 [SC]
+      <id>
+uid           [ unknown] Shingo Sato <shinsugar@gmail.com>
+ssb   rsa2048 2016-09-20 [E] [expires: 2024-09-18]
+ssb   rsa2048 2016-09-20 [SA] [expires: 2024-09-18]
+
+git config --global user.signingkey <id>
+git config --global commit.gpgsign true
+```
+
