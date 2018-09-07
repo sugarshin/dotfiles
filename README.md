@@ -21,6 +21,8 @@ ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 export HOMEBREW_BREWFILE=~/dotfiles/.brewfile/Brewfile
 brew file install
+mkdir -p "$(nodenv root)"/plugins
+git clone https://github.com/nodenv/nodenv-update.git "$(nodenv root)"/plugins/nodenv-update
 apm install --packages-file Atomfile
 touch ~/.gitconfig.local
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false         # For VS Code
