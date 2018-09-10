@@ -70,3 +70,7 @@ export PATH="$(brew --prefix php@7.1)/bin:$PATH"
 
 # gpg-agent
 export GPG_TTY=$(tty)
+
+# brew file 
+export HOMEBREW_BREWFILE=~/github.com/sugarshin/dotfiles/.brewfile/Brewfile
+
