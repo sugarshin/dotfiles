@@ -6,8 +6,8 @@
 ```sh
 # TODO
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install rcmdnk/file/brew-file
 brew update
+brew install rcmdnk/file/brew-file
 echo 'if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
 fi' >> ~/.bashrc
@@ -20,7 +20,10 @@ ln -s ~/dotfiles/.zshrc ~/.zshrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 export HOMEBREW_BREWFILE=~/dotfiles/.brewfile/Brewfile
+brew file update
 brew file install
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p "$(nodenv root)"/plugins
 git clone https://github.com/nodenv/nodenv-update.git "$(nodenv root)"/plugins/nodenv-update
 apm install --packages-file Atomfile
@@ -65,4 +68,3 @@ ssb   rsa2048 2016-09-20 [SA] [expires: 2024-09-18]
 git config --global user.signingkey <id>
 git config --global commit.gpgsign true
 ```
-
