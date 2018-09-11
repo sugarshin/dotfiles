@@ -1,99 +1,171 @@
-tap "cloudfoundry/tap"
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "rcmdnk/file"
-cask "java"
-cask "xquartz"
-brew "sqlite"
-brew "python"
-brew "awscli"
-brew "bash-completion"
-brew "colordiff"
-brew "curl"
-brew "dep"
-brew "diff-pdf"
-brew "docker"
-brew "python@2"
-brew "docker-compose"
-brew "gibo"
-brew "gifski"
-brew "git"
-brew "git-extras"
-brew "git-secrets"
-brew "gnupg"
-brew "gnupg@1.4"
-brew "goenv"
-brew "hub"
-brew "imagemagick"
-brew "jq"
-brew "kubernetes-helm"
-brew "mas"
-brew "mysql"
-brew "nodenv"
-brew "perl"
-brew "php@7.1"
-brew "pinentry-mac"
-brew "postgresql"
-brew "qt"
-brew "rbenv"
-brew "redis"
-brew "sbt"
-brew "scala"
-brew "terraform"
-brew "the_silver_searcher"
-brew "tig"
-brew "tree"
-brew "unar"
-brew "unrar"
-brew "vim"
-brew "yarn", args: ["without-node"]
-brew "youtube-dl"
-brew "cloudfoundry/tap/cf-cli"
-brew "heroku/brew/heroku"
-brew "rcmdnk/file/brew-file"
-cask "amazon-workspaces"
-cask "android-platform-tools"
-cask "android-studio"
-cask "appcleaner"
-cask "atom"
-cask "avocode"
-cask "bestres"
-cask "betterzip"
-cask "caffeine"
-cask "clipy"
-cask "docker"
-cask "dropbox"
-cask "expo-xde"
-cask "figma"
-cask "firefox"
-cask "font-source-han-code-jp"
-cask "gifcapture"
-cask "google-chrome"
-cask "google-cloud-sdk"
-cask "google-japanese-ime"
-cask "keybase"
-cask "nox-app-player"
-cask "qlcolorcode"
-cask "qlmarkdown"
-cask "qlstephen"
-cask "quicklook-json"
-cask "sequel-pro"
-cask "skitch"
-cask "spotify"
-cask "the-unarchiver"
-cask "torbrowser"
-cask "vagrant"
-cask "virtualbox"
-cask "visual-studio-code"
-cask "vlc"
-cask "zoomus"
-cask "tunnelblick"
-mas "1Password 7", id: 1333542190
-mas "GarageBand", id: 682658836
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
+
+# tap repositories and their packages
+
+tap 'homebrew/core'
+brew 'adns'
+brew 'apr'
+brew 'apr-util'
+brew 'aspell'
+brew 'autoconf'
+brew 'awscli'
+brew 'bash-completion'
+brew 'cairo'
+brew 'carthage'
+brew 'colordiff'
+brew 'curl'
+brew 'dep'
+brew 'diff-pdf'
+brew 'docker'
+brew 'docker-compose'
+brew 'fontconfig'
+brew 'freetds'
+brew 'freetype'
+brew 'gdbm'
+brew 'gettext'
+brew 'gibo'
+brew 'gifski'
+brew 'git'
+brew 'git-extras'
+brew 'git-secrets'
+brew 'glib'
+brew 'gmp'
+brew 'gnupg'
+brew 'gnupg@1.4'
+brew 'gnutls'
+brew 'go'
+brew 'goenv'
+brew 'heroku'
+brew 'highlight'
+brew 'hub'
+brew 'icu4c'
+brew 'imagemagick'
+brew 'jpeg'
+brew 'jq'
+brew 'kubernetes-helm'
+brew 'libassuan'
+brew 'libffi'
+brew 'libgcrypt'
+brew 'libgpg-error'
+brew 'libksba'
+brew 'libpng'
+brew 'libpq'
+brew 'libtasn1'
+brew 'libtiff'
+brew 'libtool'
+brew 'libunistring'
+brew 'libusb'
+brew 'libyaml'
+brew 'libzip'
+brew 'little-cms2'
+brew 'lua'
+brew 'mas'
+brew 'mcrypt'
+brew 'mhash'
+brew 'mysql'
+brew 'nettle'
+brew 'node-build'
+brew 'nodenv'
+brew 'npth'
+brew 'oniguruma'
+brew 'openjpeg'
+brew 'openssl'
+brew 'p11-kit'
+brew 'pcre'
+brew 'perl'
+brew 'php@7.1'
+brew 'pinentry'
+brew 'pinentry-mac'
+brew 'pixman'
+brew 'pkg-config'
+brew 'poppler'
+brew 'postgresql'
+brew 'python'
+brew 'python@2'
+brew 'qt'
+brew 'rbenv'
+brew 'readline'
+brew 'redis'
+brew 'ruby'
+brew 'ruby-build'
+brew 'sbt'
+brew 'scala'
+brew 'sqlite'
+brew 'terraform'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tree'
+brew 'unar'
+brew 'unixodbc'
+brew 'unrar'
+brew 'vim'
+brew 'webp'
+brew 'wxmac'
+brew 'xz'
+brew 'yarn', args: ['without-node']
+brew 'youtube-dl'
+
+tap 'homebrew/bundle'
+
+tap 'homebrew/cask-fonts'
+cask 'font-source-han-code-jp'
+
+tap 'homebrew/cask'
+cask 'amazon-workspaces'
+cask 'android-studio'
+cask 'atom'
+cask 'bestres'
+cask 'caffeine'
+cask 'docker'
+cask 'expo-xde'
+cask 'firefox'
+cask 'google-chrome'
+cask 'google-japanese-ime'
+cask 'karabiner-elements'
+cask 'nox-app-player'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'skitch'
+cask 'the-unarchiver'
+cask 'tunnelblick'
+cask 'virtualbox'
+cask 'vlc'
+cask 'zoomus'
+
+tap 'cloudfoundry/tap'
+brew 'cf-cli'
+
+tap 'heroku/brew'
+brew 'heroku-node'
+
+tap 'rcmdnk/file'
+brew 'brew-file'
+
+# Other Cask applications
+cask 'android-platform-tools'
+cask 'appcleaner'
+cask 'avocode'
+cask 'betterzip'
+cask 'clipy'
+cask 'dropbox'
+cask 'figma'
+cask 'gifcapture'
+cask 'google-cloud-sdk'
+cask 'java'
+cask 'keybase'
+cask 'qlcolorcode'
+cask 'qlstephen'
+cask 'sequel-pro'
+cask 'spotify'
+cask 'torbrowser'
+cask 'vagrant'
+cask 'visual-studio-code'
+cask 'xquartz'
+
+# App Store applications
+mas '1Password 7 (7.1.1)', id: 1333542190
+mas 'GarageBand (10.3.1)', id: 682658836
+mas 'iMovie (10.1.9)', id: 408981434
+mas 'Keynote (8.1)', id: 409183694
+mas 'Numbers (5.1)', id: 409203825
+mas 'Pages (7.1)', id: 409201541
+mas 'Xcode (9.4.1)', id: 497799835
