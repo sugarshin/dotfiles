@@ -30,5 +30,4 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'digitaltoad/vim-pug'
-Plug 'plasticboy/vim-markdown'
 call plug#end()
