@@ -2,6 +2,7 @@
 # tap repositories and their packages
 
 tap 'homebrew/core'
+brew 'kubectl'
 brew 'adns'
 brew 'apr'
 brew 'apr-util'
