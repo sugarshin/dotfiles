@@ -73,4 +73,5 @@ export GPG_TTY=$(tty)
 
 # brew file 
 export HOMEBREW_BREWFILE=~/github.com/sugarshin/dotfiles/.brewfile/Brewfile
+export GOPATH=$HOME/go
 

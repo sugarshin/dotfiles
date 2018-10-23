@@ -34,6 +34,12 @@ defaults delete -g ApplePressAndHoldEnabled
 defaults write com.apple.finder AppleShowAllFiles TRUE
 ```
 
+## How to install package from Homebrew
+
+```sh
+brew file brew install <package>
+```
+
 ## Signing Git commits on GitHub using Keybase PGP Key
 
 ```sh
