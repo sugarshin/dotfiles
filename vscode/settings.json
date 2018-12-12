@@ -1,13 +1,13 @@
 {
     "editor.fontSize": 13,
     "editor.renderWhitespace": "boundary",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "editor.tabSize": 2,
     "window.newWindowDimensions": "inherit",
     "[javascript]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "[typescript]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     }
 }

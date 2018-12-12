@@ -19,3 +19,5 @@
 	program = gpg
 [commit]
 	gpgsign = true
+[ghq]
+	root = ~/dev/src
