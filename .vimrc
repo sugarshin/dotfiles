@@ -31,4 +31,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'digitaltoad/vim-pug'
 Plug 'fatih/vim-go'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
