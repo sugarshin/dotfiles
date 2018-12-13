@@ -1,7 +1,10 @@
 # dotfiles
 
-* [Brewfile](https://github.com/sugarshin/initial-setting-mac/blob/master/.brewfile/Brewfile)
-* [Atomfile](https://github.com/sugarshin/initial-setting-mac/blob/master/Atomfile)
+## Add [bash-it](https://github.com/Bash-it/bash-it)
+
+```sh
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+```
 
 ```sh
 # TODO

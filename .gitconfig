@@ -13,6 +13,7 @@
 	ps = push
 	pl = pull
 	pr = pull-request
+	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [push]
 	default = simple
 [gpg]
