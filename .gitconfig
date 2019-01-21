@@ -6,7 +6,6 @@
 [alias]
 	st = status
 	cm = commit
-	sts = stash
 	co = checkout
 	br = branch
 	ad = add
