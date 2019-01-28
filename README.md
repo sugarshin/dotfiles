@@ -43,6 +43,12 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 brew file brew install <package>
 ```
 
+## Install Atom packages
+
+```sh
+apm install --packages-file ./Atomfile
+```
+
 ## Signing Git commits on GitHub using Keybase PGP Key
 
 ```sh
