@@ -77,3 +77,5 @@ export PATH=$PATH:$GOPATH/bin
 
 # brew file
 export HOMEBREW_BREWFILE=$GOPATH/src/github.com/sugarshin/dotfiles/.brewfile/Brewfile
+
+export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
