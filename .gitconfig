@@ -13,6 +13,9 @@
 	pl = pull
 	pr = pull-request
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	delete-merged-branches = !git branch --merged | grep -vE ^\\*|master$|develop$ | xargs -I % git branch -d %
+	dm = delete-merged-branches
+
 [push]
 	default = simple
 [gpg]
