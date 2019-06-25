@@ -12,7 +12,7 @@ export BASH_IT_THEME='minimal'
 # export BASH_IT_REMOTE='bash-it'
 
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
+# export GIT_HOSTING='git@git.domain.com'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -75,6 +75,13 @@ export GPG_TTY=$(tty)
 export GOPATH=$HOME/dev
 export PATH=$PATH:$GOPATH/bin
 
+# goenv
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+
 # brew file
 export HOMEBREW_BREWFILE=$GOPATH/src/github.com/sugarshin/dotfiles/.brewfile/Brewfile
 
@@ -82,4 +89,3 @@ export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 
 # rbenv
 eval "$(rbenv init -)"
-
