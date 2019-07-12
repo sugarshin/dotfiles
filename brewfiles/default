@@ -1,7 +1,10 @@
-
-# tap repositories and their packages
-
 tap 'homebrew/core'
+tap 'heroku/brew'
+tap 'cloudfoundry/tap'
+
+brew 'cf-cli'
+brew 'heroku'
+brew 'heroku-node'
 brew 'adns'
 brew 'apr'
 brew 'apr-util'
@@ -132,76 +135,3 @@ brew 'wxmac'
 brew 'xz'
 brew 'yarn', args: ['without-node']
 brew 'youtube-dl'
-
-tap 'homebrew/bundle'
-
-tap 'homebrew/cask-fonts'
-cask 'font-source-han-code-jp'
-
-tap 'homebrew/services'
-
-tap 'homebrew/cask'
-cask 'amazon-workspaces'
-cask 'android-platform-tools'
-cask 'appcleaner'
-cask 'avocode'
-cask 'betterzip'
-cask 'clipy'
-cask 'dropbox'
-cask 'figma'
-cask 'gifcapture'
-cask 'google-cloud-sdk'
-cask 'java'
-cask 'keybase'
-cask 'nox-app-player'
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'skitch'
-cask 'the-unarchiver'
-cask 'tunnelblick'
-cask 'virtualbox'
-cask 'vlc'
-cask 'zoomus'
-
-tap 'cloudfoundry/tap'
-brew 'cf-cli'
-
-tap 'heroku/brew'
-brew 'heroku'
-brew 'heroku-node'
-
-tap 'rcmdnk/file'
-brew 'brew-file'
-
-# Other Cask applications
-cask 'amethyst'
-cask 'android-studio'
-cask 'atom'
-cask 'bestres'
-cask 'caffeine'
-cask 'docker'
-cask 'expo-xde'
-cask 'firefox'
-cask 'google-chrome'
-cask 'google-japanese-ime'
-cask 'karabiner-elements'
-cask 'minikube'
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'sequel-pro'
-cask 'spotify'
-cask 'torbrowser'
-cask 'vagrant'
-cask 'visual-studio-code'
-cask 'xquartz'
-
-# App Store applications
-mas '1Password 7 (7.2.1)', id: 1333542190
-mas 'GarageBand (10.3.2)', id: 682658836
-mas 'HazeOver (1.8.1)', id: 430798174
-mas 'iMovie (10.1.10)', id: 408981434
-mas 'Keynote (8.3)', id: 409183694
-mas 'Kindle (1.23.3)', id: 405399194
-mas 'Noizio (1.6.2)', id: 928871589
-mas 'Numbers (5.3)', id: 409203825
-mas 'Pages (7.3)', id: 409201541
