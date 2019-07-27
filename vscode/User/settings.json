@@ -9,5 +9,8 @@
     },
     "[typescript]": {
         "editor.formatOnSave": false
-    }
+    },
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true
 }
