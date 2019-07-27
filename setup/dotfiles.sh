@@ -25,8 +25,6 @@ symlink() {
 
 for f in $(find ${DOTFILES} -maxdepth 1 -type f -name .\*) ; do
   BASENAME=$(basename $f)
-  echo $BASENAME
-  echo $f
   backup "${HOME}/.${BASENAME}"
   symlink $f "${HOME}/.${BASENAME}"
 done
