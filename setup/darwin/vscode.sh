@@ -24,7 +24,7 @@ symlink() {
   ORG=$1
   DST=$2
   echo "Symlinking: ${ORG} -> ${DST}"
-  ln -s $ORG $DST
+  ln -s "${ORG}" "${DST}"
 }
 
 if [ -d '/Applications/Visual Studio Code.app' ]; then
@@ -35,7 +35,7 @@ if [ -d '/Applications/Visual Studio Code.app' ]; then
   code --list-extensions > "${VSCODE_FILES}/Extensions"
 
   if [ -d "${HOME}/Library" ]; then
-    for f in "${VSCODE_FILES}/User" ; do
+    for f in ${VSCODE_FILES}/User/* ; do
       BASENAME=$(basename $f)
       backup "${VSCODE_SETTING_DIR}/${BASENAME}"
       symlink $f "${VSCODE_SETTING_DIR}/${BASENAME}"
