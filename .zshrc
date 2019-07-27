@@ -1,37 +1,30 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# Created by newuser for 5.7.1
 
-unsetopt CORRECT
+### Added by Zplugin's installer
+source '/Users/sugarshin/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
 
-alias la='ls -a'
-alias ll='ls -l'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias mkdir='mkdir -p'
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zdharma/fast-syntax-highlighting
+zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 
-fpath=(path/to/zsh-completions/src $fpath)
+autoload -U compinit
+compinit
 
-source /usr/local/share/zsh/site-functions/_aws
-
-export SVN_EDITOR=vim
-
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
+### nodenv
 eval "$(nodenv init -)"
 
-# rbenv
+### rbenv
 eval "$(rbenv init -)"
 
-# goenv
-export GOPATH=$HOME/.go
-export GOENV_ROOT=$HOME/.goenv
-export PATH=bin:$GOENV_ROOT/bin:$GOPATH/bin:$PATH
+### goenv
 eval "$(goenv init -)"
 
-# python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export CORRECT_IGNORE='_*'
-export CORRECT_IGNORE_FILE='.*'
+### colordiff
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
