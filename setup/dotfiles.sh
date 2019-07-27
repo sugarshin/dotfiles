@@ -8,7 +8,9 @@ backup() {
     BASENAME=$(basename $1)
     BACKUP_COUNT=$(find $BACKUP_DIR/$BASENAME* -maxdepth 0 2> /dev/null | wc -l | sed 's/ //g')
 
-    if [[ $dotfile_count -ne '0' ]]; then
+    mkdir -p ${BACKUP_DIR}
+
+    if [[ $BACKUP_COUNT -ne '0' ]]; then
       mv $1 $BACKUPDIR/$BASENAME.$BACKUP_COUNT
     else
       mv $1 $BACKUPDIR/$BASENAME
