@@ -1,0 +1,14 @@
+# display docker repository tags.
+function ds() {
+  for Repo in $* ; do
+    echo "$Repo"
+    curl -s -S "https://registry.hub.docker.com/v2/repositories/library/${Repo}/tags/?page_size=1024" | \
+    sed -e 's/,/,\n/g' -e 's/\[/\[\n/g' | \
+    grep '"name"' | \
+    awk -F\" '{print $4;}' | \
+    sort -fu | \
+    sed -e "s/^/${Repo}:/"
+  done
+}
+
+ds $1 $2
