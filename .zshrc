@@ -19,9 +19,6 @@ eval "$(nodenv init -)"
 ### rbenv
 eval "$(rbenv init -)"
 
-### goenv
-eval "$(goenv init -)"
-
 ### colordiff
 if [[ -x `which colordiff` ]]; then
   alias diff='colordiff -u'
