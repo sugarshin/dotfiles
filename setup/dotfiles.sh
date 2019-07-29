@@ -24,11 +24,11 @@ symlink() {
   ORG=$1
   DST=$2
   echo "Symlinking: ${ORG} -> ${DST}"
-  ln -s "$ORG" "$DST"
+  ln -sf "$ORG" "$DST"
 }
 
 for f in $(find ${DOTFILES} -maxdepth 1 -type f -name .\*) ; do
-  BASENAME=$(basename $f)
+  BASENAME=$(basename "$f")
   backup "${HOME}/${BASENAME}"
-  symlink $f "${HOME}/${BASENAME}"
+  symlink "$f" "${HOME}/${BASENAME}"
 done
