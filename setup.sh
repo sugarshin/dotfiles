@@ -1,3 +1,5 @@
+#!/bin/sh
+
 set -eux
 
 DOTFILES=$(cd $(dirname $0) && pwd)

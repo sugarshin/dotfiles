@@ -1,3 +1,5 @@
+#!/bin/sh
+
 set -eux
 
 defaults write -g ApplePressAndHoldEnabled -bool false
