@@ -33,3 +33,7 @@ export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 
 # rbenv
 eval "$(rbenv init -)"
+
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
