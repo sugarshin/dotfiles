@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+export LC_ALL=en_US.UTF-8
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Python
 PATH=/usr/local/opt/python/libexec/bin:$PATH
 
@@ -18,10 +22,6 @@ export PATH="$(brew --prefix php@7.1)/bin:$PATH"
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export GPG_TTY=$(tty)
 
-# Go
-export GOPATH=$HOME/dev
-export PATH=$PATH:$GOPATH/bin
-
 # goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
@@ -37,3 +37,10 @@ eval "$(rbenv init -)"
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+# colordiff
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
