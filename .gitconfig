@@ -1,6 +1,9 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
+[user]
+	email = shinsugar@gmail.com
+	name = Shingo Sato
 [include]
 	path = ~/.gitconfig.local
 [alias]
