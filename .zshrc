@@ -25,3 +25,6 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
+
+### aliases
+alias k='kubectl'
