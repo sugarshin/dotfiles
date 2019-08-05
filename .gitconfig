@@ -19,6 +19,7 @@
 	delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
 	dm = delete-merged-branches
 	bwc = "!f(){ ignore=${1:-(?!)}; user=${2:-"(sugarshin\\\\|(Shingo Sato"}; git ls-files | grep -v \"$ignore\" | xargs -n1 git --no-pager blame -f -w | grep \"${user}\" | wc -l;};f"
+	f = fetch origin --prune
 [push]
 	default = simple
 [gpg]
