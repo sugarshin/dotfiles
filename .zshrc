@@ -14,7 +14,7 @@ autoload -U compinit
 compinit
 
 ### nodenv
-eval "$(nodenv init -)"
+#eval "$(nodenv init -)"
 
 ### rbenv
 eval "$(rbenv init -)"
@@ -22,10 +22,10 @@ eval "$(rbenv init -)"
 ### goenv
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-#export GOENV_DISABLE_GOPATH=1 #tmp
+export GOENV_DISABLE_GOPATH=1 # depends on project
 eval "$(goenv init -)"
 export PATH="$GOROOT/bin:$PATH"
-#export GOPATH="${HOME}/dev" #tmp
+export GOPATH="${HOME}/dev" # depends on project
 export PATH="$GOPATH/bin:$PATH"
 
 ### pyenv
@@ -50,3 +50,4 @@ fi
 ### aliases
 alias k='kubectl'
 alias air='~/.air'
+alias date='gdate'
