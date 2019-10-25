@@ -13,5 +13,7 @@
     "atomKeymap.promptV3Features": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.formatOnPaste": true,
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true
 }
