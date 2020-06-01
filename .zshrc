@@ -1,7 +1,7 @@
 autoload -zU compinit && compinit
 
 ### nodenv
-#eval "$(nodenv init -)"
+eval "$(nodenv init -)"
 
 ### rbenv
 eval "$(rbenv init -)"

@@ -10,6 +10,5 @@ BREWFILES="${DOTFILES}/brewfiles"
 brew update
 brew tap Homebrew/bundle
 brew bundle --file="${BREWFILES}/default"
-brew bundle --file="${BREWFILES}/fonts"
-brew bundle --file="${BREWFILES}/casks"
+brew bundle --file="${BREWFILES}/cask"
 brew bundle --file="${BREWFILES}/mas"
