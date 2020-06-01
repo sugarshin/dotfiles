@@ -1,17 +1,4 @@
-# Created by newuser for 5.7.1
-
-### Added by Zplugin's installer
-source '/Users/sugarshin/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
-zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
-
-autoload -U compinit
-compinit
+autoload -zU compinit && compinit
 
 ### nodenv
 #eval "$(nodenv init -)"
@@ -35,11 +22,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-### anyenv
-export ANYENV_ROOT="/Users/$USER/.anyenv"
-export PATH=$PATH:"/Users/$USER/.anyenv/bin"
-eval "$(anyenv init -)"
-
 ### colordiff
 if [[ -x `which colordiff` ]]; then
   alias diff='colordiff -u'
@@ -51,3 +33,43 @@ fi
 alias k='kubectl'
 alias air='~/.air'
 alias date='gdate'
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit load zdharma/history-search-multi-word
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
+
+zinit for \
+    light-mode  zsh-users/zsh-autosuggestions \
+    light-mode  zdharma/fast-syntax-highlighting \
+                zdharma/history-search-multi-word \
+    light-mode pick"async.zsh" src"pure.zsh" \
+                sindresorhus/pure
+
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
+
+zinit ice from"gh-r" as"program" mv"docker* -> docker-compose" bpick"*linux*"
+zinit load docker/compose
+
+zinit ice as"program" atclone"rm -f src/auto/config.cache; ./configure" \
+    atpull"%atclone" make pick"src/vim"
+zinit light vim/vim
+
+zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
+zinit light tj/git-extras
