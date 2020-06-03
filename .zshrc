@@ -33,6 +33,7 @@ fi
 alias k='kubectl'
 alias air='~/.air'
 alias date='gdate'
+alias nodenvu='nodenv update-version-defs'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
