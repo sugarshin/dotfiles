@@ -73,3 +73,5 @@ zinit light vim/vim
 
 zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zinit light tj/git-extras
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
