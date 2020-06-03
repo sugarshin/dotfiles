@@ -4,8 +4,6 @@
 [user]
 	email = shinsugar@gmail.com
 	name = Shingo Sato
-[include]
-	path = ~/.gitconfig.local
 [alias]
 	st = status
 	cm = commit
@@ -28,3 +26,5 @@
 	gpgsign = true
 [ghq]
 	root = ~/dev/src
+[include]
+	path = ~/.gitconfig.local
