@@ -1,4 +1,3 @@
-1000ch.svgo
 Compulim.indent4to2
 dbaeumer.vscode-eslint
 eg2.tslint
@@ -8,7 +7,6 @@ hollowtree.vue-snippets
 jpoissonnier.vscode-styled-components
 kenhowardpdx.vscode-gist
 kumar-harsh.graphql-for-vscode
-mauve.terraform
 mhmadhamster.postcss-language
 mohsen1.prettify-json
 ms-vscode.atom-keybindings
@@ -19,7 +17,6 @@ octref.vetur
 Orta.vscode-jest
 ryanluker.vscode-coverage-gutters
 shanoor.vscode-nginx
-shinnn.stylelint
 sysoev.language-stylus
 timonwong.shellcheck
 vscodevim.vim
