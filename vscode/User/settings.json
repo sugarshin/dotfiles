@@ -1,7 +1,7 @@
 {
     "editor.fontSize": 13,
     "editor.renderWhitespace": "boundary",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "editor.tabSize": 2,
     "window.newWindowDimensions": "inherit",
     "[javascript]": {
@@ -15,5 +15,6 @@
     "editor.formatOnPaste": true,
     "editor.wordWrap": "on",
     "go.formatTool": "goimports",
-    "go.useLanguageServer": true
+    "go.useLanguageServer": true,
+    "jest.autoEnable": false
 }
