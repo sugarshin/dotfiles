@@ -35,3 +35,8 @@ Session.vim
 # temporary
 .netrwhist
 *~
+
+.ssh
+.aws
+.npmrc
+

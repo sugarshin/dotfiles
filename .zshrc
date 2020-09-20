@@ -1,5 +1,7 @@
 autoload -zU compinit && compinit
 
+export LANG='en_US.UTF-8'
+
 ### nodenv
 eval "$(nodenv init -)"
 
@@ -21,6 +23,9 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+### cargo
+export PATH="$PATH:$HOME/.cargo/bin"
 
 ### colordiff
 if [[ -x `which colordiff` ]]; then
@@ -76,3 +81,4 @@ zinit ice as"program" pick"$ZPFX/bin/git-*" make"PREFIX=$ZPFX"
 zinit light tj/git-extras
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+### End of Zinit's installer chunk
