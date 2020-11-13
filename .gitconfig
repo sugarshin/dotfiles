@@ -12,7 +12,7 @@
 	ad = add
 	ps = push
 	pl = pull
-	pr = pull-request
+	cpr = pull-request
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|develop$' | xargs -I % git branch -d %
 	dm = delete-merged-branches
@@ -22,6 +22,7 @@
 	d = diff
 	pso = !git push origin $(git rev-parse --abbrev-ref HEAD)
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
+	b = !hub browse
 [push]
 	default = simple
 [gpg]
