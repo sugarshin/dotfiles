@@ -39,4 +39,5 @@ Session.vim
 .ssh
 .aws
 .npmrc
+.config
 
