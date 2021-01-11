@@ -1,3 +1,5 @@
+[ -f ~/.commonrc ] && source ~/.commonrc
+
 autoload -zU compinit && compinit
 autoload -U add-zsh-hook
 
@@ -40,11 +42,9 @@ else
 fi
 
 ### aliases
-alias k='kubectl'
 alias air='~/.air'
 alias date='gdate'
 alias nodenvu='nodenv update-version-defs'
-alias g='git'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then

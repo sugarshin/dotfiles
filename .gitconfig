@@ -31,7 +31,7 @@
 	gpgsign = true
 [ghq]
 	root = ~/dev/src
-[include]
-	path = ~/.gitconfig.local
 [pull]
 	ff = only
+[include]
+	path = ~/.gitconfig.local
