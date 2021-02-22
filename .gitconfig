@@ -42,3 +42,6 @@
 	defaultBranch = main
 [include]
 	path = ~/.gitconfig.local
+	; example:
+	; [includeIf "gitdir:~/dev/src/foo.com/"]
+	; 	path = ~/dev/src/foo.com/.gitconfig
