@@ -23,6 +23,7 @@
 	pso = !git push origin $(git rev-parse --abbrev-ref HEAD)
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 	b = !hub browse
+	copr = !$DOTFILES/bin/checkout_pr
 [push]
 	default = simple
 [gpg]

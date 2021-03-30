@@ -1,0 +1,10 @@
+# checout pull request
+# $DOTFILES/bin/dsb ${pr_number}
+function checkout_pr () {
+  set -eu
+  pr_number=${1}
+  git fetch origin "pull/${pr_number}/head:pr/${pr_number}"
+  git checkout "pr/${pr_number}"
+}
+
+checkout_pr $1
