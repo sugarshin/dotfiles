@@ -17,6 +17,7 @@ set laststatus=2
 set hlsearch
 set title
 set ttyfast
+set clipboard+=unnamed
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-rails'
