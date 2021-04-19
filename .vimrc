@@ -36,4 +36,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'leafOfTree/vim-vue-plugin'
+Plug 'rust-lang/rust.vim'
 call plug#end()
