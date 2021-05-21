@@ -36,4 +36,4 @@ else
   alias diff='diff -u'
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
