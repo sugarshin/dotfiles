@@ -8,7 +8,7 @@ BREWFILES="${DOTFILES}/brewfiles"
 [ $(command -v brew) ] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew update
-brew tap Homebrew/bundle
-brew bundle --file="${BREWFILES}/default"
-brew bundle --file="${BREWFILES}/cask"
-brew bundle --file="${BREWFILES}/mas"
+brew bundle --file="${BREWFILES}/Brewfile"
+if [ -f "${BREWFILES}/Brewfile.local" ]; then
+  brew bundle --file="${BREWFILES}/Brewfile.local"
+fi
