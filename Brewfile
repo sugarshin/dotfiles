@@ -1,0 +1,408 @@
+tap "cloudfoundry/tap"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+# C/C++ resolver library and DNS resolver utilities
+brew "adns"
+# GNU database manager
+brew "gdbm"
+# YAML Parser
+brew "libyaml"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Library for command-line editing
+brew "readline"
+# Command-line interface for SQLite
+brew "sqlite"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Apache Portable Runtime library
+brew "apr"
+# Companion library to apr, the Apache Portable Runtime library
+brew "apr-util"
+# Spell checker with better logic than ispell
+brew "aspell"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Generic-purpose lossless compression algorithm by Google
+brew "brotli"
+# Asynchronous DNS library
+brew "c-ares"
+# Library for manipulating PNG images
+brew "libpng"
+# Software library to render fonts
+brew "freetype"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Portable Foreign Function Interface library
+brew "libffi"
+# Perl compatible regular expressions library
+brew "pcre"
+# Core application library for C
+brew "glib"
+# Low-level library for pixel manipulation
+brew "pixman"
+# Vector graphics library with cross-device output support
+brew "cairo"
+# Decentralized dependency manager for Cocoa
+brew "carthage"
+# Enables you to reproduce the CircleCI environment locally
+brew "circleci"
+# Color-highlighted diff(1) output
+brew "colordiff"
+# Dependency Manager for PHP
+brew "composer"
+# Tool for service discovery, monitoring and configuration
+brew "consul"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Implementation of malloc emphasizing fragmentation avoidance
+brew "jemalloc"
+# Asynchronous event library
+brew "libev"
+# C string library for manipulating Unicode strings
+brew "libunistring"
+# HTTP/2 C Library
+brew "nghttp2"
+# Open source suite of directory software
+brew "openldap"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Go dependency management tool
+brew "dep"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# Isolated development environments using Docker
+brew "docker-compose", link: false
+# Implementation of the Unicode BiDi algorithm
+brew "fribidi"
+# GNU multiple precision arithmetic library
+brew "gmp"
+# Generic library support script
+brew "libtool"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Asynchronous event library
+brew "libevent"
+# ASN.1 structure parser library
+brew "libtasn1"
+# Low-level cryptographic library
+brew "nettle"
+# Library to load and enumerate PKCS#11 modules
+brew "p11-kit"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Image manipulation library
+brew "jpeg"
+# TIFF library and utilities
+brew "libtiff"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# Library for JPEG-2000 image manipulation
+brew "openjpeg"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# Secure Reliable Transport
+brew "srt"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# ODBC 3 connectivity for UNIX
+brew "unixodbc"
+# Libraries to talk to Microsoft SQL Server and Sybase databases
+brew "freetds"
+# C library for multiple-precision floating-point computations
+brew "mpfr"
+# GNU awk utility
+brew "gawk"
+# GitHub command-line tool
+brew "gh"
+# Remote repository management made easy
+brew "ghq"
+# Access GitHub's .gitignore boilerplates
+brew "gibo"
+# Highest-quality GIF encoder based on pngquant
+brew "gifski"
+# Command-line utility for uploading Gists
+brew "gist"
+# Perl compatible regular expressions library with a new API
+brew "pcre2"
+# Distributed revision control system
+brew "git"
+# Small git utilities
+brew "git-extras"
+# Git extension for versioning large files
+brew "git-lfs"
+# Prevents you from committing sensitive information to a git repo
+brew "git-secrets"
+# Common error values for all GnuPG components
+brew "libgpg-error"
+# Assuan IPC Library
+brew "libassuan"
+# Cryptographic library based on the code from GnuPG
+brew "libgcrypt"
+# X.509 and CMS library
+brew "libksba"
+# Library for USB device access
+brew "libusb"
+# New GNU portable threads library
+brew "npth"
+# Passphrase entry dialog utilizing the Assuan protocol
+brew "pinentry"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg@1.4"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# Smarter Dockerfile linter to validate best practices
+brew "hadolint"
+# Kubernetes package manager
+brew "helm"
+# Powerful, lightweight programming language
+brew "lua"
+# Convert source code to formatted text with syntax highlighting
+brew "highlight"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
+# Add GitHub support to git on the command-line
+brew "hub"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
+brew "libheif"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# C library for encoding, decoding, and manipulating JSON
+brew "jansson"
+# Manage your Java environment
+brew "jenv"
+# Regular expressions library
+brew "oniguruma"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Run local Kubernetes cluster in Docker
+brew "kind"
+# Statically typed programming language for the JVM
+brew "kotlin"
+# Kubernetes command-line interface
+brew "kubernetes-cli", link: false
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
+# Conversion library
+brew "libiconv"
+# Postgres C API library
+brew "libpq"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
+# Mac App Store command-line interface
+brew "mas"
+# Uniform interface to a large number of hash algorithms
+brew "mhash"
+# Replacement for the old crypt package and crypt(1) command
+brew "mcrypt"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Generate Objective-C & Swift classes from your Core Data model
+brew "mogenerator"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Open source relational database management system
+brew "mysql"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
+# Install NodeJS versions
+brew "node-build"
+# Manage multiple NodeJS versions
+brew "nodenv"
+# Platform-neutral API for system-level and libc-like functions
+brew "nspr"
+# Libraries for security-enabled client and server applications
+brew "nss"
+# Development kit for the Java programming language
+brew "openjdk@11"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Python dependency management tool
+brew "pipenv"
+# Cross-platform application and UI framework
+brew "qt", link: false
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Object-relational database system
+brew "postgresql"
+# Python version management
+brew "pyenv"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Ruby version manager
+brew "rbenv"
+# Persistent key-value database, with built-in net interface
+brew "redis"
+# Readline wrapper: adds readline support to tools that lack it
+brew "rlwrap"
+# Powerful, clean, object-oriented scripting language
+brew "ruby"
+# Build tool for Scala projects
+brew "sbt"
+# JVM-based programming language
+brew "scala"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Version control system designed to be a better CVS
+brew "subversion"
+# Tool to build, change, and version infrastructure
+brew "terraform"
+# Code-search similar to ack
+brew "the_silver_searcher"
+# Granddaddy of HTML tools, with support for modern standards
+brew "tidy-html5"
+# Text interface for Git repositories
+brew "tig"
+# Terminal multiplexer
+brew "tmux"
+# Command-line translator using Google Translate and more
+brew "translate-shell"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Command-line unarchiving tools supporting multiple formats
+brew "unar"
+# Extract, view, and test RAR archives
+brew "unrar"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Cross-platform C++ GUI toolkit (wxWidgets for macOS)
+brew "wxmac"
+# Manipulate Xcode project files
+brew "xcproj"
+# JavaScript package manager
+brew "yarn"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# Process YAML documents from the CLI
+brew "yq"
+# New zlib (gzip, deflate) compatible compressor
+brew "zopfli"
+brew "cloudfoundry/tap/cf-cli"
+# node.js dependency for heroku
+brew "heroku/brew/heroku-node", link: true
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Prebuilt OpenJDK binaries
+cask "adoptopenjdk8"
+cask "amazon-workspaces"
+# Automatic tiling window manager similar to xmonad
+cask "amethyst"
+# Android SDK component
+cask "android-platform-tools"
+# Tools for building Android applications
+cask "android-studio"
+# Application uninstaller
+cask "appcleaner"
+# Text editor
+cask "atom"
+# Collaborate on design files
+cask "avocode"
+cask "bestres"
+# Utility to create and modify archives
+cask "betterzip"
+# Utility that prevents the system from going to sleep
+cask "caffeine"
+# Web debugging Proxy application
+cask "charles"
+# Clipboard extension app
+cask "clipy"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Draw.io is free online diagram software
+cask "drawio"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+cask "expo-xde"
+# Collaborative team software
+cask "figma"
+# Web browser
+cask "firefox"
+cask "font-source-han-code-jp"
+cask "gifcapture"
+# Git interface focused on visual interaction
+cask "gitup"
+# Web browser
+cask "google-chrome"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "google-cloud-sdk"
+cask "google-japanese-ime"
+# IDE for Java development - community edition
+cask "intellij-idea-ce"
+cask "java"
+# End-to-end encryption software
+cask "keybase"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# QuickLook plug-in that renders source code with syntax highlighting
+cask "qlcolorcode"
+# QuickLook generator for Markdown files
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
+# Web browser
+cask "safari-technology-preview"
+# MySQL/MariaDB database management platform
+cask "sequel-pro"
+# Screen capture tool with mark up and sharing features
+cask "skitch"
+# Music streaming service
+cask "spotify"
+# Unpacks archive files
+cask "the-unarchiver"
+# Free and open-source OpenVPN client
+cask "tunnelblick"
+# Development environment
+cask "vagrant"
+# Open-source code editor
+cask "visual-studio-code"
+# Multimedia player
+cask "vlc"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
+# Share, organize and collaborate on designs
+cask "zeplin"
+# Temporary makeshift alias for the video communication tool Zoom
+cask "zoomus"
+mas "com.echodot.Red", id: 1491764008
+mas "Kindle", id: 405399194
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
