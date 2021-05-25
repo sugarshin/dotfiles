@@ -1,3 +1,4 @@
 alias k='kubectl'
 alias g='git'
 alias d='docker'
+alias kctx='kubectx'
