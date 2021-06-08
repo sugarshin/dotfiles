@@ -2,3 +2,4 @@ alias k='kubectl'
 alias g='git'
 alias d='docker'
 alias kctx='kubectx'
+alias drma="docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs docker rm"
