@@ -230,8 +230,6 @@ brew "protobuf"
 brew "mysql"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
-brew "nginx"
 # Install NodeJS versions
 brew "node-build"
 # Manage multiple NodeJS versions
@@ -242,6 +240,8 @@ brew "nspr"
 brew "nss"
 # Development kit for the Java programming language
 brew "openjdk@11"
+# Command-line client for OpenStack
+brew "openstackclient"
 # Highly capable, feature-rich programming language
 brew "perl"
 # Pinentry for GPG on Mac
@@ -254,6 +254,8 @@ brew "poppler"
 brew "postgresql"
 # Python version management
 brew "pyenv"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
 # Cross-platform application and UI framework
 brew "qt"
 # Install various Ruby versions and implementations
@@ -313,9 +315,6 @@ brew "heroku/brew/heroku"
 cask "1password"
 # Prebuilt OpenJDK binaries
 cask "adoptopenjdk8"
-cask "amazon-workspaces"
-# Automatic tiling window manager similar to xmonad
-cask "amethyst"
 # Android SDK component
 cask "android-platform-tools"
 # Tools for building Android applications
@@ -324,15 +323,11 @@ cask "android-studio"
 cask "appcleaner"
 # Text editor
 cask "atom"
-# Collaborate on design files
-cask "avocode"
 cask "bestres"
 # Utility to create and modify archives
 cask "betterzip"
 # Utility that prevents the system from going to sleep
 cask "caffeine"
-# Web debugging Proxy application
-cask "charles"
 # Clipboard extension app
 cask "clipy"
 # App to build and share containerized applications and microservices
@@ -341,7 +336,6 @@ cask "docker"
 cask "drawio"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
-cask "expo-xde"
 # Collaborative team software
 cask "figma"
 # Web browser
@@ -386,7 +380,11 @@ cask "visual-studio-code"
 cask "vlc"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# Share, organize and collaborate on designs
+cask "zeplin"
 # Temporary makeshift alias for the video communication tool Zoom
 cask "zoomus"
+mas "com.echodot.Red", id: 1491764008
 mas "Kindle", id: 405399194
+mas "Pages", id: 409201541
 mas "Xcode", id: 497799835
