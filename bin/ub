@@ -1,7 +1,9 @@
+#!/bin/bash
+
 # update Brewfile
-function ub () {
-  cd "$DOTFILES/brewfiles"
+ub() {
+  cd "$DOTFILES/brewfiles" || return
   brew bundle dump --describe -f
-  cd - >/dev/null
+  cd - >/dev/null || return
 }
 ub

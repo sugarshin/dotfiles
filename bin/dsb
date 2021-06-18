@@ -1,7 +1,9 @@
+#!/bin/bash
+
 # delete squashed branches
-function dsb () {
+dsb() {
   base=${1:-master}
   git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base $base $branch) && [[ $(git cherry $base $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
 }
 
-dsb $1
+dsb "$1"

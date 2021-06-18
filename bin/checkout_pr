@@ -1,10 +1,12 @@
+#!/bin/bash
+
 # checkout pull request
 # $DOTFILES/bin/checkout_pr ${pr_number}
-function checkout_pr () {
+checkout_pr() {
   set -eu
   pr_number=${1}
   git fetch origin "pull/${pr_number}/head:pr/${pr_number}"
   git checkout "pr/${pr_number}"
 }
 
-checkout_pr $1
+checkout_pr "$1"

@@ -1,9 +1,11 @@
+#!/bin/bash
+
 # display docker repository tags.
-function ds() {
+ds() {
   TOKEN=$(curl -sSG "https://auth.docker.io/token" --data-urlencode "service=registry.docker.io" --data-urlencode "scope=repository:${1}:pull" | jq -r .token)
 
   curl "https://registry.hub.docker.com/v2/${1}/tags/list" \
     -H "Authorization: Bearer ${TOKEN}"
 }
 
-ds $1
+ds "$1"
