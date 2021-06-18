@@ -1,0 +1,6 @@
+#!/bin/bash
+main() {
+  set -euo pipefail
+  echo "${1} ${2}" | sudo sh -c 'cat - >> /etc/hosts'
+}
+main "$@"
