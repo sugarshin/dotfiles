@@ -40,4 +40,4 @@ Session.vim
 .aws
 .npmrc
 .config
-
+*.pem
