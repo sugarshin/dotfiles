@@ -1,6 +1,7 @@
 if [ -d ~/dotfiles ]; then
   cd ~/dotfiles
-  git pull origin master
+  git fetch origin --prune
+  git reset --hard origin/master
   cd -
 else
   git clone git@github.com:sugarshin/dotfiles.git ~/dotfiles
