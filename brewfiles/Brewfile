@@ -383,7 +383,7 @@ cask "xquartz"
 # Share, organize and collaborate on designs
 cask "zeplin"
 # Temporary makeshift alias for the video communication tool Zoom
-cask "zoomus"
+cask "zoom"
 mas "com.echodot.Red", id: 1491764008
 mas "Kindle", id: 405399194
 mas "Pages", id: 409201541
