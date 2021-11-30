@@ -12,6 +12,7 @@
 	ad = add
 	ps = push
 	pl = pull
+	chp = cherry-pick
 	cpr = pull-request
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|develop$|main$' | xargs -I % git branch -d %
