@@ -12,6 +12,7 @@
 	ad = add
 	ps = push
 	pl = pull
+	c = clean -fd
 	chp = cherry-pick
 	cpr = pull-request
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
