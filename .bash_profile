@@ -31,9 +31,9 @@ eval "$(nodenv init -)"
 
 # colordiff
 if [[ -x `which colordiff` ]]; then
-  alias diff='colordiff -u'
+  alias diff='colordiff'
 else
-  alias diff='diff -u'
+  alias diff='diff'
 fi
 
 . "$HOME/.cargo/env"
