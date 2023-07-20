@@ -11,15 +11,6 @@ eval "$(nodenv init -)"
 ### rbenv
 eval "$(rbenv init -)"
 
-### goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-#export GOENV_DISABLE_GOPATH=1 # depends on project
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-#export GOPATH="${HOME}/dev" # depends on project
-export PATH="$PATH:$GOPATH/bin"
-
 ### rbenv
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"

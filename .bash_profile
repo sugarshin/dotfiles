@@ -13,13 +13,6 @@ PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export GPG_TTY=$(tty)
 
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
-
 export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 
 # rbenv
