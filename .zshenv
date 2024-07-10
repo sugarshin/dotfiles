@@ -1,10 +1,4 @@
 export DOTFILES=${HOME}/dotfiles
-export PATH=${PATH}:${HOME}/bin:${DOTFILES}/bin
-
-export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
-
+export PATH=${PATH}:${DOTFILES}/bin
+export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-GPG_TTY=$(tty)
-export GPG_TTY
-
-. "$HOME/.cargo/env"
