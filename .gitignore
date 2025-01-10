@@ -41,3 +41,4 @@ Session.vim
 .npmrc
 .config
 *.pem
+secret
