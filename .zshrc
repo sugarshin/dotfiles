@@ -3,6 +3,7 @@
 autoload -zU compinit && compinit
 autoload -U add-zsh-hook
 
+export LANG=en_US.UTF-8
 export LANG='en_US.UTF-8'
 
 ### nodenv
