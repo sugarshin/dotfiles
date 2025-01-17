@@ -13,7 +13,7 @@ setup() {
 
 setup "$DOTFILES"/setup/*.sh
 
-if [ "$(uname -s)" = 'Darwin' ]; then
-  setup "$DOTFILES/setup/darwin/*.sh"
-  setup "$DOTFILES/setup/darwin/post/*.sh"
-fi
+# if [ "$(uname -s)" = 'Darwin' ]; then
+#   setup "$DOTFILES/setup/darwin/*.sh"
+#   setup "$DOTFILES/setup/darwin/post/*.sh"
+# fi
