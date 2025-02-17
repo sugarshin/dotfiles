@@ -7,3 +7,5 @@ export LC_ALL=en_US.UTF-8
 GPG_TTY=$(tty)
 export GPG_TTY
 
+autoload -U promptinit; promptinit
+prompt pure

@@ -2,12 +2,11 @@
 
 autoload -zU compinit && compinit
 autoload -U add-zsh-hook
+autoload -U promptinit; promptinit
+prompt pure
 
 export LANG=en_US.UTF-8
 export LANG='en_US.UTF-8'
-
-### nodenv
-eval "$(nodenv init -)"
 
 ### colordiff
 if [[ -x `which colordiff` ]]; then
@@ -15,5 +14,3 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff'
 fi
-
-alias nodenvu='nodenv update-version-defs'
