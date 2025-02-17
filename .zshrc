@@ -14,3 +14,5 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff'
 fi
+
+eval "$(nodenv init - zsh)"
