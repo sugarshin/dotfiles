@@ -24,7 +24,7 @@
 	d = diff
 	pso = !git push origin $(git rev-parse --abbrev-ref HEAD)
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
-	b = !hub browse
+	b = !gh browse
 	copr = !$DOTFILES/bin/checkout_pr
 [push]
 	default = simple
