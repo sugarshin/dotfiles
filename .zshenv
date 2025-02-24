@@ -7,3 +7,4 @@ export LC_ALL=en_US.UTF-8
 GPG_TTY=$(tty)
 export GPG_TTY
 
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
