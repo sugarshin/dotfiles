@@ -42,3 +42,14 @@ eval "$(nodenv init - zsh)"
 
 # add-zsh-hook chpwd load-nvmrc
 # load-nvmrc
+
+# bun completions
+[ -s "/Users/shingosato/.bun/_bun" ] && source "/Users/shingosato/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bum
+export BUM_INSTALL="$HOME/.bum"
+export PATH="$BUM_INSTALL/bin:$PATH"
