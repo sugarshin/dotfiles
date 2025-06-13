@@ -1,4 +1,5 @@
 [ -f ~/.commonrc ] && source ~/.commonrc
+[ -f ~/.secret ] && source ~/.secret
 
 autoload -zU compinit && compinit
 autoload -U add-zsh-hook
@@ -22,10 +23,6 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# bum
-export BUM_INSTALL="$HOME/.bum"
-export PATH="$BUM_INSTALL/bin:$PATH"
-
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -33,3 +30,6 @@ eval "$(pyenv init - zsh)"
 
 # fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
+
+# tenv
+source $HOME/.tenv.completion.zsh
