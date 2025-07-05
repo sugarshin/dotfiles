@@ -1,0 +1,7 @@
+#!/bin/bash
+
+dcd() {
+  docker-compose down --rmi all --volumes --remove-orphans
+}
+
+dcd
