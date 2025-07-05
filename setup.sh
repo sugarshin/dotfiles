@@ -15,6 +15,6 @@ setup "$DOTFILES"/setup/*.sh
 
 if [ "$(uname -s)" = 'Darwin' ]; then
   setup "$DOTFILES/setup/darwin/defaults.sh"
-  # setup "$DOTFILES/setup/darwin/*.sh"
-  # setup "$DOTFILES/setup/darwin/post/*.sh"
+  setup "$DOTFILES/setup/darwin/*.sh"
+  setup "$DOTFILES/setup/darwin/post/*.sh"
 fi
