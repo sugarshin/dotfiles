@@ -19,5 +19,18 @@
       "Bash(wget:*)",
       "Bash(nc:*)"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/deny-check.sh"
+          }
+        ]
+      }
+    ]
   }
 }
