@@ -5,3 +5,5 @@ alias kctx='kubectx'
 alias caff='caffeinate -dims'
 alias c='cursor'
 alias cl='claude'
+alias cld='cl --dangerously-skip-permissions'
+
