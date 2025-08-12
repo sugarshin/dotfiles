@@ -42,3 +42,6 @@ Session.vim
 .config
 *.pem
 secret
+
+# Serena
+.serena/

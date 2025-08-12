@@ -33,3 +33,17 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # tenv
 source $HOME/.tenv.completion.zsh
+
+
+# Claude Code Slash Commands
+export PATH="/Users/shingosato/.claude-code-slash-commands:$PATH"
+alias ccsc-setup="/Users/shingosato/.claude-code-slash-commands/setup.sh"
+alias ccsc-update="/Users/shingosato/.claude-code-slash-commands/utils/update.sh"
+alias claude="/Users/shingosato/.claude/local/claude"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/shingosato/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

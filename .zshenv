@@ -1,5 +1,5 @@
 export DOTFILES=${HOME}/dotfiles
-export PATH=${PATH}:${HOME}/bin:${DOTFILES}/bin
+export PATH=${PATH}:${HOME}/bin:${DOTFILES}/bin:${HOME}/.claude/local
 
 export HISTTIMEFORMAT='%Y-%m-%dT%T%z '
 

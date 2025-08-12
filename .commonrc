@@ -1,9 +1,11 @@
 alias k='kubectl'
+alias v='vim'
 alias g='git'
 alias d='docker'
 alias kctx='kubectx'
 alias caff='caffeinate -dims'
 alias c='cursor'
+alias code='c'
 alias cl='claude'
 alias cld='cl --dangerously-skip-permissions'
 
