@@ -26,8 +26,8 @@
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 	b = !gh browse
 	copr = !$DOTFILES/bin/checkout_pr
-	wad = "!git-worktree-add.sh"
-	ro = "!git-rebase-onto.sh"
+	wad = "!$DOTFILES/scripts/git-worktree-add.sh"
+	ro = "!$DOTFILES/scripts/git-rebase-onto.sh"
 [push]
 	default = simple
 [gpg]
