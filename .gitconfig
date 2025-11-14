@@ -26,6 +26,7 @@
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 	b = !gh browse
 	copr = !$DOTFILES/bin/checkout_pr
+	wad = "!git-worktree-add.sh"
 [push]
 	default = simple
 [gpg]
