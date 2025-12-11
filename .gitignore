@@ -45,3 +45,5 @@ secret
 
 # Serena
 .serena/
+
+.claude/*.local.json

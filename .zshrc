@@ -8,6 +8,7 @@ prompt pure
 
 export LANG=en_US.UTF-8
 export LANG='en_US.UTF-8'
+export EDITOR='vim'
 
 ### colordiff
 if [[ -x `which colordiff` ]]; then
@@ -47,3 +48,6 @@ fpath=(/Users/shingosato/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# Added by Antigravity
+export PATH="/Users/shingosato/.antigravity/antigravity/bin:$PATH"

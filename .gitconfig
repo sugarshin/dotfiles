@@ -50,3 +50,7 @@
 	; example:
 	; [includeIf "gitdir:~/dev/src/foo.com/"]
 	; 	path = ~/dev/src/foo.com/.gitconfig
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
