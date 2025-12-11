@@ -22,6 +22,7 @@
 	bwc = "!f(){ ignore=${1:-(?!)}; user=${2:-"(sugarshin\\\\|(Shingo Sato"}; git ls-files | grep -v \"$ignore\" | xargs -n1 git --no-pager blame -f -w | grep \"${user}\" | wc -l;};f"
 	f = fetch origin --prune
 	d = diff
+	dt = difftool
 	pso = !git push origin $(git rev-parse --abbrev-ref HEAD)
 	plo = !git pull origin $(git rev-parse --abbrev-ref HEAD)
 	b = !gh browse
