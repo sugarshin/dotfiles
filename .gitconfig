@@ -28,6 +28,7 @@
 	b = !gh browse
 	copr = !$DOTFILES/bin/checkout_pr
 	wad = "!$DOTFILES/scripts/git-worktree-add.sh"
+	wrm = "!$DOTFILES/scripts/git-worktree-rm.sh"
 	ro = "!$DOTFILES/scripts/git-rebase-onto.sh"
 [push]
 	default = simple
