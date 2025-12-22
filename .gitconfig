@@ -56,3 +56,4 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+	trustExitCode = true
