@@ -47,3 +47,11 @@ secret
 .serena/
 
 .claude/*.local.json
+
+# wtp (https://github.com/satococoa/wtp)
+.wtp.yml
+
+ignored/
+
+# Neovim
+nvim/lazy-lock.json

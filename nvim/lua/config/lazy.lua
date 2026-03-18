@@ -1,0 +1,1 @@
+-- This file is intentionally empty. LazyVim options are set in init.lua.

@@ -1,5 +1,5 @@
 alias k='kubectl'
-alias v='vim'
+alias v='nvim'
 alias g='git'
 alias d='docker'
 alias kctx='kubectx'
@@ -8,4 +8,5 @@ alias c='cursor'
 alias code='c'
 alias cl='claude'
 alias cld='cl --dangerously-skip-permissions'
-
+alias pcli='playwright-cli'a
+alias gl='glow -p'

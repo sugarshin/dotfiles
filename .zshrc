@@ -1,6 +1,11 @@
 [ -f ~/.commonrc ] && source ~/.commonrc
 [ -f ~/.secret ] && source ~/.secret
 
+fpath=(~/.zsh/completions $fpath)
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/shingosato/.docker/completions $fpath)
+eval "$(zoxide init zsh)"
+
 autoload -zU compinit && compinit
 autoload -U add-zsh-hook
 autoload -U promptinit; promptinit
@@ -40,14 +45,9 @@ source $HOME/.tenv.completion.zsh
 export PATH="/Users/shingosato/.claude-code-slash-commands:$PATH"
 alias ccsc-setup="/Users/shingosato/.claude-code-slash-commands/setup.sh"
 alias ccsc-update="/Users/shingosato/.claude-code-slash-commands/utils/update.sh"
-alias claude="/Users/shingosato/.claude/local/claude"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/shingosato/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 
 # Added by Antigravity
 export PATH="/Users/shingosato/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
