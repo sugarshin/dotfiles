@@ -1,5 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "env": {
+    "CLAUDE_CODE_ENABLE_TASKS": "true",
+    "ENABLE_TOOL_SEARCH": "true",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_LOGS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf"
+  },
   "permissions": {
     "allow": [
       "Bash(git rev-parse:*)"
@@ -8,7 +16,6 @@
       "Bash(sudo:*)",
       "Bash(rm:*)",
       "Bash(rm -rf:*)",
-      "Bash(git push:*)",
       "Bash(git reset:*)",
       "Bash(git rebase:*)",
       "Read(.env.*)",
@@ -18,11 +25,61 @@
       "Read(**/*key*)"
     ]
   },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/review-agent/hooks/session-start.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.config/review-agent/hooks/stop.sh"
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "npx --yes ccusage@latest statusline"
   },
+  "enabledPlugins": {
+    "dinii-kpi@dinii-tools": true,
+    "my-insights@dinii-tools": true,
+    "customer-insights@dinii-tools": true,
+    "deep-plan@dinii-tools": true,
+    "dinii-color@dinii-tools": true,
+    "engineering-knowledge@dinii-tools": true,
+    "bakuraku-expense@dinii-tools": true,
+    "figma@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "dinii-conventions@dinii-tools": true,
+    "tech-article-writer@dinii-tools": true,
+    "notion-docs@dinii-tools": true,
+    "persona-analyzer@dinii-tools": true,
+    "slack-post-generator@dinii-tools": true,
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {},
+  "language": "Japanese",
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "minimumVersion": "2.1.58",
+  "voiceEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
   }

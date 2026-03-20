@@ -8,5 +8,5 @@ alias c='cursor'
 alias code='c'
 alias cl='claude'
 alias cld='cl --dangerously-skip-permissions'
-alias pcli='playwright-cli'a
 alias gl='glow -p'
+
