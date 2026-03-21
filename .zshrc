@@ -38,7 +38,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # --- Plugins ---
 [ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
-[ -f ~/.config/zsh/workspace.zsh ] && source ~/.config/zsh/workspace.zsh
 
 # --- Integrations ---
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
