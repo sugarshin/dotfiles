@@ -1,33 +1,24 @@
+# --- Source ---
 [ -f ~/.commonrc ] && source ~/.commonrc
 [ -f ~/.secret ] && source ~/.secret
 
-fpath=(~/.zsh/completions $fpath)
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/shingosato/.docker/completions $fpath)
-eval "$(zoxide init zsh)"
+# --- Environment ---
+export LANG='en_US.UTF-8'
+export EDITOR='vim'
 
+# --- Completion ---
+fpath=(~/.zsh/completions $fpath)
+fpath=(/Users/shingosato/.docker/completions $fpath)
 autoload -zU compinit && compinit
+
+# --- Prompt ---
 autoload -U add-zsh-hook
 autoload -U promptinit; promptinit
 prompt pure
 
-export LANG=en_US.UTF-8
-export LANG='en_US.UTF-8'
-export EDITOR='vim'
-
-### colordiff
-if [[ -x `which colordiff` ]]; then
-  alias diff='colordiff'
-else
-  alias diff='diff'
-fi
-
-# bun completions
-[ -s "/Users/shingosato/.bun/_bun" ] && source "/Users/shingosato/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# --- Tools ---
+# zoxide
+eval "$(zoxide init zsh)"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -40,14 +31,16 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # tenv
 source $HOME/.tenv.completion.zsh
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/Users/shingosato/.bun/_bun" ] && source "/Users/shingosato/.bun/_bun"
 
-# Claude Code Slash Commands
-export PATH="/Users/shingosato/.claude-code-slash-commands:$PATH"
-alias ccsc-setup="/Users/shingosato/.claude-code-slash-commands/setup.sh"
-alias ccsc-update="/Users/shingosato/.claude-code-slash-commands/utils/update.sh"
+# --- Plugins ---
+[ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
+[ -f ~/.config/zsh/workspace.zsh ] && source ~/.config/zsh/workspace.zsh
 
+# --- Integrations ---
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
-# Added by Antigravity
 export PATH="/Users/shingosato/.antigravity/antigravity/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
