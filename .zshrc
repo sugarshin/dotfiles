@@ -28,6 +28,9 @@ eval "$(pyenv init - zsh)"
 # fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
 
+# wtp
+eval "$(wtp shell-init zsh)"
+
 # tenv
 source $HOME/.tenv.completion.zsh
 

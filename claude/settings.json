@@ -63,7 +63,6 @@
     "bakuraku-expense@dinii-tools": true,
     "figma@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "dinii-conventions@dinii-tools": true,
     "tech-article-writer@dinii-tools": true,
@@ -72,12 +71,19 @@
     "slack-post-generator@dinii-tools": true,
     "superpowers@claude-plugins-official": true
   },
-  "extraKnownMarketplaces": {},
+  "extraKnownMarketplaces": {
+    "claude-code-skills": {
+      "source": {
+        "source": "github",
+        "repo": "alirezarezvani/claude-skills"
+      }
+    }
+  },
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "autoUpdatesChannel": "latest",
-  "minimumVersion": "2.1.58",
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.81",
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
