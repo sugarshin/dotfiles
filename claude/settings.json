@@ -51,7 +51,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "npx --yes ccusage@latest statusline"
+    "command": "~/.claude/statusline.ts"
   },
   "enabledPlugins": {
     "dinii-kpi@dinii-tools": true,
@@ -69,7 +69,9 @@
     "notion-docs@dinii-tools": true,
     "persona-analyzer@dinii-tools": true,
     "slack-post-generator@dinii-tools": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "sentry@claude-plugins-official": true,
+    "statusline-reporter@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
