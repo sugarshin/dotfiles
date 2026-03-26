@@ -16,8 +16,6 @@
       "Bash(sudo:*)",
       "Bash(rm:*)",
       "Bash(rm -rf:*)",
-      "Bash(git reset:*)",
-      "Bash(git rebase:*)",
       "Read(.env.*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
@@ -51,7 +49,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.ts"
+    "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "dinii-kpi@dinii-tools": true,
