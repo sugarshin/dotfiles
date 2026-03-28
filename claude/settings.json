@@ -69,7 +69,9 @@
     "slack-post-generator@dinii-tools": true,
     "superpowers@claude-plugins-official": true,
     "sentry@claude-plugins-official": true,
-    "statusline-reporter@dinii-tools": true
+    "statusline-reporter@dinii-tools": true,
+    "member-lookup@dinii-tools": true,
+    "playwright@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
