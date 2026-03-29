@@ -7,8 +7,18 @@ return {
           visible = true,
           hide_dotfiles = false,
           hide_gitignored = false,
+          never_show = {
+            ".git",
+            "node_modules",
+          },
         },
       },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = { enabled = false },
     },
   },
 }
