@@ -2,6 +2,17 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     opts = {
+      window = {
+        mappings = {
+          ["Y"] = function(state)
+            local node = state.tree:get_node()
+            local absolute = node:get_id()
+            local relative = vim.fn.fnamemodify(absolute, ":." )
+            vim.fn.setreg("+", relative)
+            vim.notify("Copied: " .. relative)
+          end,
+        },
+      },
       filesystem = {
         filtered_items = {
           visible = true,
