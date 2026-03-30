@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_ENABLE_TASKS": "true",
     "ENABLE_TOOL_SEARCH": "true",
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
@@ -9,13 +10,7 @@
     "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf"
   },
   "permissions": {
-    "allow": [
-      "Bash(git rev-parse:*)"
-    ],
     "deny": [
-      "Bash(sudo:*)",
-      "Bash(rm:*)",
-      "Bash(rm -rf:*)",
       "Read(.env.*)",
       "Read(id_rsa)",
       "Read(id_ed25519)",
