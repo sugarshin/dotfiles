@@ -71,7 +71,8 @@
     "sentry@claude-plugins-official": true,
     "statusline-reporter@dinii-tools": true,
     "member-lookup@dinii-tools": true,
-    "playwright@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "daily-report@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
