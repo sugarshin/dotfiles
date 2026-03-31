@@ -68,3 +68,10 @@ add_symlink "claude/scripts/deny-check.sh" "${HOME}/.claude/scripts/deny-check.s
 add_symlink "nvim" "${HOME}/.config/nvim"
 
 echo "Dotfiles setup complete!"
+
+# Private dotfiles
+PRIVATE_DOTFILES="${HOME}/dotfiles-private"
+if [ -d "$PRIVATE_DOTFILES" ] && [ -f "$PRIVATE_DOTFILES/setup/dotfiles.sh" ]; then
+  echo "Setting up private dotfiles..."
+  /bin/sh "$PRIVATE_DOTFILES/setup/dotfiles.sh"
+fi
