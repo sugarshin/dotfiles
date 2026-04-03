@@ -82,10 +82,10 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "autoUpdatesChannel": "stable",
-  "minimumVersion": "2.1.81",
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  }
+  },
+  "minimumVersion": "2.1.91"
 }
