@@ -12,3 +12,5 @@ brew bundle --file="${BREWFILES}/Brewfile"
 if [ -f "${BREWFILES}/Brewfile.local" ]; then
   brew bundle --file="${BREWFILES}/Brewfile.local"
 fi
+
+brew autoremove

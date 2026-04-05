@@ -1,5 +1,6 @@
 # --- Homebrew (must be first - sets PATH, HOMEBREW_PREFIX, etc.) ---
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_BUNDLE_FILE="${DOTFILES}/brewfiles/Brewfile"
 
 # --- Environment ---
 export LANG="en_US.UTF-8"
