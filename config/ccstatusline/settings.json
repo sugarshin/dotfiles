@@ -34,6 +34,7 @@
         "id": "15",
         "type": "current-working-dir",
         "color": "blue",
+        "rawValue": true,
         "metadata": {
           "abbreviateHome": "true"
         }
@@ -54,36 +55,48 @@
         "id": "12",
         "type": "context-percentage",
         "color": "brightCyan"
-      },
+      }
+    ],
+    [
       {
-        "id": "5",
-        "type": "separator"
+        "id": "20",
+        "type": "custom-text",
+        "color": "green",
+        "customText": "5h: "
       },
       {
         "id": "6",
         "type": "session-usage",
-        "color": "green"
+        "color": "green",
+        "rawValue": true
       },
       {
         "id": "7",
         "type": "separator"
       },
       {
+        "id": "21",
+        "type": "custom-text",
+        "color": "brightYellow",
+        "customText": "7d: "
+      },
+      {
         "id": "8",
         "type": "weekly-usage",
-        "color": "brightYellow"
+        "color": "brightYellow",
+        "rawValue": true
       },
       {
         "id": "9",
         "type": "separator"
       },
-      {
+     {
         "id": "16",
         "type": "weekly-reset-timer",
-        "color": "brightBlack"
+        "color": "brightBlack",
+        "rawValue": false 
       }
-    ],
-    []
+    ]
   ],
   "flexMode": "full",
   "compactThreshold": 99,
