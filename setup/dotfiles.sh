@@ -80,6 +80,8 @@ add_symlink "claude/settings.json" "${HOME}/.claude/settings.json"
 add_symlink "config/ccstatusline" "${HOME}/.config/ccstatusline"
 add_symlink "config/nvim" "${HOME}/.config/nvim"
 add_symlink "config/karabiner" "${HOME}/.config/karabiner"
+add_symlink "config/gh-dash" "${HOME}/.config/gh-dash"
+add_symlink "config/lazygit" "${HOME}/.config/lazygit"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then
