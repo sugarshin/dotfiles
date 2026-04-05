@@ -2,47 +2,49 @@
 [ -f ~/.commonrc ] && source ~/.commonrc
 [ -f ~/.secret ] && source ~/.secret
 
-# --- Environment ---
-export LANG='en_US.UTF-8'
-export EDITOR='nvim'
+# --- History ---
+HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
 
-# --- Completion ---
-fpath=(~/.zsh/completions $fpath)
-fpath=(/Users/shingosato/.docker/completions $fpath)
-autoload -zU compinit && compinit
+# --- GPG ---
+export GPG_TTY=$TTY
 
 # --- Prompt ---
-autoload -U add-zsh-hook
-autoload -U promptinit; promptinit
+autoload -Uz add-zsh-hook
+autoload -Uz promptinit && promptinit
 prompt pure
 
+# --- Completion ---
+fpath=(
+  ~/.zsh/completions
+  ~/.docker/completions
+  $fpath
+)
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 # --- Tools ---
-# zoxide
 eval "$(zoxide init zsh)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-
-# fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
-
-# wtp
+eval "$(rbenv init - --no-rehash zsh)"
 eval "$(wtp shell-init zsh)"
-
-# tenv
-source $HOME/.tenv.completion.zsh
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-[ -s "/Users/shingosato/.bun/_bun" ] && source "/Users/shingosato/.bun/_bun"
+[ -f ~/.tenv.completion.zsh ] && source ~/.tenv.completion.zsh
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 # --- Plugins ---
 [ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
 
 # --- Integrations ---
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-export PATH="/Users/shingosato/.antigravity/antigravity/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"

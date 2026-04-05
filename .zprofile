@@ -1,8 +1,27 @@
+# --- Homebrew (must be first - sets PATH, HOMEBREW_PREFIX, etc.) ---
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Added by `rbenv init` on Thu Feb 27 15:24:27 JST 2025
-eval "$(rbenv init - --no-rehash zsh)"
+# --- Environment ---
+export LANG="en_US.UTF-8"
+export EDITOR="nvim"
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# --- Tool Roots ---
+export PYENV_ROOT="$HOME/.pyenv"
+export BUN_INSTALL="$HOME/.bun"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+
+# --- PATH ---
+typeset -U path
+path=(
+  $HOME/.local/bin
+  $HOME/.antigravity/antigravity/bin
+  $BUN_INSTALL/bin
+  $PYENV_ROOT/bin
+  /opt/homebrew/opt/postgresql@17/bin
+  $ANDROID_HOME/emulator
+  $ANDROID_HOME/platform-tools
+  $HOME/bin
+  $DOTFILES/bin
+  $HOME/.claude/local
+  $path
+)
