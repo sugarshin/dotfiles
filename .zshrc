@@ -4,7 +4,7 @@
 
 # --- Environment ---
 export LANG='en_US.UTF-8'
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # --- Completion ---
 fpath=(~/.zsh/completions $fpath)

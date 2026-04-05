@@ -1,5 +1,6 @@
 alias k='kubectl'
 alias v='nvim'
+alias vim='nvim'
 alias g='git'
 alias d='docker'
 alias kctx='kubectx'
