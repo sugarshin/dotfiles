@@ -21,10 +21,22 @@ backup() {
 }
 
 symlink() {
-  ORG=$1
-  DST=$2
-  echo "Symlinking: ${ORG} -> ${DST}"
-  ln -sf "$ORG" "$DST"
+  local src="$1"
+  local dst="$2"
+  if [ -L "$dst" ]; then
+    local current=$(readlink "$dst")
+    if [ "$current" = "$src" ]; then
+      return
+    fi
+    printf "Conflict: %s -> %s (new: %s). Overwrite? [y/N] " "$dst" "$current" "$src"
+    read answer
+    if [ "$answer" != "y" ]; then
+      echo "Skipping $dst"
+      return
+    fi
+  fi
+  echo "Symlinking: ${src} -> ${dst}"
+  ln -sfn "$src" "$dst"
 }
 
 # Symlink dotfiles (existing functionality)
@@ -66,6 +78,26 @@ add_symlink() {
 add_symlink "claude/settings.json" "${HOME}/.claude/settings.json"
 add_symlink "claude/scripts/deny-check.sh" "${HOME}/.claude/scripts/deny-check.sh"
 add_symlink "nvim" "${HOME}/.config/nvim"
+
+# claude/skills (per-directory symlinks)
+if [ -d "${DOTFILES}/claude/skills" ]; then
+  mkdir -p "${HOME}/.claude/skills"
+  for d in "${DOTFILES}"/claude/skills/*/; do
+    [ -d "$d" ] || continue
+    BASENAME=$(basename "$d")
+    symlink "$d" "${HOME}/.claude/skills/${BASENAME}"
+  done
+fi
+
+# claude/agents (per-file symlinks)
+if [ -d "${DOTFILES}/claude/agents" ]; then
+  mkdir -p "${HOME}/.claude/agents"
+  for f in "${DOTFILES}"/claude/agents/*; do
+    [ -e "$f" ] || continue
+    BASENAME=$(basename "$f")
+    symlink "$f" "${HOME}/.claude/agents/${BASENAME}"
+  done
+fi
 
 echo "Dotfiles setup complete!"
 

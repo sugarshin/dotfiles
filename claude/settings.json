@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.config/review-agent/hooks/session-start.sh"
+            "command": "~/.claude/hooks/dispatch.sh SessionStart"
           }
         ]
       }
@@ -36,7 +36,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.config/review-agent/hooks/stop.sh"
+            "command": "~/.claude/hooks/dispatch.sh Stop"
           }
         ]
       }
@@ -49,10 +49,8 @@
   "enabledPlugins": {
     "dinii-kpi@dinii-tools": true,
     "my-insights@dinii-tools": true,
-    "customer-insights@dinii-tools": true,
     "deep-plan@dinii-tools": true,
     "dinii-color@dinii-tools": true,
-    "engineering-knowledge@dinii-tools": true,
     "bakuraku-expense@dinii-tools": true,
     "figma@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
@@ -82,10 +80,10 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
   "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.91",
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  },
-  "minimumVersion": "2.1.91"
+  }
 }

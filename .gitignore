@@ -43,10 +43,8 @@ Session.vim
 *.pem
 secret
 
-# Serena
-.serena/
-
-.claude/*.local.json
+# Claude Code
+.claude/*.local.*
 
 # wtp (https://github.com/satococoa/wtp)
 .wtp.yml
