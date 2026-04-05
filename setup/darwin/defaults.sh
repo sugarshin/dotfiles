@@ -3,6 +3,7 @@
 set -eux
 
 # Keyboard
+defaults write -g com.apple.keyboard.fnState -bool true
 defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1

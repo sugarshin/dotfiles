@@ -8,7 +8,7 @@ BACKUP_DIR="${HOME}/.dotfiles.backups"
 backup() {
   if [ -e $1 ]; then
     BASENAME=$(basename $1)
-    BACKUP_COUNT=$(find $BACKUP_DIR/$BASENAME* -maxdepth 0 2> /dev/null | wc -l | sed 's/ //g')
+    BACKUP_COUNT=$(find $BACKUP_DIR/$BASENAME* -maxdepth 0 2>/dev/null | wc -l | sed 's/ //g')
 
     mkdir -p "${BACKUP_DIR}"
 
@@ -41,7 +41,7 @@ symlink() {
 
 # Symlink dotfiles (existing functionality)
 echo "Setting up dotfiles..."
-for f in $(find ${DOTFILES} -maxdepth 1 -type f -name .\*) ; do
+for f in $(find ${DOTFILES} -maxdepth 1 -type f -name .\*); do
   BASENAME=$(basename "$f")
   backup "${HOME}/${BASENAME}"
   symlink "$f" "${HOME}/${BASENAME}"
@@ -77,8 +77,8 @@ add_symlink() {
 # Just add a new line with: add_symlink "source_path" "destination_path"
 add_symlink "claude/CLAUDE.md" "${HOME}/.claude/CLAUDE.md"
 add_symlink "claude/settings.json" "${HOME}/.claude/settings.json"
-add_symlink "claude/scripts/deny-check.sh" "${HOME}/.claude/scripts/deny-check.sh"
 add_symlink "nvim" "${HOME}/.config/nvim"
+add_symlink "karabiner" "${HOME}/.config/karabiner"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then
