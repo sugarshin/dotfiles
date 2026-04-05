@@ -75,6 +75,7 @@ add_symlink() {
 
 # Define all specific symlinks here
 # Just add a new line with: add_symlink "source_path" "destination_path"
+add_symlink "claude/CLAUDE.md" "${HOME}/.claude/CLAUDE.md"
 add_symlink "claude/settings.json" "${HOME}/.claude/settings.json"
 add_symlink "claude/scripts/deny-check.sh" "${HOME}/.claude/scripts/deny-check.sh"
 add_symlink "nvim" "${HOME}/.config/nvim"
