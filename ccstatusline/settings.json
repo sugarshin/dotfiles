@@ -1,0 +1,105 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan",
+        "rawValue": true
+      },
+      {
+        "id": "2",
+        "type": "separator"
+      },
+      {
+        "id": "3",
+        "type": "version",
+        "color": "brightBlack"
+      },
+      {
+        "id": "4",
+        "type": "separator"
+      },
+      {
+        "id": "13",
+        "type": "git-branch",
+        "color": "magenta"
+      },
+      {
+        "id": "14",
+        "type": "separator"
+      },
+      {
+        "id": "15",
+        "type": "current-working-dir",
+        "color": "blue",
+        "metadata": {
+          "abbreviateHome": "true"
+        }
+      }
+    ],
+    [
+      {
+        "id": "10",
+        "type": "claude-session-id",
+        "color": "brightBlack",
+        "rawValue": true
+      },
+      {
+        "id": "11",
+        "type": "separator"
+      },
+      {
+        "id": "12",
+        "type": "context-percentage",
+        "color": "brightCyan"
+      },
+      {
+        "id": "5",
+        "type": "separator"
+      },
+      {
+        "id": "6",
+        "type": "session-usage",
+        "color": "green"
+      },
+      {
+        "id": "7",
+        "type": "separator"
+      },
+      {
+        "id": "8",
+        "type": "weekly-usage",
+        "color": "brightYellow"
+      },
+      {
+        "id": "9",
+        "type": "separator"
+      },
+      {
+        "id": "16",
+        "type": "weekly-reset-timer",
+        "color": "brightBlack"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full",
+  "compactThreshold": 99,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}
