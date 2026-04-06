@@ -7,6 +7,8 @@ tap "manaflow-ai/cmux"
 tap "nodenv/nodenv"
 tap "satococoa/tap"
 tap "supabase/tap"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Bash Automated Testing System
