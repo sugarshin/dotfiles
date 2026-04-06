@@ -60,19 +60,27 @@
     "notion-docs@dinii-tools": true,
     "persona-analyzer@dinii-tools": true,
     "slack-post-generator@dinii-tools": true,
-    "superpowers@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": false,
     "sentry@claude-plugins-official": true,
     "statusline-reporter@dinii-tools": true,
     "member-lookup@dinii-tools": true,
     "playwright@claude-plugins-official": true,
     "daily-report@dinii-tools": true,
-    "quarterly-self-eval@dinii-tools": true
+    "quarterly-self-eval@dinii-tools": true,
+    "plugin-dev@claude-plugins-official": true,
+    "sugarshin-tools-private@sugarshin-marketplace-private": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
       "source": {
         "source": "github",
         "repo": "alirezarezvani/claude-skills"
+      }
+    },
+    "sugarshin-marketplace-private": {
+      "source": {
+        "source": "github",
+        "repo": "sugarshin/claude-plugins-sugarshin-private"
       }
     }
   },
