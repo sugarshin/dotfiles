@@ -24,9 +24,13 @@ brew "fastlane"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream select audio and video codecs
-brew "ffmpeg"
+brew "ffmpeg", link: false
+# Play, record, convert, and stream many audio and video codecs
+brew "ffmpeg-full", link: true
 # Fast and simple Node.js version manager
 brew "fnm"
+# Command-line fuzzy finder written in Go
+brew "fzf"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -45,6 +49,8 @@ brew "go-task"
 brew "gogcli"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick-full", link: true
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -67,8 +73,12 @@ brew "pure"
 brew "pyenv"
 # Ruby version manager
 brew "rbenv"
+# SVG rendering tool and library
+brew "resvg"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# 7-Zip is a file archiver with a high compression ratio
+brew "sevenzip"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Easiest, most secure way to use WireGuard and 2FA
@@ -83,6 +93,8 @@ brew "tmux"
 brew "tree"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
 # Programming language designed for robustness, optimality, and clarity
@@ -134,6 +146,7 @@ cask "docker-desktop"
 # Collaborative team software
 cask "figma"
 cask "font-fira-code-nerd-font"
+cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration

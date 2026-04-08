@@ -68,7 +68,8 @@
     "daily-report@dinii-tools": true,
     "quarterly-self-eval@dinii-tools": true,
     "plugin-dev@claude-plugins-official": true,
-    "sugarshin-tools-private@sugarshin-marketplace-private": true
+    "sugarshin-tools-private@sugarshin-marketplace-private": true,
+    "people-management@dinii-productivity-local": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
@@ -87,11 +88,11 @@
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "autoUpdatesChannel": "stable",
-  "minimumVersion": "2.1.91",
+  "autoUpdatesChannel": "latest",
   "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  }
+  },
+  "minimumVersion": "2.1.91"
 }
