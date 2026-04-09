@@ -3,5 +3,10 @@ use = "wylie102/duckdb"
 rev = "3f8c863"
 hash = "87b9233a74325e95011670ed20bbd0d4"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "43c6978"
+hash = "4c0260feb50ea2437380690ffc241da7"
+
 [flavor]
 deps = []
