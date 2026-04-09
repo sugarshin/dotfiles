@@ -5,9 +5,9 @@
 
 [plugin]
 prepend_previewers = [
-  { name = "*.csv", run = "duckdb" },
+  { url = "*.csv", run = "duckdb" },
 ]
 
 prepend_preloaders = [
-  { name = "*.csv", run = "duckdb" },
+  { url = "*.csv", run = "duckdb" },
 ]

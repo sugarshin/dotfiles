@@ -85,6 +85,7 @@ add_symlink "config/lazygit" "${HOME}/.config/lazygit"
 add_symlink "config/zsh" "${HOME}/.config/zsh"
 add_symlink "config/yazi/yazi.toml" "${HOME}/.config/yazi/yazi.toml"
 add_symlink "config/yazi/package.toml" "${HOME}/.config/yazi/package.toml"
+add_symlink "config/yazi/init.lua" "${HOME}/.config/yazi/init.lua"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then
