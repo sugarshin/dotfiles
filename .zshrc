@@ -45,6 +45,7 @@ eval "$(wtp shell-init zsh)"
 
 # --- Plugins ---
 [ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
+[ -f ~/.config/zsh/yazi.zsh ] && source ~/.config/zsh/yazi.zsh
 
 # --- Integrations ---
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

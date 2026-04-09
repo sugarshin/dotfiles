@@ -82,6 +82,7 @@ add_symlink "config/nvim" "${HOME}/.config/nvim"
 add_symlink "config/karabiner" "${HOME}/.config/karabiner"
 add_symlink "config/gh-dash" "${HOME}/.config/gh-dash"
 add_symlink "config/lazygit" "${HOME}/.config/lazygit"
+add_symlink "config/zsh" "${HOME}/.config/zsh"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then
