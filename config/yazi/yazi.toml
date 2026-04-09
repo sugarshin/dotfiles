@@ -1,0 +1,13 @@
+# yazi.toml
+# https://yazi-rs.github.io/docs/configuration/yazi
+#
+# プラグイン本体は package.toml で宣言し、ここで previewer/preloader として有効化する。
+
+[plugin]
+prepend_previewers = [
+  { name = "*.csv", run = "duckdb" },
+]
+
+prepend_preloaders = [
+  { name = "*.csv", run = "duckdb" },
+]

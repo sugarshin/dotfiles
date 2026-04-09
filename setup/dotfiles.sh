@@ -83,6 +83,8 @@ add_symlink "config/karabiner" "${HOME}/.config/karabiner"
 add_symlink "config/gh-dash" "${HOME}/.config/gh-dash"
 add_symlink "config/lazygit" "${HOME}/.config/lazygit"
 add_symlink "config/zsh" "${HOME}/.config/zsh"
+add_symlink "config/yazi/yazi.toml" "${HOME}/.config/yazi/yazi.toml"
+add_symlink "config/yazi/package.toml" "${HOME}/.config/yazi/package.toml"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then
