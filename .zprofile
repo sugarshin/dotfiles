@@ -5,6 +5,7 @@ export HOMEBREW_BUNDLE_FILE="${DOTFILES}/brewfiles/Brewfile"
 # --- Environment ---
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
+export CLAUDE_CODE_EFFORT_LEVEL="max"
 
 # --- Tool Roots ---
 export PYENV_ROOT="$HOME/.pyenv"
