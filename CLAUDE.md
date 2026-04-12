@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Personal macOS dotfiles. Not an application — a collection of config files, shell scripts, and a symlink-based installer that materializes them into `$HOME`. The canonical checkout location is `~/dotfiles` (exported as `$DOTFILES` in `.zshenv`), and many scripts and git aliases reference `$DOTFILES/bin` / `$DOTFILES/scripts` by path, so the repo must live there.
+Personal macOS dotfiles. Not an application — a collection of config files, shell scripts, and a symlink-based installer that materializes them into `$HOME`. The canonical checkout location is `~/dotfiles` (exported as `$DOTFILES` in `.zshenv`), so the repo must live there.
 
 ## Bootstrapping and updates
 
@@ -36,18 +36,19 @@ The Brewfile lives at `brewfiles/Brewfile` and `.zprofile` exports `HOMEBREW_BUN
 
 `setup/darwin/homebrew.sh` runs `brew bundle --file=brewfiles/Brewfile` and also a `Brewfile.local` if present (gitignored, for machine-specific extras).
 
-## `bin/` scripts and git aliases are co-designed
+## `bin/` and `scripts/` directory roles
 
-`$DOTFILES/bin` is prepended to `$PATH` in `.zprofile`, so scripts in `bin/` become top-level commands. Several `.gitconfig` aliases shell out to them directly via `$DOTFILES`:
+- **`bin/`** — user-facing commands on `$PATH` (added in `.zprofile`). No file extension. Git subcommands use the `git-<name>` naming convention (e.g. `bin/git-dsb` becomes `git dsb` automatically).
+- **`scripts/`** — setup helpers, one-off tasks, and internal scripts. NOT on `$PATH`. `.sh` extension.
 
-- `git ds` → `bin/dsb` (delete squashed branches)
-- `git dm` → `git delete-merged-branches` (defined inline)
-- `git copr <pr>` → `bin/checkout_pr` (fetches `pull/<N>/head` into a local branch)
-- `git wad <branch> [base] [dir]` → `scripts/git-worktree-add.sh` (smart worktree add: reuses local/remote branch if present, else creates from default base)
-- `git wrm [-a|-f|-b|-n] [branch]` → `scripts/git-worktree-rm.sh` (with `-a` removes all squash-merged worktrees)
-- `git ro <newbase> <upstream> [target]` → `scripts/git-rebase-onto.sh`
+### Git subcommands in `bin/`
 
-When modifying these scripts, remember that git's alias expansion relies on `$DOTFILES` being exported — removing/renaming the env var will break them silently.
+Git discovers any executable named `git-<name>` on `$PATH` as `git <name>`. The following git subcommands live in `bin/`:
+
+- `git dsb` → `bin/git-dsb` (delete squashed branches; aliased as `git ds`)
+- `git copr <pr>` → `bin/git-copr` (fetches `pull/<N>/head` into a local branch; aliased as `git copr`)
+- `git ro <newbase> <upstream> [target]` → `bin/git-ro` (wrapper around `git rebase --onto`)
+- `git dm` → `git delete-merged-branches` (defined inline in `.gitconfig`)
 
 ## External scripts
 
