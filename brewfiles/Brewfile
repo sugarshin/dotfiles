@@ -33,6 +33,8 @@ brew "ffmpeg-full", link: true
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
