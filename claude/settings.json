@@ -69,7 +69,15 @@
     "quarterly-self-eval@dinii-tools": true,
     "plugin-dev@claude-plugins-official": true,
     "sugarshin-tools-private@sugarshin-marketplace-private": true,
-    "people-management@dinii-productivity-local": true
+    "people-management@dinii-productivity-local": true,
+    "engineering-knowledge@dinii-tools": true,
+    "internal-tools@dinii-tools": true,
+    "knowledgebase@dinii-tools": true,
+    "skill-creator@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "neon@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
@@ -90,8 +98,8 @@
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "minimumVersion": "2.1.91",
-  "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
   }
