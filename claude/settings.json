@@ -7,7 +7,13 @@
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_METRICS_EXPORTER": "otlp",
     "OTEL_LOGS_EXPORTER": "otlp",
-    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf"
+    "OTEL_TRACES_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+    "OTEL_METRICS_INCLUDE_SESSION_ID": "1",
+    "OTEL_METRICS_INCLUDE_VERSION": "1",
+    "OTEL_METRICS_INCLUDE_ACCOUNT_UUID": "1",
+    "OTEL_LOG_TOOL_DETAILS": "1",
+    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1"
   },
   "permissions": {
     "deny": [
@@ -44,7 +50,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh"
+    "command": "~/.claude/statusline.ts"
   },
   "enabledPlugins": {
     "dinii-kpi@dinii-tools": true,
@@ -57,12 +63,10 @@
     "slack@claude-plugins-official": true,
     "dinii-conventions@dinii-tools": true,
     "tech-article-writer@dinii-tools": true,
-    "notion-docs@dinii-tools": true,
     "persona-analyzer@dinii-tools": true,
     "slack-post-generator@dinii-tools": true,
     "superpowers@claude-plugins-official": false,
     "sentry@claude-plugins-official": true,
-    "statusline-reporter@dinii-tools": true,
     "member-lookup@dinii-tools": true,
     "playwright@claude-plugins-official": true,
     "daily-report@dinii-tools": true,
@@ -76,8 +80,8 @@
     "skill-creator@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "chrome-devtools-mcp@claude-plugins-official": true,
-    "neon@claude-plugins-official": true
+    "neon@claude-plugins-official": true,
+    "onboarding@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
