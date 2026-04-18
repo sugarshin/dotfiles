@@ -9,7 +9,3 @@ show_hidden = true
 prepend_previewers = [
   { url = "*.csv", run = "duckdb" },
 ]
-
-prepend_preloaders = [
-  { url = "*.csv", run = "duckdb" },
-]
