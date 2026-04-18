@@ -40,6 +40,8 @@ eval "$(pyenv init - zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(rbenv init - --no-rehash zsh)"
 eval "$(wtp shell-init zsh)"
+eval "$(atuin init zsh)"
+
 [ -f ~/.tenv.completion.zsh ] && source ~/.tenv.completion.zsh
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
@@ -47,5 +49,3 @@ eval "$(wtp shell-init zsh)"
 [ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
 [ -f ~/.config/zsh/yazi.zsh ] && source ~/.config/zsh/yazi.zsh
 
-# --- Integrations ---
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
