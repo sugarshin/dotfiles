@@ -10,5 +10,8 @@ return {
         },
       },
     },
+    keys = {
+      { "<leader>gp", false },
+    },
   },
 }
