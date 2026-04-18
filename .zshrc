@@ -40,7 +40,7 @@ eval "$(pyenv init - zsh)"
 eval "$(fnm env --use-on-cd --shell zsh)"
 eval "$(rbenv init - --no-rehash zsh)"
 eval "$(wtp shell-init zsh)"
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 [ -f ~/.tenv.completion.zsh ] && source ~/.tenv.completion.zsh
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"

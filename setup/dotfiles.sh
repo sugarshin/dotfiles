@@ -88,6 +88,7 @@ add_symlink "config/yazi/package.toml" "${HOME}/.config/yazi/package.toml"
 add_symlink "config/yazi/init.lua" "${HOME}/.config/yazi/init.lua"
 add_symlink "config/yazi/keymap.toml" "${HOME}/.config/yazi/keymap.toml"
 add_symlink "config/cmux/settings.json" "${HOME}/.config/cmux/settings.json"
+add_symlink "config/atuin/config.toml" "${HOME}/.config/atuin/config.toml"
 
 # claude/skills (per-directory symlinks)
 if [ -d "${DOTFILES}/claude/skills" ]; then

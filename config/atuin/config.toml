@@ -1,0 +1,45 @@
+## Atuin — shell history manager
+## https://docs.atuin.sh/configuration/config/
+
+# API keys / tokens を正規表現で自動除外（AWS, GitHub, Slack, Stripe 等）
+secrets_filter = true
+
+# 起動時の最新版チェックを無効化（ネットワーク呼び出しを減らす）
+update_check = false
+
+## --- 検索 UI ---
+# fuzzy | prefix | fulltext | skim
+search_mode = "fuzzy"
+
+# TUI 起動時のデフォルトフィルタ: global | host | session | directory | workspace
+filter_mode = "global"
+
+# TUI 内で ↑ キーを押したときに絞り込むスコープ
+filter_mode_shell_up_key_binding = "session"
+
+# auto | full | compact — compact は 1 行ずつ詰めて表示
+style = "compact"
+
+# TUI 高さ（行）。0 でフルスクリーン
+inline_height = 25
+
+show_preview = true
+show_help = true
+
+# Enter で即実行（false にすると Enter でプロンプトに流し込むだけで実行しない）
+enter_accept = true
+
+## --- 履歴フィルタ（secrets_filter に加えて追加除外したいもの） ---
+cwd_filter = [
+  "^/tmp",
+  "^/private/tmp",
+]
+
+## --- 同期（必要になったら有効化。Atuin Cloud / self-host 両対応） ---
+# sync_address = "https://api.atuin.sh"
+# auto_sync = true
+# sync_frequency = "10m"
+
+## --- daemon モード: Unix socket 経由で履歴書き込みを高速化 ---
+[daemon]
+enabled = true
