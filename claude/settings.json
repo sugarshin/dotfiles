@@ -82,7 +82,8 @@
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "neon@claude-plugins-official": true,
-    "onboarding@dinii-tools": true
+    "onboarding@dinii-tools": true,
+    "notion@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
