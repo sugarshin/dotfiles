@@ -14,11 +14,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function(args)
-    vim.keymap.set("n", "<leader>mg", function()
+    vim.keymap.set("n", "<leader>mG", function()
       local file = vim.fn.expand("%:p")
       vim.cmd("tabnew")
       vim.fn.termopen({ "glow", "-s", "dark", "-p", file })
       vim.cmd("startinsert")
-    end, { buffer = args.buf, desc = "Glow preview" })
+    end, { buffer = args.buf, desc = "Glow (tab)" })
   end,
 })
