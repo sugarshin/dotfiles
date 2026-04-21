@@ -14,13 +14,11 @@
 	pl = pull
 	c = clean -fd
 	chp = cherry-pick
-	cpr = pull-request
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	delete-merged-branches = !git branch --merged | grep -vE '^\\*|master$|develop$|main$' | xargs -I % git branch -d %
 	dm = delete-merged-branches
 	ds = dsb
 	bwc = "!f(){ ignore=${1:-(?!)}; user=${2:-"(sugarshin\\\\|(Shingo Sato"}; git ls-files | grep -v \"$ignore\" | xargs -n1 git --no-pager blame -f -w | grep \"${user}\" | wc -l;};f"
-	f = fetch origin --prune
 	d = diff
 	dt = difftool
 	pso = !git push origin $(git rev-parse --abbrev-ref HEAD)
@@ -29,10 +27,13 @@
 	copr = copr
 [push]
 	default = simple
+	autoSetupRemote = true
+	followTags = true
 [gpg]
 	program = gpg
 [commit]
 	gpgsign = true
+	verbose = true
 [ghq]
 	root = ~/dev/src
 [pull]
@@ -50,7 +51,30 @@
 	; [includeIf "gitdir:~/dev/src/foo.com/"]
 	; 	path = ~/dev/src/foo.com/.gitconfig
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
+	algorithm = histogram
+	colorMoved = zebra
+	colorMovedWS = allow-indentation-change
 [difftool]
 	prompt = false
 	trustExitCode = true
+[rerere]
+	enabled = true
+[rebase]
+	autoStash = true
+	autoSquash = true
+	updateRefs = true
+[merge]
+	conflictStyle = zdiff3
+[fetch]
+	prune = true
+	pruneTags = true
+	fsckobjects = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[column]
+	ui = auto
+[help]
+	autocorrect = prompt
