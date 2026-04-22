@@ -87,8 +87,6 @@ brew "ripgrep"
 brew "sevenzip"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
-# Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale"
 # OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
 brew "tenv"
 # Text interface for Git repositories
@@ -121,8 +119,6 @@ brew "supabase/tap/supabase"
 cask "1password"
 # Command-line interface for 1Password
 cask "1password-cli"
-# Enable Windows-like alt-tab
-cask "alt-tab"
 # Tools for building Android applications
 cask "android-studio"
 # Memory training application
