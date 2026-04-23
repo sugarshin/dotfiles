@@ -11,7 +11,8 @@
 	br = branch
 	ad = add
 	ps = push
-	pl = pull
+  pl = pull
+  f = fetch
 	c = clean -fd
 	chp = cherry-pick
 	lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
