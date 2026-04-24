@@ -39,6 +39,8 @@ brew "fzf"
 brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
+# Access GitHub's .gitignore boilerplates
+brew "gibo"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
