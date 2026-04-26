@@ -63,6 +63,8 @@ brew "imagemagick-full", link: true
 brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Library to communicate with iOS devices natively
+brew "libimobiledevice"
 # Postgres C API library
 brew "libpq"
 # Simple tool to make locally trusted development certificates
@@ -157,6 +159,8 @@ cask "gcloud-cli"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
+# iOS Sideloading Companion
+cask "iloader"
 # Keyboard customiser
 cask "karabiner-elements"
 # End-to-end encryption software
