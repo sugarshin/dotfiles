@@ -86,7 +86,6 @@ tags
 # Secrets
 .ssh
 .aws
-.npmrc
 .config
 *.pem
 secret
