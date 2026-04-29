@@ -147,6 +147,8 @@ cask "dagger/tap/container-use"
 cask "dbeaver-community"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
+# Launch builds and start simulators from your menu bar
+cask "expo-orbit"
 # Collaborative team software
 cask "figma"
 cask "font-fira-code-nerd-font"
