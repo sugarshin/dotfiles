@@ -4,6 +4,7 @@ tap "go-task/tap"
 tap "hashicorp/tap"
 tap "homebrew/services"
 tap "manaflow-ai/cmux"
+tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
 tap "satococoa/tap"
 tap "supabase/tap"
@@ -113,6 +114,8 @@ brew "zsh"
 brew "cloudflare/cloudflare/cf-terraforming"
 # Dagger is an integrated platform to orchestrate the delivery of applications
 brew "dagger/tap/dagger"
+# The easiest way to automate UI testing for your mobile app
+brew "mobile-dev-inc/tap/maestro"
 # Worktree Plus - Enhanced worktree management with automated setup and hooks
 brew "satococoa/tap/wtp"
 # Supabase CLI
