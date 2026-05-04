@@ -10,6 +10,7 @@ export EDITOR="nvim"
 export PYENV_ROOT="$HOME/.pyenv"
 export BUN_INSTALL="$HOME/.bun"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 
 # --- PATH ---
 typeset -U path
@@ -19,6 +20,7 @@ path=(
   $BUN_INSTALL/bin
   $PYENV_ROOT/bin
   /opt/homebrew/opt/postgresql@17/bin
+  $JAVA_HOME/bin
   $ANDROID_HOME/emulator
   $ANDROID_HOME/platform-tools
   $HOME/bin
