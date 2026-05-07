@@ -74,7 +74,6 @@
     "quarterly-self-eval@dinii-tools": true,
     "plugin-dev@claude-plugins-official": true,
     "sugarshin-tools-private@sugarshin-marketplace-private": true,
-    "people-management@dinii-productivity-local": true,
     "engineering-knowledge@dinii-tools": true,
     "internal-tools@dinii-tools": true,
     "knowledgebase@dinii-tools": true,
@@ -105,12 +104,12 @@
   "autoUpdatesChannel": "latest",
   "minimumVersion": "2.1.91",
   "skipDangerousModePermissionPrompt": true,
+  "terminalProgressBarEnabled": false,
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  },
-  "terminalProgressBarEnabled": false,
-  "remoteControlAtStartup": false,
-  "agentPushNotifEnabled": true
+  }
 }
