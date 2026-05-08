@@ -1,5 +1,6 @@
 tap "cloudflare/cloudflare"
 tap "dagger/tap"
+tap "dlvhdr/formulae"
 tap "go-task/tap"
 tap "hashicorp/tap"
 tap "homebrew/services"
@@ -8,6 +9,10 @@ tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
 tap "satococoa/tap"
 tap "supabase/tap"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Static checker for GitHub Actions workflow files
+brew "actionlint"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Cryptography and SSL/TLS Toolkit
@@ -90,8 +95,8 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
-# Static analysis and lint tool, for (ba)sh scripts
-brew "shellcheck"
+# Open source Firebase alternative
+brew "supabase"
 # OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
 brew "tenv"
 # Text interface for Git repositories
@@ -116,12 +121,12 @@ brew "zsh"
 brew "cloudflare/cloudflare/cf-terraforming"
 # Dagger is an integrated platform to orchestrate the delivery of applications
 brew "dagger/tap/dagger"
+# Git diff pager based on delta but with a file tree, à la GitHub
+brew "dlvhdr/formulae/diffnav"
 # The easiest way to automate UI testing for your mobile app
 brew "mobile-dev-inc/tap/maestro"
 # Worktree Plus - Enhanced worktree management with automated setup and hooks
 brew "satococoa/tap/wtp"
-# Supabase CLI
-brew "supabase/tap/supabase"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
