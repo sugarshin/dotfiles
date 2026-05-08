@@ -79,3 +79,5 @@
 	ui = auto
 [help]
 	autocorrect = prompt
+[pager]
+	diff = diffnav
