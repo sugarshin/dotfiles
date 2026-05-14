@@ -2,6 +2,7 @@
 name: address-pr-reviews
 description: PRレビューコメントを Claude + Codex デュアル評価で精査し、修正 or 返信を実行する
 disable-model-invocation: true
+user-invocable: true
 argument-hint: "<PR URL>"
 ---
 
