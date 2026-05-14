@@ -8,7 +8,7 @@ argument-hint: "<PR URL>"
 
 # Address PR Reviews (Dual Evaluation)
 
-PR 上の未解決レビューコメントを Claude + Codex で並列評価し、修正または返信を実行する。
+PR 上の未解決レビューコメントを Claude + Codex で並列評価し、クロスチェックで統合された最終判断に基づき修正または返信を実行する。
 
 ## Input
 
@@ -92,12 +92,9 @@ TeamCreate: `address-reviews-$PR_NUMBER`
 
 | Task | Subject | blockedBy |
 |------|---------|-----------|
-| 1 | Claude Round 1 評価 | — |
-| 2 | Codex Round 1 評価 | — |
-| 3 | クロスチェック Round 1 | 1, 2 |
-| 4 | Claude Round 2 再評価 | 3 |
-| 5 | Codex Round 2 再評価 | 3 |
-| 6 | 最終判断統合 | 4, 5 |
+| 1 | Claude 評価 | — |
+| 2 | Codex 評価 | — |
+| 3 | クロスチェック & 最終判断統合 | 1, 2 |
 
 ## Step 5: エージェント起動
 
@@ -122,7 +119,7 @@ teammates: <他の2エージェント名>
 
 - エージェント間で関連証拠を中継、スタック時にガイダンス送信
 - TaskList で進捗追跡。Codex フォールバック時は synthesizer の Claude 単独モード切替を確認
-- 全6タスク completed まで監視
+- 全3タスク completed まで監視
 
 ## Step 7: ユーザー確認
 
