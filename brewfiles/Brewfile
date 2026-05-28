@@ -1,8 +1,10 @@
+tap "authzed/tap"
 tap "cloudflare/cloudflare"
 tap "dagger/tap"
 tap "dlvhdr/formulae"
 tap "go-task/tap"
 tap "hashicorp/tap"
+tap "homebrew/services"
 tap "manaflow-ai/cmux"
 tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
@@ -94,8 +96,6 @@ brew "resvg"
 brew "ripgrep"
 # 7-Zip is a file archiver with a high compression ratio
 brew "sevenzip"
-# Open source Firebase alternative
-brew "supabase"
 # OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager
 brew "tenv"
 # Text interface for Git repositories
@@ -116,6 +116,8 @@ brew "zig"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# command-line client for managing SpiceDB
+brew "authzed/tap/zed"
 # Utility to export your existing Cloudflare resources as Terraform resources
 brew "cloudflare/cloudflare/cf-terraforming"
 # Dagger is an integrated platform to orchestrate the delivery of applications
@@ -126,6 +128,8 @@ brew "dlvhdr/formulae/diffnav"
 brew "mobile-dev-inc/tap/maestro"
 # Worktree Plus - Enhanced worktree management with automated setup and hooks
 brew "satococoa/tap/wtp"
+# Supabase CLI
+brew "supabase/tap/supabase"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -134,9 +138,15 @@ cask "1password-cli"
 cask "android-studio"
 # Memory training application
 cask "anki"
+# Agent orchestration platform
+cask "antigravity"
 # Application uninstaller
 cask "appcleaner"
+# Chromium based browser
+cask "arc"
 # Tool to customise input devices and automate computer systems
+cask "bettertouchtool"
+# Web browser focusing on privacy
 cask "brave-browser"
 # Anthropic's official Claude AI desktop app
 cask "claude"
@@ -187,5 +197,14 @@ cask "safari-technology-preview"
 # Web browser
 cask "thebrowsercompany-dia"
 # Rust-based terminal
+cask "warp"
+# Video communication and virtual meeting platform
 cask "zoom"
 go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+npm "@googleworkspace/cli"
+npm "@playwright/cli"
+npm "agent-browser"
+npm "corepack"
+npm "sentry"
+npm "typescript-language-server"
+npm "typescript"
