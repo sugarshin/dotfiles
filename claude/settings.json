@@ -113,5 +113,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  }
+  },
+  "autoCompactEnabled": false
 }
