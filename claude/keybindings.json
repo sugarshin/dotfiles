@@ -5,7 +5,9 @@
       "context": "Scroll",
       "bindings": {
         "ctrl+shift+j": "scroll:lineDown",
-        "ctrl+shift+k": "scroll:lineUp"
+        "ctrl+shift+k": "scroll:lineUp",
+        "ctrl+shift+d": "scroll:halfPageDown",
+        "ctrl+shift+u": "scroll:halfPageUp"
       }
     }
   ]
