@@ -77,6 +77,7 @@ add_symlink() {
 # Just add a new line with: add_symlink "source_path" "destination_path"
 add_symlink "claude/CLAUDE.md" "${HOME}/.claude/CLAUDE.md"
 add_symlink "claude/settings.json" "${HOME}/.claude/settings.json"
+add_symlink "claude/keybindings.json" "${HOME}/.claude/keybindings.json"
 add_symlink "config/ccstatusline" "${HOME}/.config/ccstatusline"
 add_symlink "config/nvim" "${HOME}/.config/nvim"
 add_symlink "config/karabiner" "${HOME}/.config/karabiner"

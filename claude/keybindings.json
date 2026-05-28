@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-keybindings.json",
+  "bindings": [
+    {
+      "context": "Scroll",
+      "bindings": {
+        "ctrl+shift+j": "scroll:lineDown",
+        "ctrl+shift+k": "scroll:lineUp"
+      }
+    }
+  ]
+}

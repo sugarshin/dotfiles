@@ -114,5 +114,6 @@
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
   },
-  "autoCompactEnabled": false
+  "autoCompactEnabled": false,
+  "tui": "fullscreen"
 }
