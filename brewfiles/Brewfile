@@ -3,7 +3,6 @@ tap "dagger/tap"
 tap "dlvhdr/formulae"
 tap "go-task/tap"
 tap "hashicorp/tap"
-tap "homebrew/services"
 tap "manaflow-ai/cmux"
 tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
@@ -135,15 +134,9 @@ cask "1password-cli"
 cask "android-studio"
 # Memory training application
 cask "anki"
-# AI Coding Agent IDE
-cask "antigravity"
 # Application uninstaller
 cask "appcleaner"
-# Chromium based browser
-cask "arc"
 # Tool to customise input devices and automate computer systems
-cask "bettertouchtool"
-# Web browser focusing on privacy
 cask "brave-browser"
 # Anthropic's official Claude AI desktop app
 cask "claude"
@@ -194,7 +187,5 @@ cask "safari-technology-preview"
 # Web browser
 cask "thebrowsercompany-dia"
 # Rust-based terminal
-cask "warp"
-# Video communication and virtual meeting platform
 cask "zoom"
 go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
