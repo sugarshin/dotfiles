@@ -105,7 +105,9 @@
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "minimumVersion": "2.1.91",
+  "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
+  "autoCompactEnabled": false,
   "terminalProgressBarEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
@@ -113,7 +115,5 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  },
-  "autoCompactEnabled": false,
-  "tui": "fullscreen"
+  }
 }
