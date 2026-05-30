@@ -9,7 +9,8 @@
       "focusLeft": "opt+cmd+h",
       "focusDown": "opt+cmd+j",
       "focusUp": "opt+cmd+k",
-      "focusRight": "opt+cmd+l"
+      "focusRight": "opt+cmd+l",
+      "toggleSplitZoom": "cmd+shift+z"
     }
   }
 }
