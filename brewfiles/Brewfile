@@ -61,8 +61,6 @@ brew "gnupg"
 brew "go-task"
 # Google Suite CLI
 brew "gogcli"
-# Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick-full", link: true
 # Lightweight and flexible command-line JSON processor
@@ -127,8 +125,6 @@ brew "dlvhdr/formulae/diffnav"
 brew "mobile-dev-inc/tap/maestro"
 # Worktree Plus - Enhanced worktree management with automated setup and hooks
 brew "satococoa/tap/wtp"
-# Supabase CLI
-brew "supabase/tap/supabase"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -147,8 +143,6 @@ cask "arc"
 cask "bettertouchtool"
 # Web browser focusing on privacy
 cask "brave-browser"
-# Anthropic's official Claude AI desktop app
-cask "claude"
 # Ghostty-based terminal with vertical tabs and notifications for AI coding agents
 cask "cmux"
 # OpenAI's coding agent that runs in your terminal
