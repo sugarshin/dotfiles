@@ -51,7 +51,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.ts"
+    "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "dinii-kpi@dinii-tools": true,
