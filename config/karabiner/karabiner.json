@@ -88,6 +88,53 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "description": "Chrome only (for Slack web): Cmd+Ctrl+[ / ] = Option+Up/Down (channel prev/next), Cmd+Shift+U = Option+Shift+Down (next unread)",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "close_bracket",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [{ "key_code": "down_arrow", "modifiers": ["option"] }],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "open_bracket",
+                                    "modifiers": { "mandatory": ["command", "control"] }
+                                },
+                                "to": [{ "key_code": "up_arrow", "modifiers": ["option"] }],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["command", "shift"] }
+                                },
+                                "to": [{ "key_code": "down_arrow", "modifiers": ["option", "shift"] }],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
