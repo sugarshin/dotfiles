@@ -23,7 +23,21 @@
       "Read(**/*token*)",
       "Read(**/*key*)"
     ],
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "allow": [
+      "mcp__rai__*",
+      "mcp__plugin_rai_rai__*",
+      "Agent",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh api:*)",
+      "Bash(dinii-claude-plugin__rai work submit:*)",
+      "Bash(dinii-internal__review-agent-integrator work submit:*)"
+    ]
   },
   "hooks": {
     "SessionStart": [
