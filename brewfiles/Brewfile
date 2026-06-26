@@ -4,6 +4,7 @@ tap "dagger/tap"
 tap "dlvhdr/formulae"
 tap "go-task/tap"
 tap "hashicorp/tap"
+tap "homebrew/services"
 tap "manaflow-ai/cmux"
 tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
@@ -25,6 +26,8 @@ brew "bats-core"
 brew "coreutils"
 # Container Signing
 brew "cosign"
+# Your feedback loop with the agent: review plans and code locally
+brew "crit"
 # Embeddable SQL OLAP Database Management System
 brew "duckdb"
 # Send macOS User Notifications from the command-line
@@ -113,18 +116,6 @@ brew "zig"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# command-line client for managing SpiceDB
-brew "authzed/tap/zed"
-# Utility to export your existing Cloudflare resources as Terraform resources
-brew "cloudflare/cloudflare/cf-terraforming"
-# Dagger is an integrated platform to orchestrate the delivery of applications
-brew "dagger/tap/dagger"
-# Git diff pager based on delta but with a file tree, à la GitHub
-brew "dlvhdr/formulae/diffnav"
-# The easiest way to automate UI testing for your mobile app
-brew "mobile-dev-inc/tap/maestro"
-# Worktree Plus - Enhanced worktree management with automated setup and hooks
-brew "satococoa/tap/wtp"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -195,7 +186,6 @@ cask "thebrowsercompany-dia"
 cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
-go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
 npm "@googleworkspace/cli"
 npm "@playwright/cli"
 npm "agent-browser"
