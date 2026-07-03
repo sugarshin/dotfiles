@@ -13,7 +13,8 @@
     "OTEL_METRICS_INCLUDE_VERSION": "1",
     "OTEL_METRICS_INCLUDE_ACCOUNT_UUID": "1",
     "OTEL_LOG_TOOL_DETAILS": "1",
-    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1"
+    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1",
+    "CLAUDE_AFK_TIMEOUT_MS": "2147483647"
   },
   "permissions": {
     "allow": [
@@ -99,7 +100,8 @@
     "notion@claude-plugins-official": true,
     "yank-last@dinii-tools": true,
     "ai-phase-judge@dinii-tools": true,
-    "crit@crit": true
+    "crit@crit": true,
+    "quarterly-evaluation@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
@@ -130,6 +132,7 @@
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
   "autoCompactEnabled": false,
+  "switchModelsOnFlag": false,
   "terminalProgressBarEnabled": false,
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
@@ -137,5 +140,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  }
+  },
+  "model": "claude-fable-5[1m]"
 }
