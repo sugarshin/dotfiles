@@ -48,4 +48,5 @@ eval "$(atuin init zsh --disable-up-arrow)"
 # --- Plugins ---
 [ -f ~/.config/zsh/zoxide.zsh ] && source ~/.config/zsh/zoxide.zsh
 [ -f ~/.config/zsh/yazi.zsh ] && source ~/.config/zsh/yazi.zsh
+[ -f ~/.config/zsh/wtpr.zsh ] && source ~/.config/zsh/wtpr.zsh
 
