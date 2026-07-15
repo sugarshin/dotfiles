@@ -88,7 +88,10 @@ add_symlink "config/yazi/yazi.toml" "${HOME}/.config/yazi/yazi.toml"
 add_symlink "config/yazi/package.toml" "${HOME}/.config/yazi/package.toml"
 add_symlink "config/yazi/init.lua" "${HOME}/.config/yazi/init.lua"
 add_symlink "config/yazi/keymap.toml" "${HOME}/.config/yazi/keymap.toml"
-add_symlink "config/cmux/cmux.json" "${HOME}/.config/cmux/cmux.json"
+# Directory symlink: cmux rewrites cmux.json with a temp-file + rename, which
+# replaces a file-level symlink with a real file. Linking the directory keeps
+# those writes landing in this repo instead of silently detaching.
+add_symlink "config/cmux" "${HOME}/.config/cmux"
 add_symlink "config/atuin/config.toml" "${HOME}/.config/atuin/config.toml"
 
 # claude/skills (per-directory symlinks)
