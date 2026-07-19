@@ -60,6 +60,8 @@ brew "git-lfs"
 brew "glow"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Task is a task runner/build tool that aims to be simpler and easier to use
 brew "go-task"
 # Google Suite CLI
@@ -186,6 +188,7 @@ cask "thebrowsercompany-dia"
 cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
+go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
 npm "@googleworkspace/cli"
 npm "@playwright/cli"
 npm "agent-browser"

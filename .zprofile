@@ -19,6 +19,7 @@ path=(
   $HOME/.antigravity/antigravity/bin
   $BUN_INSTALL/bin
   $PYENV_ROOT/bin
+  $HOME/go/bin
   /opt/homebrew/opt/postgresql@17/bin
   $JAVA_HOME/bin
   $ANDROID_HOME/emulator
