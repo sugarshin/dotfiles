@@ -13,8 +13,7 @@
     "OTEL_METRICS_INCLUDE_VERSION": "1",
     "OTEL_METRICS_INCLUDE_ACCOUNT_UUID": "1",
     "OTEL_LOG_TOOL_DETAILS": "1",
-    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1",
-    "CLAUDE_AFK_TIMEOUT_MS": "2147483647"
+    "CLAUDE_CODE_ENHANCED_TELEMETRY_BETA": "1"
   },
   "permissions": {
     "allow": [
@@ -126,6 +125,7 @@
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "latest",
   "minimumVersion": "2.1.91",
   "tui": "fullscreen",
