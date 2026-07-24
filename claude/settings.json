@@ -140,5 +140,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  }
+  },
+  "awaySummaryEnabled": false
 }
