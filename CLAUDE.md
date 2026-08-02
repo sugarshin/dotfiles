@@ -1,68 +1,70 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code (claude.ai/code) when working in this repository.
 
 ## What this repo is
 
-Personal macOS dotfiles. Not an application — a collection of config files, shell scripts, and a symlink-based installer that materializes them into `$HOME`. The canonical checkout location is `~/dotfiles` (exported as `$DOTFILES` in `.zshenv`), so the repo must live there.
+Personal macOS dotfiles — config files, shell scripts, and a symlink-based installer that materializes them into `$HOME`. Not an application: no build, no test suite, no CI.
 
-## Bootstrapping and updates
+The repo **must** live at `~/dotfiles`. `.zshenv` exports that path as `$DOTFILES`, and every `setup/*.sh` resolves paths from it.
 
-```sh
-sh setup.sh        # full setup from a fresh clone
-sh install.sh      # pulls latest (hard reset to origin/master) then runs setup.sh
-```
+## Commands
 
-`setup.sh` executes every `setup/*.sh` in order, then appends Darwin-only steps. Re-running is safe: the symlink helper (`setup/dotfiles.sh`) compares existing targets and backs up conflicts to `~/.dotfiles.backups` before replacing them (numbered suffixes on repeat).
+| Command | Notes |
+| --- | --- |
+| `sh setup.sh` | Full setup. Runs every `setup/*.sh`, then `setup/darwin/*.sh` on Darwin. Can block on stdin — see below. |
+| `sh setup/dotfiles.sh` | Symlink pass only. Use this when iterating on symlinks. |
+| `sh install.sh` | **Destructive**: `git reset --hard origin/master` before running `setup.sh`. Never run with uncommitted work in the tree. |
+| `shellcheck <file>` | The only linter here (installed via `brewfiles/Brewfile`). |
+| `brew bundle --file=brewfiles/Brewfile` | Install packages. `setup/darwin/homebrew.sh` also applies `Brewfile.local` if present (gitignored, machine-specific). |
+| `brew-sync` / `bs` | Dump installed packages into the Brewfile. Read the Homebrew gotcha below first. |
 
-## The symlink pipeline (how files reach $HOME)
+## Verifying a change
 
-`setup/dotfiles.sh` is the core of the repo. Understanding it matters because adding a new config file almost always means editing this script:
+There is no automated check, so verify by hand and show the evidence rather than asserting success:
 
-1. **Top-level dotfiles** — every `.<name>` file at the repo root (e.g. `.zshrc`, `.gitconfig`, `.commonrc`) is auto-symlinked to `~/<name>`. To add one, just drop it in the root.
-2. **Targeted symlinks** — explicit `add_symlink "source" "dest"` calls map specific paths under `config/` and `claude/` into `~/.config/*` and `~/.claude/*`. Add a new line per target.
-3. **`claude/skills/`** — each direct subdirectory is symlinked individually to `~/.claude/skills/<name>/`, so skills can be added by creating a new subdirectory (no script edit needed).
-4. **`claude/agents/`** — each file is symlinked individually to `~/.claude/agents/<name>` (same pattern).
-5. **Private overlay** — if `~/dotfiles-private/setup/dotfiles.sh` exists, it runs at the end. Keep private/work-specific overrides there, not in this repo.
+- **Shell scripts** — `shellcheck <file>`. Everything currently passes `shellcheck -S error` except `install.sh` (SC2148, no shebang); that one is pre-existing, not a regression you introduced.
+- **Symlink changes** — run `sh setup/dotfiles.sh`, then `ls -l <destination>` and confirm the link resolves into `~/dotfiles`.
+- **`sh setup.sh` is not safe to run unattended.** The `claude/skills` and `claude/agents` loops call `symlink()` without going through `backup()`, so a link pointing somewhere unexpected triggers an interactive `Overwrite? [y/N]` read — it hangs forever in a non-interactive shell. Run it in the foreground, or run only the one `setup/*.sh` you touched.
 
-When you change `setup/dotfiles.sh`, think about whether the change is additive (just a new `add_symlink`) or changes existing behavior (will re-run prompt the user about a conflict, or silently replace?).
+## The symlink pipeline
 
-## Homebrew management
+`setup/dotfiles.sh` is the core of the repo; adding a new config file almost always means editing it.
 
-The Brewfile lives at `brewfiles/Brewfile` and `.zprofile` exports `HOMEBREW_BUNDLE_FILE` pointing to it — this means `brew bundle dump` updates the version-controlled file directly. Two helpers exist:
+1. **Top-level dotfiles** — every `.<name>` file at the repo root (`.zshrc`, `.gitconfig`, `.commonrc`, …) is auto-symlinked to `~/<name>`. Drop the file in the root; no script edit needed.
+2. **Targeted symlinks** — explicit `add_symlink "source" "dest"` calls map paths under `config/` and `claude/` into `~/.config/*` and `~/.claude/*`. One line per target.
+3. **`claude/skills/`** — each direct subdirectory is symlinked to `~/.claude/skills/<name>/`. Add a subdirectory; no script edit needed.
+4. **`claude/agents/`** — each file is symlinked to `~/.claude/agents/<name>`. Same.
+5. **Private overlay** — `~/dotfiles-private/setup/dotfiles.sh` runs last if it exists. Private or work-specific overrides go there, not in this repo.
 
-- `brew-sync` / `bs` alias → `brew bundle dump --force --describe` (uses `HOMEBREW_BUNDLE_FILE`)
-- `ub` in `bin/` → `cd $DOTFILES/brewfiles && brew bundle dump --describe -f`
+Steps 1–2 and steps 3–4 behave differently, which matters whenever you change either:
 
-`setup/darwin/homebrew.sh` runs `brew bundle --file=brewfiles/Brewfile` and also a `Brewfile.local` if present (gitignored, for machine-specific extras).
+- **1–2 go through `backup()`**, which moves whatever sits at the destination into `~/.dotfiles.backups` *unconditionally* — including a symlink that was already correct. Backups accumulate with numbered suffixes (`CLAUDE.md.14`) on every run. Fully non-interactive.
+- **3–4 call `symlink()` directly.** An already-correct link is a no-op; a link pointing elsewhere prompts on stdin.
 
-## `bin/` and `scripts/` directory roles
+## Homebrew
 
-- **`bin/`** — user-facing commands on `$PATH` (added in `.zprofile`). No file extension. Git subcommands use the `git-<name>` naming convention (e.g. `bin/git-dsb` becomes `git dsb` automatically).
-- **`scripts/`** — setup helpers, one-off tasks, and internal scripts. NOT on `$PATH`. `.sh` extension.
+`.zprofile` exports `HOMEBREW_BUNDLE_FILE="${DOTFILES}/brewfiles/Brewfile"`, so a bare `brew bundle dump` writes straight to the version-controlled file.
 
-### Git subcommands in `bin/`
+**Gotcha:** the `brew-sync` / `bs` alias in `.commonrc` runs `brew bundle dump --force` *without* `--describe`, but the committed Brewfile carries description comments. Running `bs` as-is deletes all of them. Use `brew bundle dump --force --describe` instead, and review the diff before committing.
 
-Git discovers any executable named `git-<name>` on `$PATH` as `git <name>`. The following git subcommands live in `bin/`:
+## Directory roles
 
-- `git dsb` → `bin/git-dsb` (delete squashed branches; aliased as `git ds`)
-- `git copr <pr>` → `bin/git-copr` (fetches `pull/<N>/head` into a local branch; aliased as `git copr`)
-- `git ro <newbase> <upstream> [target]` → `bin/git-ro` (wrapper around `git rebase --onto`)
-- `git dm` → `git delete-merged-branches` (defined inline in `.gitconfig`)
-
-## External scripts
-
-`external-scripts.tsv` is a TSV of `url<TAB>destination` pairs fetched by `setup/external-scripts.sh` (it evals `$HOME` in the destination). Use this to vendor scripts from other people's dotfiles rather than copy-pasting, so the source is traceable.
+- **`bin/`** — user-facing commands, on `$PATH` via `.zprofile`. No file extension. Convention: define a shell function, then invoke it on the last line — a script that only defines the function silently does nothing. Git auto-discovers any `bin/git-<name>` as `git <name>`; their short aliases live in `.gitconfig`. Run `ls bin/` instead of relying on a list here.
+- **`scripts/`** — setup helpers and one-off tasks. `.sh` extension. NOT on `$PATH`.
+- **`setup/darwin/`** — macOS-only steps. `setup.sh` gates these behind `uname -s`.
+- **`external-scripts.tsv`** — `url<TAB>destination` pairs fetched by `setup/external-scripts.sh` (it `eval`s the destination, so `$HOME` expands). Vendor other people's scripts here rather than copy-pasting, so the source stays traceable.
 
 ## Claude Code config lives here
 
-`claude/CLAUDE.md` and `claude/settings.json` are symlinked into `~/.claude/` and control the user's global Claude Code setup (enabled plugins, hooks, permissions, env vars like `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS`). When the user asks to change Claude Code behavior globally, edit the files here, not in `~/.claude/` — the symlink means edits here take effect immediately, but edits made directly to `~/.claude/settings.json` would silently affect the symlink target and get committed the next time the user ran `git status`.
+`claude/CLAUDE.md`, `claude/settings.json`, and `claude/keybindings.json` are symlinked into `~/.claude/` and drive the user's global Claude Code setup.
 
-Note: `~/.claude/CLAUDE.md` pulls in `~/.claude/CLAUDE.local.md` via `@` include. That `.local.md` file is machine-specific and not in this repo.
+**IMPORTANT: when asked to change Claude Code behavior globally, edit the files under `claude/` here — never through `~/.claude/`.** They are the same inode, so edits here take effect immediately; edits made via the `~/.claude/` path land in this repo unnoticed and surface later as unexplained `git status` churn.
+
+`~/.claude/CLAUDE.md` pulls in `~/.claude/CLAUDE.local.md` via an `@` include. That file is machine-specific and deliberately not in this repo.
 
 ## Conventions
 
-- **Shell dialect:** all setup and `bin/`/`scripts/` files use POSIX `sh` or `bash` with `set -eux` / `set -euo pipefail`. Keep the `set` directives when adding new scripts.
-- **Don't edit `~/`** to make things work — edit the source file here and re-run `sh setup.sh`. If a symlink is stale or broken, that's a setup bug to fix in `setup/dotfiles.sh`.
-- **macOS-only code** belongs in `setup/darwin/`. `setup.sh` gates Darwin steps with `uname -s`.
-- **Git:** prefer `--force-with-lease` over `--force`; never amend published commits without explicit permission (this is already in `claude/CLAUDE.md` as the global default).
+- **Shell dialect:** POSIX `sh` or `bash`, with `set -eux` (setup scripts) or `set -euo pipefail` (`bin/`). Keep the `set` line when adding a script.
+- **IMPORTANT: never edit files under `~/` to make something work.** Edit the source here and re-run the relevant setup script. A stale or broken symlink is a bug in `setup/dotfiles.sh`, not something to patch in place.
+- **Commits:** short imperative one-liners — `Update Brewfile`, `Add wtpr`, `Fix cmux config symlink`. No conventional-commits prefixes.
