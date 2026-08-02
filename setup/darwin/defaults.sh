@@ -30,6 +30,12 @@ defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write com.apple.dock wvous-tl-corner -int 4
 defaults write com.apple.dock wvous-tl-modifier -int 0
 
+# Chrome: tab navigation on Cmd+Ctrl+[ / ] (matches cmux worktree switching).
+# Menu titles must match Chrome's ja UI exactly. Requires a Chrome restart.
+# -string is required: defaults parses a bare @^] as plist syntax and errors out.
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "次のタブを選択" -string "@^]"
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "前のタブを選択" -string "@^["
+
 # Apply Dock/Finder changes
 killall Dock
 killall Finder
