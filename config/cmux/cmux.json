@@ -10,6 +10,7 @@
       "focusDown": "opt+cmd+j",
       "focusUp": "opt+cmd+k",
       "focusRight": "opt+cmd+l",
+      "toggleSidebar": "cmd+ctrl+t",
       "toggleSplitZoom": "cmd+shift+z"
     }
   }
