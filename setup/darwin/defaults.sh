@@ -36,10 +36,13 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "次のタブを選択" -string "@^]"
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "前のタブを選択" -string "@^["
 
-# Chrome: vertical tabs on Cmd+Ctrl+T, matching cmux's toggleSidebar. The default
-# Shift+Cmd+L never reaches the menu because extension commands take priority over menu
-# accelerators (1Password "lock" on Default/Profile 1, Google Translate on Profile 8).
-defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "垂直タブを閉じる" -string "@^t"
+# Chrome: vertical tabs on Cmd+Ctrl+E, matching cmux's toggleSidebar and neo-tree's
+# <leader>e. The default Shift+Cmd+L never reaches the menu because extension commands take
+# priority over menu accelerators (1Password "lock" on Default/Profile 1, Google Translate
+# on Profile 8). Cmd+Ctrl+T was tried first but Google Meet binds it to "start presenting"
+# and swallows the key on its own tab; Meet's shortcuts are hard-coded and cannot be
+# disabled, so keep off its Cmd+Ctrl set (T/C/P/H/M/K/J).
+defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "垂直タブを閉じる" -string "@^e"
 
 # Apply Dock/Finder changes
 killall Dock
