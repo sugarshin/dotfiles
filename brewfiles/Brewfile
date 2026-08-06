@@ -44,8 +44,6 @@ brew "ffmpeg-full", link: true
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Interact with Google Gemini AI models from the command-line
-brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Access GitHub's .gitignore boilerplates
@@ -189,6 +187,7 @@ cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
 go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
+npm "@google/gemini-cli"
 npm "@googleworkspace/cli"
 npm "@playwright/cli"
 npm "agent-browser"
