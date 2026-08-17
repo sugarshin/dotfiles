@@ -19,7 +19,6 @@
     "allow": [
       "mcp__rai__*",
       "mcp__plugin_rai_rai__*",
-      "Agent",
       "Bash(git diff:*)",
       "Bash(git log:*)",
       "Bash(git show:*)",
@@ -100,7 +99,8 @@
     "yank-last@dinii-tools": true,
     "ai-phase-judge@dinii-tools": true,
     "crit@crit": true,
-    "quarterly-evaluation@dinii-tools": true
+    "quarterly-evaluation@dinii-tools": true,
+    "trend-monitoring@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
@@ -125,6 +125,7 @@
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "awaySummaryEnabled": false,
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "latest",
   "minimumVersion": "2.1.91",
@@ -137,9 +138,47 @@
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(bq:*) in this repo — routine BigQuery reads/queries, high-frequency non-standard CLI",
+      "Bash(gcloud:*) read/query subcommands in this repo — frequently used for monitoring/logging lookups"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(gcloud:*) destructive subcommands (delete, iam, compute instances delete, sql instances delete) — even outside prod-named resources, given heavy gcloud usage",
+      "Writes/uploads to buckets matching dinii-self-prod-* or any bucket with prod/production in the name",
+      "Pushes or merges directly to release/* branches or main bypassing the normal PR flow, given the CI cherry-pick/sync semantics described in CLAUDE.md"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: dinii-inc (GitHub org; this repo's remote is github.com:dinii-inc/dinii-self-all.git)",
+      "**Cloud provider(s)**: Google Cloud (GCS, BigQuery, Cloud Logging referenced in CLAUDE.md, workflows, and CLI usage)",
+      "**Repository visibility**: PRIVATE — dinii-inc/dinii-self-all (confirmed via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: Encrypted credential files in-repo (e.g. packages/dinii-kiosk/secrets/logger-prod.json.enc, packages/dinii-self-cash-register/secrets/logger-prod.json.enc, packages/dinii-ftp-upload/deployments/.env.enc) with decrypt/encrypt-credentials.sh scripts; CI secrets referenced by name only (APP_STORE_CONNECT_API_KEY_ID, APP_STORE_CONNECT_ISSUER_ID, APP_STORE_CONNECT_KEY_FILE_CONTENT, DEPLOY_NOTIFICATION_SLACK_TOKEN, GITHUB_TOKEN)",
+      "**Default / protected branches**: main (default); release/1.x.x line broadly protected — confirmed protected: main, release/1.12.x through release/1.30.x+ (100+ listed, more may exist); 2 rulesets also configured (names redacted) — treat release/* and main as protected even where not explicitly listed",
+      "**CI/CD deploy targets**: GitHub Actions workflows deploying to production namespaces — es-deploy-production (workflow_dispatch), dataform-update-data-mart-prod.yaml, datamart-update-prod.yaml, es-dataform-update-data-mart-prod.yaml, es-terraform-apply-dispatch.yaml/es-terraform-plan*.yaml",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo (dinii-inc/dinii-self-all) and its origin remote only — private repo, so confidential internal material is fine to commit there but secrets/credentials are never cleared by visibility",
+      "**Trusted internal domains**: backend-primary.es.dinii.jp (contacted in this project's transcripts)",
+      "**Trusted cloud buckets**: dinii-trend-monitoring-reports, dinii-internal-tool-trend-monitoring-reports (usage-corroborated via transcript-mining bucket counts in this project); dinii-mastra-evals-results (config-derived — not a confirmed upload destination; uploads of local data still require confirmation); dinii-self-prod-sub-db-dump (config-derived — not a confirmed upload destination; uploads of local data still require confirmation) — treat as a protected/sensitive target given the prod-* naming, not a routine write destination",
+      "**Key internal services**: monitoring.googleapis.com, api.notion.com, storage.googleapis.com (hosts contacted in this project's transcripts)",
+      "**Internal package registry**: dinii-internal private package registry — `bun private-registry-auth` required before installing dinii-internal packages (per CLAUDE.md)",
+      "**Sensitive data locations & audiences**: .env* files across packages (e.g. packages/dinii-self-backend/.env.common, .env.development, .env.test, .env.tool-eval; packages/dinii-es-backend/.env, .env.ci, .env.hasura; packages/dinii-account-identity-api/.env.development, .env.test; etc.), encrypted secrets (*.enc, .df-credentials.json), google-cloud-logger-credential.json, .keys/ directory — share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any host/namespace/bucket containing `prod`/`production` as a whole segment — includes dinii-self-prod-sub-db-dump bucket, dataform-update-data-mart-prod.yaml and datamart-update-prod.yaml deploy targets, scripts/resume-oizumi-gm-insert-prod.sh, dump-prod-to-local.ts, check-claudecode-guard-prod.ts",
+      "**Protected deployment namespaces / environments**: production namespaces referenced by es-deploy-production.yaml and *-prod.yaml workflows; k8s namespace `src` seen in this project's transcripts (treat as a live/shared namespace requiring caution)",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, node-pool resources; anything tagged prod/production — Terraform under packages/dinii-auth-terraform, es-terraform-apply-dispatch.yaml/es-terraform-checks.yaml/es-terraform-plan*.yaml, and .claude/terraform-early-apply-policy.md govern this repo's IaC",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (TypeScript monorepo for Dinii's restaurant cloud platform — POS/Mobile Order/CRM), including QA test-case generation and release-branch workflows",
+      "**Trusted repo**: dinii-inc/dinii-self-all (this repo, private) and its origin remote — the ~/worktrees/review-37103-tree checkout is the same repo (dinii-inc/dinii-self-all) and may be treated as part of the trusted repo; ~/dotfiles and ~/dotfiles-private (sugarshin/dotfiles*) are a different org and NOT part of this project's trust boundary",
+      "**Org-specific CLIs**: bq, gcloud (heavily used in this project's transcripts); bun (dinii's package manager/build tool per CLAUDE.md, requires `bun private-registry-auth`)",
+      "**\"routine under <user>/ prefix\" qualifiers**: None configured"
+    ]
+  },
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  },
-  "awaySummaryEnabled": false
+  }
 }
