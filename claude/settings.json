@@ -100,7 +100,8 @@
     "ai-phase-judge@dinii-tools": true,
     "crit@crit": true,
     "quarterly-evaluation@dinii-tools": true,
-    "trend-monitoring@dinii-tools": true
+    "trend-monitoring@dinii-tools": true,
+    "eli5@claude-community": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
@@ -119,6 +120,12 @@
       "source": {
         "source": "github",
         "repo": "tomasz-tomczyk/crit"
+      }
+    },
+    "claude-community": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-community"
       }
     }
   },
