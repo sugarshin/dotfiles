@@ -5,12 +5,12 @@
 #
 # Replaces the usual `wtp cd` + `wtp remove <name> --force` pair. The common
 # case is running `wtrm` with no arguments from inside the worktree you are
-# done with: it names the target, asks for confirmation, cd's back to the main
-# worktree (wtp remove refuses while you are inside the target) and removes it
-# with --force. -y / --yes skips the prompt; other flags (e.g. --with-branch)
-# pass through to `wtp remove`.
+# done with: it names the target, asks for confirmation (defaults to yes, so a
+# bare Enter proceeds), cd's back to the main worktree (wtp remove refuses while
+# you are inside the target) and removes it with --force. -y / --yes skips the
+# prompt; other flags (e.g. --with-branch) pass through to `wtp remove`.
 function wtrm() {
-  local name="" arg main top dir branch n yes=""
+  local name="" arg main top dir branch n yes="" reply=""
   local -a opts names
 
   for arg in "$@"; do
@@ -67,12 +67,16 @@ function wtrm() {
       print -u2 -- "wtrm: not interactive; pass -y to skip the confirmation"
       return 1
     fi
-    if ! read -q "?Proceed? [y/N] "; then
+    if ! read -k 1 "reply?Proceed? [Y/n] "; then
       print
       print -u2 -- "wtrm: aborted"
       return 1
     fi
     print
+    if [[ "$reply" == [nN] ]]; then
+      print -u2 -- "wtrm: aborted"
+      return 1
+    fi
   fi
 
   cd "$main" || return
