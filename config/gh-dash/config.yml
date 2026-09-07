@@ -76,8 +76,22 @@ defaults:
                 width: 20
                 hidden: true
     refetchIntervalMinutes: 30
-keybindings: {}
-repoPaths: {}
+keybindings:
+    prs:
+        # W: create a worktree for the highlighted PR and open a cmux workspace
+        # running /review-pr in it. Blocks the dashboard until wtp's post_create
+        # hooks finish (usually ~15s, longer when bun install has work to do).
+        - key: W
+          name: review in cmux
+          command: >
+            wtpr-review -C {{.RepoPath}} {{.PrNumber}}
+        # B: same, but for every open PR that requests your review in this repo.
+        - key: B
+          name: review all requested
+          command: >
+            wtpr-review -C {{.RepoPath}} -n 5
+repoPaths:
+    dinii-inc/*: ~/dev/src/github.com/dinii-inc/*
 theme:
     ui:
         sectionsShowCount: true

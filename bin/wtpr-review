@@ -1,0 +1,210 @@
+#!/usr/bin/env bash
+#
+# wtpr-review — fan out PR reviews into per-PR git worktrees + cmux workspaces.
+#
+# For every target PR it does what `wtpr <n>` + a manual `/review-pr` run does,
+# but unattended and in bulk:
+#   1. fetch pull/<n>/head into the local branch pr/<n>
+#   2. create (or reuse) a worktree for it via `wtp add`
+#   3. open a cmux workspace rooted at that worktree, named "PR #<n> <title>",
+#      running the review command (default: claude "/review-pr <url>")
+#
+# Each PR therefore shows up as its own entry in the cmux sidebar.
+#
+# Usage:
+#   wtpr-review                 # discovery mode: PRs where review is requested from you
+#   wtpr-review 47772 47731     # explicit mode: just these PRs
+#   wtpr-review --dry-run -n 20
+#
+set -uo pipefail
+
+PROG=${0##*/}
+
+REPO_PATH=""
+REMOTE="origin"
+LIMIT=5
+SORT="updated"
+ORDER="asc"
+EXTRA_QUERY=""
+COMMAND_TPL=""
+CLAUDE_ARGS=""
+FORCE=0
+REFRESH=1
+FOCUS="false"
+DRY_RUN=0
+PRS=()
+
+usage() {
+  cat <<'EOF'
+usage: wtpr-review [options] [<pr-number|pr-url> ...]
+
+Without PR arguments, targets open PRs that request your review in the current repo.
+
+options:
+  -C, --repo-path <dir>   repo working tree to operate from (default: cwd)
+  -n, --limit <n>         max PRs to spawn in discovery mode (default: 5)
+      --sort <field>      discovery sort key: updated|created|comments (default: updated)
+      --order <dir>       asc|desc (default: asc — oldest first, i.e. the bottom
+                          of gh-dash's list, which sorts by updated desc)
+      --newest            shorthand for --order desc
+  -q, --query <str>       extra GitHub search qualifiers, e.g. '-author:app/renovate'
+  -c, --command <tpl>     command to run in each workspace.
+                          {{url}} / {{n}} / {{dir}} are substituted.
+                          (default: claude "/review-pr {{url}}")
+      --claude-args <str> extra args for the default claude command
+                          (e.g. --dangerously-skip-permissions)
+      --remote <name>     remote to fetch PR heads from (default: origin)
+      --force             spawn a workspace even if the worktree already exists
+      --no-refresh        do not fast-forward existing worktrees
+      --focus             focus the last created workspace
+      --dry-run           print what would happen, change nothing
+  -h, --help              this help
+
+cleanup: `wtrm -y pr/<n>` removes a worktree, `cmux close-workspace --workspace <ref>` its session.
+EOF
+}
+
+die() { printf '%s: %s\n' "$PROG" "$*" >&2; exit 1; }
+warn() { printf '%s: %s\n' "$PROG" "$*" >&2; }
+info() { printf '\033[1;34m==>\033[0m %s\n' "$*"; }
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -C|--repo-path) REPO_PATH="${2:-}"; shift 2 ;;
+    -n|--limit)     LIMIT="${2:-}"; shift 2 ;;
+    --sort)         SORT="${2:-}"; shift 2 ;;
+    --order)        ORDER="${2:-}"; shift 2 ;;
+    --newest)       ORDER="desc"; shift ;;
+    -q|--query)     EXTRA_QUERY="${2:-}"; shift 2 ;;
+    -c|--command)   COMMAND_TPL="${2:-}"; shift 2 ;;
+    --claude-args)  CLAUDE_ARGS="${2:-}"; shift 2 ;;
+    --remote)       REMOTE="${2:-}"; shift 2 ;;
+    --force)        FORCE=1; shift ;;
+    --no-refresh)   REFRESH=0; shift ;;
+    --focus)        FOCUS="true"; shift ;;
+    --dry-run)      DRY_RUN=1; shift ;;
+    -h|--help)      usage; exit 0 ;;
+    -*)             die "unknown option: $1" ;;
+    *)
+      n=$(printf '%s\n' "$1" | sed -nE 's#.*/pull/([0-9]+).*#\1#p')
+      [[ -n "$n" ]] || n=$(printf '%s\n' "$1" | grep -oE '[0-9]+' | head -n1)
+      [[ -n "$n" ]] || die "could not parse a PR number from '$1'"
+      PRS+=("$n"); shift ;;
+  esac
+done
+
+for bin in gh git wtp cmux jq; do
+  command -v "$bin" >/dev/null 2>&1 || die "missing dependency: $bin"
+done
+
+[[ -n "$REPO_PATH" ]] && { cd "$REPO_PATH" || die "no such directory: $REPO_PATH"; }
+git rev-parse --git-dir >/dev/null 2>&1 || die "not inside a git repository (use -C <dir>)"
+
+# Always operate from the main worktree: `wtp add`'s post_create hooks copy
+# gitignored files out of it, and fetching into pr/<n> is refused from a
+# worktree that has that branch checked out.
+MAIN=$(wtp cd 2>/dev/null) || true
+[[ -n "$MAIN" ]] || die "could not resolve the main worktree via 'wtp cd'"
+cd "$MAIN" || die "cannot enter main worktree: $MAIN"
+
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner) || die "gh repo view failed"
+
+# ---- target list -----------------------------------------------------------
+# rows are "<number>\t<title>"
+rows=""
+SPAWN_LIMIT=0   # 0 = no cap (explicit mode); discovery mode sets it to $LIMIT
+if [[ ${#PRS[@]} -gt 0 ]]; then
+  for n in "${PRS[@]}"; do
+    title=$(gh pr view "$n" --repo "$REPO" --json title -q .title 2>/dev/null) || {
+      warn "#$n: not found in $REPO — skipped"; continue; }
+    rows+="${n}	${title}"$'\n'
+  done
+else
+  q="is:pr is:open review-requested:@me repo:${REPO}"
+  [[ -n "$EXTRA_QUERY" ]] && q="$q $EXTRA_QUERY"
+  # sort/order are applied server-side (default: least-recently-updated first =
+  # the bottom of gh-dash's list). Fetch more candidates than --limit so that
+  # PRs skipped for having a worktree already don't eat into the quota; the
+  # spawn loop stops once $LIMIT workspaces have actually been created.
+  page=$((LIMIT * 4 + 10)); [[ $page -gt 100 ]] && page=100
+  rows=$(gh api -X GET search/issues -f q="$q" -f sort="$SORT" -f order="$ORDER" \
+           -F per_page="$page" --jq '.items[] | [.number, .title] | @tsv') \
+    || die "PR search failed"
+  SPAWN_LIMIT=$LIMIT
+fi
+
+rows=$(printf '%s' "$rows" | sed '/^$/d')
+[[ -n "$rows" ]] || { info "no target PRs."; exit 0; }
+
+count=$(printf '%s\n' "$rows" | wc -l | tr -d ' ')
+if [[ $SPAWN_LIMIT -gt 0 ]]; then
+  info "$REPO: $count candidate PR(s), spawning up to $SPAWN_LIMIT (sort=$SORT $ORDER, main worktree: $MAIN)"
+else
+  info "$REPO: $count PR(s) to set up (main worktree: $MAIN)"
+fi
+
+created=0
+skipped=0
+last_ws=""
+
+while IFS=$'\t' read -r n title; do
+  [[ -n "$n" ]] || continue
+  [[ $SPAWN_LIMIT -gt 0 && $created -ge $SPAWN_LIMIT ]] && break
+  branch="pr/${n}"
+  url="https://github.com/${REPO}/pull/${n}"
+  name="PR #${n} ${title}"
+
+  dir=$(wtp cd "$branch" 2>/dev/null) || dir=""
+
+  if [[ -n "$dir" && $FORCE -eq 0 ]]; then
+    info "#$n: worktree exists ($dir) — skipped (use --force to respawn)"
+    skipped=$((skipped + 1))
+    continue
+  fi
+
+  if [[ $DRY_RUN -eq 1 ]]; then
+    if [[ -n "$dir" ]]; then
+      info "[dry-run] #$n: reuse worktree $dir"
+    else
+      info "[dry-run] #$n: fetch $REMOTE pull/$n/head:$branch, wtp add $branch"
+    fi
+    info "[dry-run] #$n: cmux new-workspace --name \"$name\" --cwd <dir>"
+    created=$((created + 1))
+    continue
+  fi
+
+  if [[ -z "$dir" ]]; then
+    info "#$n: fetching $branch"
+    git fetch "$REMOTE" "+pull/${n}/head:${branch}" >/dev/null 2>&1 \
+      || { warn "#$n: fetch failed — skipped"; continue; }
+    info "#$n: creating worktree (runs post_create hooks, may take a minute)"
+    dir=$(wtp add "$branch" --quiet) \
+      || { warn "#$n: wtp add failed — skipped"; continue; }
+  elif [[ $REFRESH -eq 1 ]]; then
+    git -C "$dir" fetch "$REMOTE" "pull/${n}/head" >/dev/null 2>&1 \
+      && git -C "$dir" merge --ff-only FETCH_HEAD >/dev/null 2>&1 \
+      || warn "#$n: could not fast-forward existing worktree — reviewing as-is"
+  fi
+  [[ -n "$dir" && -d "$dir" ]] || { warn "#$n: no worktree directory — skipped"; continue; }
+
+  if [[ -n "$COMMAND_TPL" ]]; then
+    cmd=${COMMAND_TPL//\{\{url\}\}/$url}
+    cmd=${cmd//\{\{n\}\}/$n}
+    cmd=${cmd//\{\{dir\}\}/$dir}
+  else
+    cmd="claude ${CLAUDE_ARGS} \"/review-pr ${url}\""
+  fi
+
+  out=$(cmux new-workspace --name "$name" --cwd "$dir" --command "$cmd" --focus false 2>&1) \
+    || { warn "#$n: cmux new-workspace failed: $out"; continue; }
+  ws=$(printf '%s\n' "$out" | grep -oE 'workspace:[0-9]+' | head -n1)
+  last_ws="${ws:-$last_ws}"
+  info "#$n: ${ws:-workspace} ready — $title"
+  created=$((created + 1))
+done <<< "$rows"
+
+if [[ "$FOCUS" == "true" && -n "$last_ws" && $DRY_RUN -eq 0 ]]; then
+  cmux select-workspace --workspace "$last_ws" >/dev/null 2>&1 || true
+fi
+
+info "done: ${created} spawned, ${skipped} skipped"
