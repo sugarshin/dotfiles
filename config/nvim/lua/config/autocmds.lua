@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "<leader>mG", function()
       local file = vim.fn.expand("%:p")
       vim.cmd("tabnew")
-      vim.fn.termopen({ "glow", "-s", "dark", "-p", file })
+      vim.fn.jobstart({ "glow", "-s", "dark", "-p", file }, { term = true })
       vim.cmd("startinsert")
     end, { buffer = args.buf, desc = "Glow (tab)" })
   end,
