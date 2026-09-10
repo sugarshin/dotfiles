@@ -28,7 +28,6 @@ ORDER="asc"
 EXTRA_QUERY=""
 COMMAND_TPL=""
 CLAUDE_ARGS=""
-FORCE=0
 REFRESH=1
 FOCUS="false"
 DRY_RUN=0
@@ -54,8 +53,7 @@ options:
       --claude-args <str> extra args for the default claude command
                           (e.g. --dangerously-skip-permissions)
       --remote <name>     remote to fetch PR heads from (default: origin)
-      --force             spawn a workspace even if the worktree already exists
-      --no-refresh        do not fast-forward existing worktrees
+      --no-refresh        do not update existing worktrees to the PR head
       --focus             focus the last created workspace
       --dry-run           print what would happen, change nothing
   -h, --help              this help
@@ -79,7 +77,6 @@ while [[ $# -gt 0 ]]; do
     -c|--command)   COMMAND_TPL="${2:-}"; shift 2 ;;
     --claude-args)  CLAUDE_ARGS="${2:-}"; shift 2 ;;
     --remote)       REMOTE="${2:-}"; shift 2 ;;
-    --force)        FORCE=1; shift ;;
     --no-refresh)   REFRESH=0; shift ;;
     --focus)        FOCUS="true"; shift ;;
     --dry-run)      DRY_RUN=1; shift ;;
@@ -124,8 +121,8 @@ else
   [[ -n "$EXTRA_QUERY" ]] && q="$q $EXTRA_QUERY"
   # sort/order are applied server-side (default: least-recently-updated first =
   # the bottom of gh-dash's list). Fetch more candidates than --limit so that
-  # PRs skipped for having a worktree already don't eat into the quota; the
-  # spawn loop stops once $LIMIT workspaces have actually been created.
+  # PRs that fail to set up don't eat into the quota; the spawn loop stops once
+  # $LIMIT workspaces have actually been created.
   page=$((LIMIT * 4 + 10)); [[ $page -gt 100 ]] && page=100
   rows=$(gh api -X GET search/issues -f q="$q" -f sort="$SORT" -f order="$ORDER" \
            -F per_page="$page" --jq '.items[] | [.number, .title] | @tsv') \
@@ -144,10 +141,11 @@ else
 fi
 
 created=0
-skipped=0
 last_ws=""
 
-while IFS=$'\t' read -r n title; do
+# Read rows from fd 3: wtp's post_create hooks (bun install), git and cmux all
+# inherit stdin and must not swallow the remaining rows.
+while IFS=$'\t' read -r -u 3 n title; do
   [[ -n "$n" ]] || continue
   [[ $SPAWN_LIMIT -gt 0 && $created -ge $SPAWN_LIMIT ]] && break
   branch="pr/${n}"
@@ -155,12 +153,6 @@ while IFS=$'\t' read -r n title; do
   name="PR #${n} ${title}"
 
   dir=$(wtp cd "$branch" 2>/dev/null) || dir=""
-
-  if [[ -n "$dir" && $FORCE -eq 0 ]]; then
-    info "#$n: worktree exists ($dir) — skipped (use --force to respawn)"
-    skipped=$((skipped + 1))
-    continue
-  fi
 
   if [[ $DRY_RUN -eq 1 ]]; then
     if [[ -n "$dir" ]]; then
@@ -181,9 +173,13 @@ while IFS=$'\t' read -r n title; do
     dir=$(wtp add "$branch" --quiet) \
       || { warn "#$n: wtp add failed — skipped"; continue; }
   elif [[ $REFRESH -eq 1 ]]; then
-    git -C "$dir" fetch "$REMOTE" "pull/${n}/head" >/dev/null 2>&1 \
-      && git -C "$dir" merge --ff-only FETCH_HEAD >/dev/null 2>&1 \
-      || warn "#$n: could not fast-forward existing worktree — reviewing as-is"
+    # Kept worktrees are reused for re-reviews, by which time the author may have
+    # force-pushed. pr/<n> only mirrors the PR head (the initial fetch is forced
+    # too), so follow it; --keep still refuses to clobber uncommitted edits.
+    if ! { git -C "$dir" fetch "$REMOTE" "pull/${n}/head" >/dev/null 2>&1 \
+           && git -C "$dir" reset --keep FETCH_HEAD >/dev/null 2>&1; }; then
+      warn "#$n: could not update existing worktree to the PR head — reviewing as-is"
+    fi
   fi
   [[ -n "$dir" && -d "$dir" ]] || { warn "#$n: no worktree directory — skipped"; continue; }
 
@@ -201,10 +197,10 @@ while IFS=$'\t' read -r n title; do
   last_ws="${ws:-$last_ws}"
   info "#$n: ${ws:-workspace} ready — $title"
   created=$((created + 1))
-done <<< "$rows"
+done 3<<< "$rows"
 
 if [[ "$FOCUS" == "true" && -n "$last_ws" && $DRY_RUN -eq 0 ]]; then
   cmux select-workspace --workspace "$last_ws" >/dev/null 2>&1 || true
 fi
 
-info "done: ${created} spawned, ${skipped} skipped"
+info "done: ${created} spawned"
