@@ -9,7 +9,8 @@
 #   3. open a cmux workspace rooted at that worktree, named "PR #<n> <title>",
 #      running the review command (default: claude "/review-pr <url>")
 #
-# Each PR therefore shows up as its own entry in the cmux sidebar.
+# Each PR therefore shows up as its own entry in the cmux sidebar, and the whole
+# batch is kept as one contiguous run directly below the workspace this ran in.
 #
 # Usage:
 #   wtpr-review                 # discovery mode: PRs where review is requested from you
@@ -140,6 +141,14 @@ else
   info "$REPO: $count PR(s) to set up (main worktree: $MAIN)"
 fi
 
+# cmux creates a workspace directly below the *currently selected* one, so a
+# batch spawned while the sidebar selection moves around ends up scattered.
+# Anchor the batch to the workspace this script runs in — `identify`'s caller is
+# unaffected by whatever the user selects — and re-anchor to each workspace we
+# create, so the PRs land as one contiguous run in target order.
+ANCHOR=$(cmux identify --json 2>/dev/null | jq -r '.caller.workspace_ref // empty')
+[[ -n "$ANCHOR" ]] || warn "not inside a cmux workspace — cannot pin the sidebar order"
+
 created=0
 last_ws=""
 
@@ -161,6 +170,7 @@ while IFS=$'\t' read -r -u 3 n title; do
       info "[dry-run] #$n: fetch $REMOTE pull/$n/head:$branch, wtp add $branch"
     fi
     info "[dry-run] #$n: cmux new-workspace --name \"$name\" --cwd <dir>"
+    [[ -n "$ANCHOR" ]] && info "[dry-run] #$n: reorder-workspace --after $ANCHOR"
     created=$((created + 1))
     continue
   fi
@@ -195,6 +205,15 @@ while IFS=$'\t' read -r -u 3 n title; do
     || { warn "#$n: cmux new-workspace failed: $out"; continue; }
   ws=$(printf '%s\n' "$out" | grep -oE 'workspace:[0-9]+' | head -n1)
   last_ws="${ws:-$last_ws}"
+  if [[ -n "$ANCHOR" && -n "$ws" ]]; then
+    # Only advance the anchor on success: a failed move leaves $ws at an unknown
+    # position, so keep chaining from the last one we actually placed.
+    if cmux reorder-workspace --workspace "$ws" --after "$ANCHOR" >/dev/null 2>&1; then
+      ANCHOR="$ws"
+    else
+      warn "#$n: could not place $ws after $ANCHOR — sidebar order may be off"
+    fi
+  fi
   info "#$n: ${ws:-workspace} ready — $title"
   created=$((created + 1))
 done 3<<< "$rows"
