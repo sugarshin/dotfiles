@@ -17,7 +17,7 @@ brew "actionlint"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
+brew "openssl@3", link: true
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Bash Automated Testing System
@@ -28,6 +28,8 @@ brew "coreutils"
 brew "cosign"
 # Your feedback loop with the agent: review plans and code locally
 brew "crit"
+# TIFF library and utilities
+brew "libtiff"
 # Embeddable SQL OLAP Database Management System
 brew "duckdb"
 # Send macOS User Notifications from the command-line
@@ -37,9 +39,9 @@ brew "fastlane"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream select audio and video codecs
-brew "ffmpeg", link: false
+brew "ffmpeg"
 # Play, record, convert, and stream many audio and video codecs
-brew "ffmpeg-full", link: true
+brew "ffmpeg-full"
 # Fast and simple Node.js version manager
 brew "fnm"
 # Command-line fuzzy finder written in Go
@@ -74,6 +76,10 @@ brew "lazygit"
 brew "libpq"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# Media player based on MPlayer and mplayer2
+brew "mpv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Development kit for the Java programming language
@@ -108,8 +114,6 @@ brew "tree"
 brew "uv"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
-# Feature-rich command-line audio/video downloader
-brew "yt-dlp"
 # Programming language designed for robustness, optimality, and clarity
 brew "zig"
 # Shell extension to navigate your filesystem faster
