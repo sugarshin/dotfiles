@@ -38,6 +38,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -130,8 +131,17 @@
     }
   },
   "language": "Japanese",
+  "feedbackDrafts": "off",
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "xhigh"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
   "awaySummaryEnabled": false,
   "askUserQuestionTimeout": "never",
   "autoUpdatesChannel": "latest",
@@ -187,10 +197,5 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754044074934
-  },
-  "modelSettings": {
-    "claude-fable-5-1": {
-      "effortLevel": "xhigh"
-    }
   }
 }
