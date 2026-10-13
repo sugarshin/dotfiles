@@ -1,6 +1,7 @@
 font-family = "HackGen Console NF"
 font-size = 14
 font-feature = -dlig
+adjust-cell-height = 20%
 # Render Japanese (CJK punctuation, kana, kanji, fullwidth forms) with Hiragino
 # Sans while ASCII stays HackGen. An explicit map also stops cmux from
 # injecting its own CJK fallback, which changes behavior across cmux releases.
