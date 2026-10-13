@@ -155,6 +155,7 @@ cask "expo-orbit"
 # Collaborative team software
 cask "figma"
 cask "font-fira-code-nerd-font"
+cask "font-hackgen-nerd"
 cask "font-symbols-only-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
