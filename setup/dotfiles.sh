@@ -92,6 +92,9 @@ add_symlink "config/yazi/keymap.toml" "${HOME}/.config/yazi/keymap.toml"
 # replaces a file-level symlink with a real file. Linking the directory keeps
 # those writes landing in this repo instead of silently detaching.
 add_symlink "config/cmux" "${HOME}/.config/cmux"
+# Directory symlink as with cmux, in case the Ghostty config is ever rewritten
+# with a temp-file + rename.
+add_symlink "config/ghostty" "${HOME}/.config/ghostty"
 add_symlink "config/atuin/config.toml" "${HOME}/.config/atuin/config.toml"
 
 # claude/skills (per-directory symlinks)

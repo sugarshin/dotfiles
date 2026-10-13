@@ -1,0 +1,11 @@
+font-family = "HackGen Console NF"
+font-feature = -dlig
+# Render Japanese (CJK punctuation, kana, kanji, fullwidth forms) with Hiragino
+# Sans while ASCII stays HackGen. An explicit map also stops cmux from
+# injecting its own CJK fallback, which changes behavior across cmux releases.
+font-codepoint-map = U+3000-U+303F,U+3040-U+309F,U+30A0-U+30FF,U+3400-U+4DBF,U+4E00-U+9FFF,U+F900-U+FAFF,U+FF00-U+FFEF=Hiragino Sans
+
+desktop-notifications = true
+
+keybind = shift+enter=text:\n
+keybind = cmd+shift+z=toggle_split_zoom
