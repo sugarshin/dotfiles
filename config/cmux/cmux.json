@@ -11,7 +11,10 @@
       "focusUp": "opt+cmd+k",
       "focusRight": "opt+cmd+l",
       "toggleSidebar": "cmd+ctrl+e",
-      "toggleSplitZoom": "cmd+shift+z"
+      "toggleSplitZoom": "cmd+shift+z",
+      // Free ctrl+shift+j/k for Claude Code scrolling (claude/keybindings.json)
+      "resize-pane-up": null,
+      "resize-pane-down": null
     }
   }
 }
