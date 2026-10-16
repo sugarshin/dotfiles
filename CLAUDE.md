@@ -12,7 +12,7 @@ The repo **must** live at `~/dotfiles`. `.zshenv` exports that path as `$DOTFILE
 
 | Command | Notes |
 | --- | --- |
-| `sh setup.sh` | Full setup. Runs every `setup/*.sh`, then `setup/darwin/*.sh` on Darwin. Can block on stdin — see below. |
+| `sh setup.sh` | Full setup. Runs every `setup/*.sh`, then `setup/darwin/*.sh` on Darwin. Can block on stdin — see below. `setup/darwin/spotlight.sh` also prompts for sudo and needs Full Disk Access for the terminal. |
 | `sh setup/dotfiles.sh` | Symlink pass only. Use this when iterating on symlinks. |
 | `sh install.sh` | **Destructive**: `git reset --hard origin/master` before running `setup.sh`. Never run with uncommitted work in the tree. |
 | `shellcheck <file>` | The only linter here (installed via `brewfiles/Brewfile`). |
