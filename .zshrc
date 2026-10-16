@@ -43,6 +43,7 @@ eval "$(wtp shell-init zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 [ -f ~/.tenv.completion.zsh ] && source ~/.tenv.completion.zsh
+# bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
 # --- Plugins ---
