@@ -7,7 +7,8 @@
 #   1. fetch pull/<n>/head into the local branch pr/<n>
 #   2. create (or reuse) a worktree for it via `wtp add`
 #   3. open a cmux workspace rooted at that worktree, named "PR #<n> <title>",
-#      running the review command (default: claude "/review-pr <url>")
+#      running the review command
+#      (default: claude --model claude-sonnet-5-5 --effort high "/review-pr <url>")
 #
 # Each PR therefore shows up as its own entry in the cmux sidebar, and the whole
 # batch is kept as one contiguous run directly below the workspace this ran in.
@@ -28,6 +29,8 @@ SORT="updated"
 ORDER="asc"
 EXTRA_QUERY=""
 COMMAND_TPL=""
+MODEL="claude-sonnet-5-5"
+EFFORT="high"
 CLAUDE_ARGS=""
 REFRESH=1
 FOCUS="false"
@@ -50,7 +53,12 @@ options:
   -q, --query <str>       extra GitHub search qualifiers, e.g. '-author:app/renovate'
   -c, --command <tpl>     command to run in each workspace.
                           {{url}} / {{n}} / {{dir}} are substituted.
-                          (default: claude "/review-pr {{url}}")
+                          (default: claude --model <model> --effort <level>
+                                    "/review-pr {{url}}")
+      --model <model>     model for the default claude command
+                          (default: claude-sonnet-5-5)
+      --effort <level>    effort for the default claude command:
+                          low|medium|high|xhigh|max (default: high)
       --claude-args <str> extra args for the default claude command
                           (e.g. --dangerously-skip-permissions)
       --remote <name>     remote to fetch PR heads from (default: origin)
@@ -76,6 +84,8 @@ while [[ $# -gt 0 ]]; do
     --newest)       ORDER="desc"; shift ;;
     -q|--query)     EXTRA_QUERY="${2:-}"; shift 2 ;;
     -c|--command)   COMMAND_TPL="${2:-}"; shift 2 ;;
+    --model)        MODEL="${2:-}"; shift 2 ;;
+    --effort)       EFFORT="${2:-}"; shift 2 ;;
     --claude-args)  CLAUDE_ARGS="${2:-}"; shift 2 ;;
     --remote)       REMOTE="${2:-}"; shift 2 ;;
     --no-refresh)   REFRESH=0; shift ;;
@@ -198,7 +208,7 @@ while IFS=$'\t' read -r -u 3 n title; do
     cmd=${cmd//\{\{n\}\}/$n}
     cmd=${cmd//\{\{dir\}\}/$dir}
   else
-    cmd="claude ${CLAUDE_ARGS} \"/review-pr ${url}\""
+    cmd="claude --model ${MODEL} --effort ${EFFORT} ${CLAUDE_ARGS} \"/review-pr ${url}\""
   fi
 
   out=$(cmux new-workspace --name "$name" --cwd "$dir" --command "$cmd" --focus false 2>&1) \
