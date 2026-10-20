@@ -40,7 +40,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "hooks": {
     "SessionStart": [
       {
@@ -105,7 +104,8 @@
     "quarterly-evaluation@dinii-tools": true,
     "trend-monitoring@dinii-tools": true,
     "eli5@claude-community": true,
-    "agent-delegator@dinii-tools": true
+    "agent-delegator@dinii-tools": true,
+    "miro@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
