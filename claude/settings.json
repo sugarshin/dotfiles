@@ -155,7 +155,7 @@
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark",
-  "autoCompactEnabled": false,
+  "autoCompactEnabled": true,
   "switchModelsOnFlag": false,
   "terminalProgressBarEnabled": false,
   "remoteControlAtStartup": false,
