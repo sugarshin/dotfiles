@@ -17,7 +17,7 @@ brew "actionlint"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Cryptography and SSL/TLS Toolkit
-brew "openssl@3", link: true
+brew "openssl@3"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Bash Automated Testing System
@@ -88,6 +88,8 @@ brew "openjdk@17"
 brew "pinentry-mac"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Object-relational database system
+brew "postgresql@14"
 # Object-relational database system
 brew "postgresql@17", restart_service: :changed
 # Pretty, minimal and fast ZSH prompt
