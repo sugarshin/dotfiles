@@ -1,25 +1,46 @@
 #!/usr/bin/env zsh
 
-# Leave a git worktree and remove it in one step, via wtp.
-# Usage: wtrm [-y] [worktree-name] [wtp remove options...]
+# Leave a git worktree and remove it in one step.
+# Usage: wtrm [-y] [--with-branch [--force-branch]] [worktree-name]
 #
 # Replaces the usual `wtp cd` + `wtp remove <name> --force` pair. The common
 # case is running `wtrm` with no arguments from inside the worktree you are
 # done with: it names the target, asks for confirmation (defaults to yes, so a
-# bare Enter proceeds), cd's back to the main worktree (wtp remove refuses while
-# you are inside the target) and removes it with --force. -y / --yes skips the
-# prompt; other flags (e.g. --with-branch) pass through to `wtp remove`.
+# bare Enter proceeds), cd's back to the main worktree and removes it with
+# --force. -y / --yes skips the prompt; --with-branch also deletes the branch
+# and --force-branch deletes it even when unmerged, as with `wtp remove`.
+#
+# A name is resolved with `wtp cd`, but the removal goes through
+# `git worktree remove <path>` instead of `wtp remove <name>`: wtp (v2.10.3)
+# takes the first worktree in `git worktree list` whose branch, name or
+# basename matches, so with both `chore/foo` and `foo` around, `wtp remove foo`
+# can remove `chore/foo`.
 function wtrm() {
-  local name="" arg main top dir branch n yes="" reply=""
-  local -a opts names
+  local name="" arg main dir branch yes="" reply="" with_branch="" force_branch="" flag
 
   for arg in "$@"; do
     case "$arg" in
-      -y|--yes) yes=1 ;;
-      -*)       opts+=("$arg") ;;
-      *)        if [[ -z "$name" ]]; then name="$arg"; else opts+=("$arg"); fi ;;
+      -y|--yes)       yes=1 ;;
+      --with-branch)  with_branch=1 ;;
+      --force-branch) force_branch=1 ;;
+      -f|--force)     ;;   # removal is always forced
+      -*)
+        print -u2 -- "wtrm: unknown option: $arg"
+        return 1
+        ;;
+      *)
+        if [[ -n "$name" ]]; then
+          print -u2 -- "wtrm: too many arguments"
+          return 1
+        fi
+        name="$arg"
+        ;;
     esac
   done
+  if [[ -n "$force_branch" && -z "$with_branch" ]]; then
+    print -u2 -- "wtrm: --force-branch requires --with-branch"
+    return 1
+  fi
 
   main=$(command wtp cd 2>/dev/null)
   if [[ -z "$main" ]]; then
@@ -27,26 +48,9 @@ function wtrm() {
     return 1
   fi
 
-  # No name given: resolve the worktree we are currently standing in.
+  # No name given: the worktree we are currently standing in.
   if [[ -z "$name" ]]; then
-    top=$(git rev-parse --show-toplevel 2>/dev/null)
-    if [[ -z "$top" || "${top:A}" == "${main:A}" ]]; then
-      print -u2 -- "wtrm: already in the main worktree; pass a worktree name"
-      return 1
-    fi
-    names=(${(f)"$(command wtp list -q 2>/dev/null)"})
-    for n in $names; do
-      [[ "$n" == "@" ]] && continue   # the main worktree
-      dir=$(command wtp cd "$n" 2>/dev/null)
-      if [[ -n "$dir" && "${dir:A}" == "${top:A}" ]]; then
-        name="$n"
-        break
-      fi
-    done
-    if [[ -z "$name" ]]; then
-      print -u2 -- "wtrm: '$top' is not a wtp-managed worktree"
-      return 1
-    fi
+    dir=$(git rev-parse --show-toplevel 2>/dev/null)
   else
     dir=$(command wtp cd "$name" 2>/dev/null)
     if [[ -z "$dir" ]]; then
@@ -54,13 +58,17 @@ function wtrm() {
       return 1
     fi
   fi
+  if [[ -z "$dir" || "${dir:A}" == "${main:A}" ]]; then
+    print -u2 -- "wtrm: refusing to remove the main worktree; pass a worktree name"
+    return 1
+  fi
 
-  branch=$(git -C "$dir" rev-parse --abbrev-ref HEAD 2>/dev/null)
+  branch=$(git -C "$dir" symbolic-ref --quiet --short HEAD 2>/dev/null)
 
   if [[ -z "$yes" ]]; then
-    print -r -- "wtrm: remove worktree '${name}'${branch:+ (branch ${branch})}"
-    print -r -- "      ${dir}"
-    if (( ${opts[(I)--with-branch]} )); then
+    print -r -- "wtrm: remove worktree ${dir}"
+    print -r -- "      branch: ${branch:-(detached HEAD)}"
+    if [[ -n "$with_branch" && -n "$branch" ]]; then
       print -r -- "      the branch will be deleted too (--with-branch)"
     fi
     if [[ ! -t 0 ]]; then
@@ -80,8 +88,15 @@ function wtrm() {
   fi
 
   cd "$main" || return
-  if ! command wtp remove --force "${opts[@]}" "$name"; then
-    [[ -n "$dir" && -d "$dir" ]] && cd "$dir"
+  if ! git -C "$main" worktree remove --force "$dir"; then
+    [[ -d "$dir" ]] && cd "$dir"
     return 1
+  fi
+  print -r -- "wtrm: removed ${dir}"
+
+  if [[ -n "$with_branch" && -n "$branch" ]]; then
+    flag=-d
+    [[ -n "$force_branch" ]] && flag=-D
+    git -C "$main" branch "$flag" "$branch"
   fi
 }
