@@ -106,7 +106,8 @@
     "eli5@claude-community": true,
     "agent-delegator@dinii-tools": true,
     "miro@claude-plugins-official": true,
-    "security-and-governance@dinii-tools": true
+    "security-and-governance@dinii-tools": true,
+    "pl-team-retro-prep@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
