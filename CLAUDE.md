@@ -17,7 +17,7 @@ The repo **must** live at `~/dotfiles`. `.zshenv` exports that path as `$DOTFILE
 | `sh install.sh` | **Destructive**: `git reset --hard origin/master` before running `setup.sh`. Never run with uncommitted work in the tree. |
 | `shellcheck <file>` | The only linter here (installed via `brewfiles/Brewfile`). |
 | `brew bundle --file=brewfiles/Brewfile` | Install packages. `setup/darwin/homebrew.sh` also applies `Brewfile.local` if present (gitignored, machine-specific). |
-| `brew-sync` / `bs` | Dump installed packages into the Brewfile. Read the Homebrew gotcha below first. |
+| `brew-sync` / `bs` | Dump installed packages into the Brewfile. Review the diff before committing. |
 
 ## Verifying a change
 
@@ -45,8 +45,6 @@ Steps 1–2 and steps 3–4 behave differently, which matters whenever you chang
 ## Homebrew
 
 `.zprofile` exports `HOMEBREW_BUNDLE_FILE="${DOTFILES}/brewfiles/Brewfile"`, so a bare `brew bundle dump` writes straight to the version-controlled file.
-
-**Gotcha:** the `brew-sync` / `bs` alias in `.commonrc` runs `brew bundle dump --force` *without* `--describe`, but the committed Brewfile carries description comments. Running `bs` as-is deletes all of them. Use `brew bundle dump --force --describe` instead, and review the diff before committing.
 
 ## Directory roles
 
