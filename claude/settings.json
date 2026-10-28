@@ -107,7 +107,8 @@
     "agent-delegator@dinii-tools": true,
     "miro@claude-plugins-official": true,
     "security-and-governance@dinii-tools": true,
-    "pl-team-retro-prep@dinii-tools": true
+    "pl-team-retro-prep@dinii-tools": true,
+    "security-self-check@dinii-tools": true
   },
   "extraKnownMarketplaces": {
     "claude-code-skills": {
