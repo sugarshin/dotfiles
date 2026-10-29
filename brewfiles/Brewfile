@@ -74,6 +74,8 @@ brew "jq"
 brew "lazygit"
 # Postgres C API library
 brew "libpq"
+# CLI for Mermaid library
+brew "mermaid-cli"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Feature-rich command-line audio/video downloader
