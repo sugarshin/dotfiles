@@ -2,18 +2,23 @@ tap "authzed/tap"
 tap "cloudflare/cloudflare"
 tap "dagger/tap"
 tap "dlvhdr/formulae"
+tap "entireio/tap"
+tap "getsentry/tools"
 tap "go-task/tap"
 tap "hashicorp/tap"
 tap "homebrew/services"
 tap "manaflow-ai/cmux"
 tap "mobile-dev-inc/tap"
 tap "nodenv/nodenv"
+tap "rtk-ai/tap"
 tap "satococoa/tap"
 tap "supabase/tap"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Static checker for GitHub Actions workflow files
 brew "actionlint"
+# Browser automation CLI for AI agents
+brew "agent-browser"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Cryptography and SSL/TLS Toolkit
@@ -46,6 +51,8 @@ brew "ffmpeg-full"
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Interact with Google Gemini AI models from the command-line
+brew "gemini-cli"
 # GitHub command-line tool
 brew "gh"
 # Access GitHub's .gitignore boilerplates
@@ -66,6 +73,8 @@ brew "go"
 brew "go-task"
 # Google Suite CLI
 brew "gogcli"
+# CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+brew "googleworkspace-cli"
 # Tools and libraries to manipulate images in many formats
 brew "imagemagick-full", link: true
 # Lightweight and flexible command-line JSON processor
@@ -88,6 +97,8 @@ brew "neovim"
 brew "openjdk@17"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# CLI for Playwright: record/generate code, inspect selectors, take screenshots
+brew "playwright-cli"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
@@ -114,6 +125,10 @@ brew "tig"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Language for application scale JavaScript development
+brew "typescript"
+# Language Server Protocol implementation for TypeScript wrapping tsserver
+brew "typescript-language-server"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Blazing fast terminal file manager written in Rust, based on async I/O
@@ -124,6 +139,10 @@ brew "zig"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Sentry command-line tool for error monitoring and debugging
+brew "getsentry/tools/sentry", trusted: true
+# Rust Token Killer - High-performance CLI proxy to minimize LLM token consumption
+brew "rtk-ai/tap/rtk", trusted: true
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Command-line interface for 1Password
@@ -154,6 +173,8 @@ cask "dagger/tap/container-use"
 cask "dbeaver-community"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
+# CLI for Entire
+cask "entireio/tap/entire", trusted: true
 # Launch builds and start simulators from your menu bar
 cask "expo-orbit"
 # Collaborative team software
@@ -196,11 +217,3 @@ cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
 go "github.com/golangci/golangci-lint/v2/cmd/golangci-lint"
-npm "@google/gemini-cli"
-npm "@googleworkspace/cli"
-npm "@playwright/cli"
-npm "agent-browser"
-npm "corepack"
-npm "sentry"
-npm "typescript-language-server"
-npm "typescript"

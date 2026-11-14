@@ -1,6 +1,9 @@
 # --- Homebrew (must be first - sets PATH, HOMEBREW_PREFIX, etc.) ---
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_BUNDLE_FILE="${DOTFILES}/brewfiles/Brewfile"
+# npm globals are per-Node-version under fnm, so dumping them depends on shell state.
+# Node CLIs are installed as formulae instead.
+export HOMEBREW_BUNDLE_DUMP_NO_NPM=1
 
 # --- Environment ---
 export LANG="en_US.UTF-8"
