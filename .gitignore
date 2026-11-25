@@ -101,3 +101,5 @@ nvim/lazy-lock.json
 
 # Custom ignored
 ignored/
+
+**/.claude/settings.local.json
