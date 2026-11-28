@@ -44,6 +44,13 @@ defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "前のタブを
 # disabled, so keep off its Cmd+Ctrl set (T/C/P/H/M/K/J).
 defaults write com.google.Chrome NSUserKeyEquivalents -dict-add "垂直タブを閉じる" -string "@^e"
 
+# MonitorControl: read the monitor's real brightness/contrast/volume over DDC on launch
+# instead of assuming defaults (0 = do nothing, 1 = write saved values, 2 = read).
+# Takes effect on the next MonitorControl launch.
+defaults write app.monitorcontrol.MonitorControl startupAction -int 2
+# Volume keys step by 1% instead of 1/16 (6.25%); Option+Shift+volume flips back to the coarse step.
+defaults write app.monitorcontrol.MonitorControl useFineScaleVolume -bool true
+
 # Apply Dock/Finder changes
 killall Dock
 killall Finder
